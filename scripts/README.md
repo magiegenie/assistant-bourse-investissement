@@ -30,6 +30,15 @@ date,montant
 - `python scripts/stress.py prive/<prenom>` : impact en euros de 6 scénarios de crise (hypothèses, pas des prévisions)
 - `python scripts/fiscalite.py pea 8000 24000 15000 --anciennete 6` : impôt estimé d'un retrait (enveloppe `cto`, `pea` ou `av`, retrait, valeur totale, total versé). Options : `--anciennete ANS`, `--couple` et `--primes MONTANT` (assurance vie), `--moins-values MONTANT` (CTO). Taux 2026 dans le dictionnaire `TAUX` du script, à revérifier chaque année (fiche C).
 
+- `python scripts/frais.py 5000 300 6 0.20 1.80` : coût des frais sur 10, 20 et 30 ans, et écart entre deux niveaux de frais
+- `python scripts/budget.py prive/<prenom> --precaution 6000` : taux d'épargne, répartition besoins / envies / épargne, mois d'épargne de précaution (lit `budget.md`)
+- `python scripts/bilan_mensuel.py prive/<prenom> 1000` : enchaîne répartition, performance, exposition, stress et budget en un seul rapport
+
+## Veille
+- `python scripts/collecte_hebdo.py` : digest des titres de la semaine depuis les flux de `donnees/sources.csv`, écrit dans `docs/veille/`
+- `python scripts/verifier_sources.py` : état de chaque flux (lancé chaque dimanche par GitHub Actions)
+- `python scripts/controle_depot.py` : contrôle qualité (tirets longs, chemins cassés)
+
 ## Tests et classeur
 - `python -m unittest discover tests` : vérifie les calculs sur le jeu fictif `templates/exemple/` (à lancer après toute modification d'un script)
 - `python scripts/creer_sheet.py [sortie.xlsx] [--exemple]` : génère le classeur de suivi (modèle vide par défaut)

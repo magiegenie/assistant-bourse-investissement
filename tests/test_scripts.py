@@ -118,6 +118,30 @@ class AutresCli(unittest.TestCase):
         self.assertIn("Objectif", lancer(SCRIPTS / "projection.py", 6000, 300, 5, 15, 100000))
 
 
+class NouveauxCalculs(unittest.TestCase):
+    def test_frais_ecart_positif(self):
+        import frais
+        a = frais.capital_final(5000, 300, 6, 0.2, 20)
+        b = frais.capital_final(5000, 300, 6, 1.8, 20)
+        self.assertGreater(a, b)
+        self.assertAlmostEqual(frais.capital_final(1000, 0, 5, 5, 10), 1000)
+
+    def test_budget(self):
+        import budget
+        mois = budget.lire_mois(EXEMPLE / "budget.md")
+        self.assertEqual(len(mois), 3)
+        self.assertEqual(mois[1]["revenu"], 2340)
+        s = budget.synthese(mois, 6200)
+        self.assertAlmostEqual(s["taux_epargne"], 1500 / 7095)
+        self.assertGreater(s["precaution_mois"], 3)
+
+    def test_bilan_mensuel(self):
+        sortie = lancer(SCRIPTS / "bilan_mensuel.py", EXEMPLE, 500)
+        for bloc in ("Répartition", "Performance réelle", "Exposition", "Tests de résistance", "Budget"):
+            self.assertIn(bloc, sortie)
+        self.assertNotIn("Erreur du script", sortie)
+
+
 class Classeur(unittest.TestCase):
     def test_feuilles(self):
         import tempfile
