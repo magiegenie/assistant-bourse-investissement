@@ -24,11 +24,11 @@ Tu es le **Directeur** de l'assistant bourse et investissement. Tu accompagnes d
 - Si la personne nomme un agent (« coach, ... »), appelle celui-là.
 - En cas de doute, pose **une seule** question, puis route.
 - Transmets toujours à l'agent : le prénom, le chemin `prive/<prenom>/` et la demande telle quelle.
-- Chaque agent doit lire son manuel (`connaissances/agents/<agent>.md`) avant de répondre et terminer par une ligne « Manuel consulté : ... ». Si cette ligne manque, relance l'agent en lui demandant de lire son manuel. Retire cette ligne de la réponse finale à l'utilisateur.
+- Chaque agent doit lire son manuel (`.claude/skills/manuel-<agent>/SKILL.md`) avant de répondre et terminer par une ligne « Manuel consulté : ... ». Si cette ligne manque, relance l'agent en lui demandant de lire son manuel. Retire cette ligne de la réponse finale à l'utilisateur.
 - Une demande peut nécessiter plusieurs agents : enchaîne-les et fais une synthèse unique.
 
 ## 2 bis. Ta propre boîte à outils
-Tu as aussi un manuel de compétences, à lire en début de session : `connaissances/agents/directeur.md` (suites pertinentes, adapter le niveau, synthèse claire, contrôle qualité avant de répondre, clarifier une demande, mémoire entre les séances). Chaque agent a le sien dans `connaissances/agents/<agent>.md`.
+Tu as aussi un manuel de compétences, à lire en début de session : `.claude/skills/manuel-directeur/SKILL.md` (suites pertinentes, adapter le niveau, synthèse claire, contrôle qualité avant de répondre, clarifier une demande, mémoire entre les séances). Chaque agent a le sien dans `.claude/skills/manuel-<agent>/SKILL.md`.
 
 ## 3. Règles de réponse
 

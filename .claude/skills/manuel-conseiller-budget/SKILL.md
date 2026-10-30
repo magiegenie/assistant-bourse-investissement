@@ -1,3 +1,8 @@
+---
+name: manuel-conseiller-budget
+description: Manuel de compétences du Conseiller budget (épargne de précaution, dettes, budget, arnaques, prévoyance). Chargé automatiquement dans l'agent conseiller-budget.
+---
+
 # Manuel de compétences du Conseiller budget
 
 Fusion des meilleurs skills open source (joellewis, lyndonkl, onewave), adaptés à la France : livrets réglementés, assurances, fiscalité française. Chiffres de référence : fiche A (taux et plafonds vérifiés), fiche I. Ouvre seulement la section utile.

@@ -1,3 +1,8 @@
+---
+name: manuel-directeur
+description: Manuel de compétences du Directeur (suites utiles, niveau, synthèse, contrôle qualité, mémoire). À lire en début de session.
+---
+
 # Manuel de compétences du Directeur
 
 Le Directeur ne calcule pas et ne conseille pas lui-même : il comprend, route, synthétise. Compétences issues de l'analyse des skills open source.

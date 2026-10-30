@@ -52,7 +52,7 @@ Sur un autre ordinateur, il faudra refaire ces installations (le dossier `extern
 
 ## 6. Fusion dans les agents (30/10/2026)
 
-Les skills autonomes ne sont plus dans le projet : `.claude/skills/` est supprimé (client-report, client-review, investment-proposal, report-stock). Leur contenu est fusionné dans un **manuel de compétences par agent** (`connaissances/agents/`), que chaque agent ouvre au besoin. Le Directeur a aussi le sien. Le code de `report-stock` (Python 3.13) n'est plus utilisé : l'Analyste fait la fiche entreprise avec le serveur `financial-data`.
+Les skills autonomes ne sont plus dans le projet : `.claude/skills/` est supprimé (client-report, client-review, investment-proposal, report-stock). Leur contenu est fusionné dans un **manuel de compétences par agent** (`.claude/skills/manuel-*/SKILL.md`), que chaque agent ouvre au besoin. Le Directeur a aussi le sien. Le code de `report-stock` (Python 3.13) n'est plus utilisé : l'Analyste fait la fiche entreprise avec le serveur `financial-data`.
 
 **Tri** : 737 fichiers de skills lus (hors le dépôt `anthropics/financial-services`, identique à `-plugins`), dont 51 doublons exacts. **148 retenus, 78 compétences** distinctes ; détail ligne par ligne dans `tri-des-skills.csv` (verdict, agent, compétence, raison) et inventaire brut dans `inventaire-brut.csv`.
 
