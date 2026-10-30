@@ -62,7 +62,7 @@ Fusion des meilleurs skills open source, adaptés à un particulier français et
 - Méfiance : données périmées, trous, historiques sans les sociétés disparues (biais du survivant). Jamais de décision sur un seul chiffre.
 
 ## 10. Actualité (sources)
-Voir `connaissances/H-information.md` (points 74 à 81) pour la hiérarchie des sources et la grille « ignorer, surveiller, agir ». Outils : serveur `financial-data` (`get_stock_news` pour une entreprise) et les serveurs d'actualité décrits dans `docs/externe/ANALYSE-SKILLS.md`.
+Voir `connaissances/H-information.md` (points 74 à 81) pour la hiérarchie des sources et la grille « ignorer, surveiller, agir ». Outils : `financial-data` (`get_stock_news` pour une entreprise), `actualite-flux` (flux RSS BCE, Le Monde économie, BBC Business) et `lecture-web` (lire un article ou un communiqué précis).
 
 ---
 Sources : anthropics/financial-services-plugins (Apache 2.0) : morning-note, catalyst-calendar, macro-rates-monitor, sector-overview. joellewis/finance_skills (MIT) : market-data. staskh/trading_skills (MIT) : earnings-calendar, stock-quote, price-history. lyndonkl/claude (pas de licence, idées reformulées) : research-claim-map, narrative-fallacy-guard, causal-inference-root-cause, environmental-scanning-foresight, inspectional-reading.

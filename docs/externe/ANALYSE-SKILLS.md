@@ -71,6 +71,11 @@ Répartition des 148 retenus : Analyste 65, Stratège 26, Coach 21, Conseiller b
 
 **Retiré systématiquement des skills retenus** : recommandations d'achat et de vente, objectifs de cours, « idées de trades », vocabulaire de conformité américaine, fiscalité américaine (401k, IRA, 529, wash sale).
 
-## 7. Serveurs d'actualité (non installés, décision en attente)
+## 7. Serveurs d'actualité (installés le 30/10/2026, validés par Melvin)
 
-Candidats gratuits repérés : `feed-mcp` (PyPI, MIT, lecteur de flux RSS avec recherche), `feed-reader-mcp` (npm, MIT), `mcp-server-fetch` (serveur de référence du projet Model Context Protocol, lit une page web). Flux testés depuis ce poste : BCE (communiqués de presse), Le Monde économie et BBC Business répondent ; AMF, INSEE, Les Échos, Boursorama et Zonebourse bloquent les robots ou ne répondent pas. Les paquets `feed-mcp` et `mcp-server-fetch` ont été téléchargés dans `externe/.venv-actu` mais **jamais lancés ni branchés** : le lancement a été refusé tant qu'ils n'ont pas été validés. En attendant, le Veilleur dispose de la recherche web et de `financial-data` (`get_stock_news`, `get_crypto_news`).
+| Serveur | Rôle | Installation | Test |
+|---|---|---|---|
+| `feed-mcp` (PyPI, MIT, code de 545 lignes relu : bibliothèque standard, lecture HTTP avec protection contre les adresses internes, aucune écriture ni commande) | Lecteur de flux RSS : derniers articles, recherche, synthèse | `externe/.venv-actu`, déclaré dans `.mcp.json` avec 3 flux : BCE (communiqués), Le Monde économie, BBC Business | 9 outils ; articles du jour reçus |
+| `mcp-server-fetch` (serveur de référence du projet Model Context Protocol) | Lire une page web précise | `externe/.venv-fetch` | 1 outil ; page de la BCE lue |
+
+Accès donné au Veilleur seulement. Flux qui bloquent les robots depuis ce poste (AMF, INSEE, Les Échos, Boursorama, Zonebourse) : non ajoutés. Pour ajouter un flux : `add_feed` pour la séance, ou modifier `.mcp.json` (fichier local, non versionné). Comme pour `financial-data`, il faudra réinstaller sur un autre ordinateur, et redémarrer Claude Code pour que les serveurs apparaissent.
