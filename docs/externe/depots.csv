@@ -1,0 +1,9 @@
+depot,url,commit,licence,usage
+anthropics/financial-services-plugins,https://github.com/anthropics/financial-services-plugins.git,60565064557ca77b12f62aa7877f365d111c129d,Apache 2.0,manuels de compétences (source prioritaire)
+joellewis/finance_skills,https://github.com/joellewis/finance_skills.git,5c498eacf7057e31238c4c5a8012a1afe9ec7c8a,MIT,manuels de compétences
+lyndonkl/claude,https://github.com/lyndonkl/claude.git,4acc337d4dbdb19da6469eb2504c16669c1cafa1,aucune licence trouvée,idées reformulées seulement
+longonlyx/Skills,https://github.com/longonlyx/Skills.git,79027e2d112396cb4dd44b1271c9bb2f1ef120b4,aucune licence trouvée,idées reformulées seulement
+onewave-ai/claude-skills,https://github.com/onewave-ai/claude-skills.git,b2267d9171af4f56848d82992381b20b89b44056,MIT,manuels de compétences
+staskh/trading_skills,https://github.com/staskh/trading_skills.git,ebba91653b434d88ec467d7c879e1013ae04096c,MIT,quelques skills hors trading
+triplom/financial-mcp-server,https://github.com/triplom/financial-mcp-server.git,4f43737393d43eed6a6ec79189f4cd8f572219a1,MIT déclarée dans pyproject,serveur MCP financial-data (installé par scripts/installer_mcp.py)
+VoxLink-org/finance-tools-mcp,https://github.com/VoxLink-org/finance-tools-mcp.git,5ff921276f98354799bcc1d13b96360b477b301e,MIT,non utilisé (lu seulement)

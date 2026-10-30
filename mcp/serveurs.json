@@ -1,0 +1,37 @@
+{
+  "_commentaire": "Serveurs MCP utilisés par les agents. Ce fichier est versionné ; .mcp.json (propre à chaque ordinateur, chemins absolus) est généré par scripts/installer_mcp.py.",
+  "serveurs": {
+    "financial-data": {
+      "agents": ["analyste", "veilleur"],
+      "role": "Cours, historiques, fondamentaux, séries macro (FRED), change, crypto, actualité d'une entreprise. Données Yahoo Finance indicatives. Clés facultatives dans externe/triplom_financial-mcp-server/.env (FRED_API_KEY, etc.).",
+      "licence": "MIT (déclarée dans pyproject, pas de fichier LICENSE)",
+      "source_git": "https://github.com/triplom/financial-mcp-server.git",
+      "commit": "4f43737393d43eed6a6ec79189f4cd8f572219a1",
+      "dossier": "externe/triplom_financial-mcp-server",
+      "venv": "externe/triplom_financial-mcp-server/.venv",
+      "installation": "pip install -e <dossier> puis pip install \"mcp<2\" (la version 2 fait planter ce serveur)",
+      "executable": "financial-mcp-server",
+      "args": []
+    },
+    "actualite-flux": {
+      "agents": ["veilleur"],
+      "role": "Lecteur de flux RSS : derniers articles, recherche, synthèse. Flux par défaut : communiqués de la BCE, Le Monde économie, BBC Business.",
+      "licence": "MIT",
+      "paquet_pypi": "feed-mcp==0.2.1",
+      "venv": "externe/.venv-actu",
+      "installation": "pip install feed-mcp==0.2.1 puis pip install \"mcp<2\"",
+      "executable": "feed-mcp",
+      "args": ["--feeds", "https://www.ecb.europa.eu/rss/press.html,https://www.lemonde.fr/economie/rss_full.xml,https://feeds.bbci.co.uk/news/business/rss.xml"]
+    },
+    "lecture-web": {
+      "agents": ["veilleur"],
+      "role": "Lire une page web précise (serveur de référence du projet Model Context Protocol).",
+      "licence": "MIT",
+      "paquet_pypi": "mcp-server-fetch==2026.10.28",
+      "venv": "externe/.venv-fetch",
+      "installation": "pip install mcp-server-fetch==2026.10.28",
+      "executable": "mcp-server-fetch",
+      "args": []
+    }
+  }
+}
