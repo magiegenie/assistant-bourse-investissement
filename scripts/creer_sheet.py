@@ -82,7 +82,10 @@ def construire(chemin, exemple=False):
         "7. Budget : une ligne par mois. Le taux d'épargne se calcule.",
         "8. Objectifs : tes objectifs chiffrés et datés. La progression se calcule.",
         "9. Journal : les décisions d'achat ou de vente (rempli avec le Coach ou à la main).",
-        "10. Dashboard : choisis ton prénom en haut, tout s'affiche (chiffres clés, à-faire, graphiques).",
+        "10. Revenus et frais, Fiscalité : calculés depuis Transactions et Positions (dividendes, frais, impôt estimé d'une sortie).",
+        "11. Idées : toute envie d'achat hors plan attend 30 jours ici avant décision (fiche H).",
+        "12. Veille : les infos retenues chaque semaine par la newsletter du dimanche.",
+        "13. Dashboard : choisis ton prénom en haut, tout s'affiche (chiffres clés, alertes, à-faire, graphiques).",
         "",
         "Prix : GOOGLEFINANCE fonctionne pour la plupart des ETF cotés. Pour la crypto et les ETF non reconnus, tape le prix à la main dans Actifs, colonne Prix actuel.",
         "Confidentialité : ce fichier est vide. Ne le mets jamais dans un dépôt public.",
@@ -321,6 +324,98 @@ def construire(chemin, exemple=False):
     liste(jo, "K2:K301", L("R", 3))
     liste(jo, "L2:L301", '"Acheté,Vendu,Reporté,Abandonné"')
 
+
+    # ---------- Revenus et frais (par année et par enveloppe)
+    rf = wb.create_sheet("Revenus et frais")
+    rf.sheet_properties.tabColor = "5B6770"
+    tete(rf, [("Utilisateur", 14), ("Année", 8), ("Enveloppe", 14), ("Versements €", 13), ("Retraits €", 12),
+              ("Dividendes €", 12), ("Intérêts €", 12), ("Frais prélevés €", 12), ("Courtage payé €", 12),
+              ("Revenus nets de frais €", 14)], calc=tuple(range(1, 11)))
+    r = 2
+    for u in (2, 3):
+        for an in range(2025, 2031):
+            for env in ENVELOPPES:
+                rf[f"A{r}"], rf[f"B{r}"], rf[f"C{r}"] = f"={PS}!$A${u}", an, env
+                crit = (f'{T}$B:$B,$A{r},{T}$C:$C,$C{r},{T}$A:$A,">="&DATE($B{r},1,1),'
+                        f'{T}$A:$A,"<="&DATE($B{r},12,31)')
+                for col, typ in (("D", "Versement"), ("E", "Retrait"), ("F", "Dividende"), ("G", "Intérêts"), ("H", "Frais")):
+                    rf[f"{col}{r}"] = f'=SUMIFS({T}$K:$K,{crit},{T}$D:$D,"{typ}")'
+                rf[f"I{r}"] = f"=SUMIFS({T}$H:$H,{crit})"
+                rf[f"J{r}"] = f"=F{r}+G{r}-H{r}-I{r}"
+                for c in "DEFGHIJ":
+                    rf[f"{c}{r}"].number_format = EUR
+                r += 1
+    rf.auto_filter.ref = f"A1:J{r - 1}"
+    rf["L1"] = "Filtre sur Utilisateur et Année. Les montants viennent de Transactions (rien à saisir ici)."
+    rf["L1"].font = Font(italic=True)
+
+    # ---------- Fiscalité (estimation si tout était vendu aujourd'hui)
+    fi = wb.create_sheet("Fiscalité")
+    fi.sheet_properties.tabColor = "5B6770"
+    tete(fi, [("Utilisateur", 14), ("Enveloppe", 14), ("Valeur actuelle €", 14), ("Investi net €", 13),
+              ("Plus-value latente €", 14), ("Taux estimé sur le gain %", 12), ("Impôt estimé si vente totale €", 15),
+              ("Note", 60)], calc=(1, 2, 3, 4, 5, 7, 8))
+    TAUX_ENV = {
+        "PEA": ('=IF(IFERROR(DATEDIF(INDEX({ps}!$E:$E,MATCH($A{r},{ps}!$A:$A,0)),TODAY(),"Y"),0)>=5,0.186,0.314)',
+                "Après 5 ans : prélèvements sociaux seuls (18,6 %). Avant : 31,4 % et clôture du plan. Saisir la date d'ouverture dans Paramètres."),
+        "CTO": ("0.314", "Prélèvement forfaitaire unique 2026 : 12,8 % + 18,6 %. Moins-values imputables non comptées."),
+        "Assurance vie": ("0.172", "Minimum : prélèvements sociaux 17,2 %. Après 8 ans, abattement 4 600 € (9 200 € en couple) puis 7,5 %. Calcul exact : scripts/fiscalite.py."),
+        "PER": ("", "Dépend de la tranche d'imposition et des déductions passées : à voir avec le Stratège."),
+        "Crypto": ("0.314", "Flat tax sur les cessions contre euros, à vérifier chaque année (fiche C)."),
+        "Livret": ("0", "Livrets réglementés : exonérés."),
+    }
+    r = 2
+    for u in (2, 3):
+        for env in ENVELOPPES:
+            taux, note = TAUX_ENV[env]
+            fi[f"A{r}"], fi[f"B{r}"] = f"={PS}!$A${u}", env
+            fi[f"C{r}"] = f"=SUMIFS(Positions!$J:$J,Positions!$A:$A,$A{r},Positions!$E:$E,$B{r})"
+            fi[f"D{r}"] = f"=SUMIFS(Positions!$H:$H,Positions!$A:$A,$A{r},Positions!$E:$E,$B{r})"
+            fi[f"E{r}"] = f"=C{r}-D{r}"
+            fi[f"F{r}"] = taux.format(ps=PS, r=r) if taux.startswith("=") else (float(taux) if taux else None)
+            fi[f"F{r}"].fill = IN
+            fi[f"G{r}"] = f'=IF(F{r}="","",MAX(0,E{r})*F{r})'
+            fi[f"H{r}"] = note
+            for c in "CDEG":
+                fi[f"{c}{r}"].number_format = EUR
+            fi[f"F{r}"].number_format = PCT
+            r += 1
+    fi[f"A{r + 1}"] = ("Estimation indicative, taux 2026 à revérifier chaque année (fiche C). "
+                       "Aucune vente n'est recommandée ici : c'est le coût d'une sortie, pas un conseil.")
+    fi[f"A{r + 1}"].font = Font(italic=True)
+    fi.conditional_formatting.add("E2:E13", CellIsRule(operator="lessThan", formula=["0"], font=ROUGE))
+
+    # ---------- Idées (liste d'attente avant tout achat hors plan, fiche H)
+    idx_ = wb.create_sheet("Idées")
+    idx_.sheet_properties.tabColor = "F2B01E"
+    tete(idx_, [("Date", 12), ("Utilisateur", 14), ("Idée (actif ou thème)", 26), ("Ticker", 12),
+                ("Source de l'idée", 22), ("Type de source", 16), ("Thèse en une phrase", 40),
+                ("Ce qui invaliderait l'idée", 30), ("Émotion (1 à 10)", 10), ("Verdict du Coach", 18),
+                ("Date de revue (J+30)", 13), ("Décision après revue", 16), ("Note", 30)], calc=(11,))
+    for r in range(2, 202):
+        idx_[f"A{r}"].number_format = DATE
+        idx_[f"K{r}"] = f'=IF(A{r}="","",A{r}+30)'
+        idx_[f"K{r}"].number_format = DATE
+        idx_[f"K{r}"].fill = CALC
+    liste(idx_, "B2:B201", UTIL)
+    liste(idx_, "F2:F201", '"Source fiable (presse, AMF),Réseau social,Ami ou famille,Newsletter,Forum,Autre"')
+    liste(idx_, "I2:I201", '"1,2,3,4,5,6,7,8,9,10"')
+    liste(idx_, "J2:J201", L("R", 3))
+    liste(idx_, "L2:L201", '"Acheter (dans le plan),Abandonner,Reporter"')
+    idx_.conditional_formatting.add("K2:K201", FormulaRule(formula=['AND(ISNUMBER(K2),K2<=TODAY(),L2="")'],
+                                                           fill=PatternFill("solid", fgColor="F8D7DA")))
+
+    # ---------- Veille (une ligne par info retenue, remplie par la newsletter du dimanche)
+    ve = wb.create_sheet("Veille")
+    ve.sheet_properties.tabColor = "F2B01E"
+    tete(ve, [("Semaine (dimanche)", 13), ("Thème", 18), ("Importance", 13), ("Fait (chiffré)", 50),
+              ("Source et date", 30), ("Positions concernées", 22), ("Impact estimé", 30), ("Action", 30)])
+    for r in range(2, 502):
+        ve[f"A{r}"].number_format = DATE
+    liste(ve, "B2:B501", '"Marchés,Taux et banques centrales,Inflation et emploi,Change,Entreprises,Crypto,Fiscalité et réglementation,Autre"')
+    liste(ve, "C2:C501", '"À ignorer,À surveiller,À agir"')
+    ve.conditional_formatting.add("C2:C501", CellIsRule(operator="equal", formula=['"À agir"'], font=ROUGE))
+
     # ---------- Dashboard
     db["A1"] = "TABLEAU DE BORD"
     db["A1"].font = Font(bold=True, size=16, color=BLEU)
@@ -331,15 +426,26 @@ def construire(chemin, exemple=False):
     db["B2"].font = Font(bold=True, size=12)
     liste(db, "B2", UTIL)
     U = "$B$2"
+
+    def DERNIER(feuille):
+        return f"_xlfn.MAXIFS({feuille}!$A:$A,{feuille}!$B:$B,{U})"
     kpis = [
         ("Patrimoine (positions)", f"=SUMIFS(Positions!$J:$J,Positions!$A:$A,{U})", EUR),
         ("Montant investi net", f"=SUMIFS(Positions!$H:$H,Positions!$A:$A,{U})", EUR),
         ("Plus-value latente", f"=SUMIFS(Positions!$K:$K,Positions!$A:$A,{U})", EUR),
         ("Performance", f'=IFERROR(C5/B5,0)', PCT),
         ("Taux d'épargne (dernier mois)",
-         f'=IFERROR(LOOKUP(2,1/((Budget!$B$2:$B$121={U})*(Budget!$G$2:$G$121<>"")),Budget!$G$2:$G$121),"")', PCT),
+         f'=IFERROR(SUMIFS(Budget!$G:$G,Budget!$B:$B,{U},Budget!$A:$A,{DERNIER("Budget")}),"")', PCT),
         ("Frais annuels estimés", f"=SUMIFS(Positions!$O:$O,Positions!$A:$A,{U})", EUR),
         ("Décisions hors plan", f'=COUNTIFS(Transactions!$B:$B,{U},Transactions!$L:$L,"Hors plan")', "0"),
+        ("Écart avec l'indice (dernier mois)",
+         f'=IFERROR(SUMIFS(Historique!$C:$C,Historique!$B:$B,{U},Historique!$A:$A,{DERNIER("Historique")})'
+         f'-SUMIFS(Historique!$H:$H,Historique!$B:$B,{U},Historique!$A:$A,{DERNIER("Historique")}),"")', EUR),
+        ("Épargne de précaution (mois de besoins)",
+         f'=IFERROR(SUMIFS(Historique!$Q:$Q,Historique!$B:$B,{U},Historique!$A:$A,{DERNIER("Historique")})'
+         f'/AVERAGEIFS(Budget!$D:$D,Budget!$B:$B,{U},Budget!$D:$D,">0"),"")', "0.0"),
+        ("Versé sur le PEA",
+         f'=SUMIFS(Transactions!$K:$K,Transactions!$B:$B,{U},Transactions!$C:$C,"PEA",Transactions!$D:$D,"Versement")', EUR),
     ]
     for i, (nom, f, fmt) in enumerate(kpis, start=1):
         c = db.cell(4, i, nom)
@@ -351,7 +457,7 @@ def construire(chemin, exemple=False):
         v.font = Font(bold=True, size=13)
         v.alignment = Alignment(horizontal="center")
     db.row_dimensions[4].height = 32
-    for i in range(1, 8):
+    for i in range(1, 11):
         db.column_dimensions[get_column_letter(i)].width = 17
     db.column_dimensions["A"].width = 20
 
@@ -371,6 +477,13 @@ def construire(chemin, exemple=False):
                  f'"Historique du mois à saisir (feuille Historique).","Historique du mois saisi.")')
     db["A14"] = (f'=IF(COUNTIFS(Budget!$A:$A,DATE(YEAR(TODAY()),MONTH(TODAY()),1),Budget!$B:$B,{U})=0,'
                  f'"Budget du mois à saisir (feuille Budget).","Budget du mois saisi.")')
+    db["H8"] = ('=IF(I5="","Épargne de précaution : saisir le cash de côté dans Historique (colonne Q).",'
+                'IF(I5<3,"ALERTE : moins de 3 mois de besoins de côté (fiche A).",'
+                '"Épargne de précaution : "&TEXT(I5,"0.0")&" mois de besoins."))')
+    db["H9"] = ('=IF(J5>=150000,"PEA : plafond de 150 000 € de versements atteint.",'
+                '"PEA : "&TEXT(150000-J5,"#,##0")&" € de versements encore possibles.")')
+    db["H10"] = f'=COUNTIFS(Idées!$B:$B,{U},Idées!$K:$K,"<="&TODAY(),Idées!$L:$L,"")&" idée(s) de la liste à revoir (feuille Idées)."'
+    db["H11"] = f'=COUNTIFS(Veille!$C:$C,"À agir",Veille!$A:$A,">="&(TODAY()-7))&" point(s) « à agir » dans la veille de la semaine."'
     db["A15"] = f'=IF(ABS(SUMIFS(Cibles!$C:$C,Cibles!$A:$A,{U})-1)>0.001,"Tes cibles ne font pas 100 % (feuille Cibles).","Cibles OK.")'
 
     # tables
@@ -441,27 +554,27 @@ def construire(chemin, exemple=False):
         ch.set_categories(Reference(db, min_col=1, min_row=debut + 1, max_row=fin))
         db.add_chart(ch, ancre)
 
-    ligne("Valeur du portefeuille et total versé", [2, 3], "I3")
-    ligne("Portefeuille et indice de référence", [2, 4], "S3")
+    ligne("Valeur du portefeuille et total versé", [2, 3], "L3")
+    ligne("Portefeuille et indice de référence", [2, 4], "V3")
 
     pie = PieChart()
     pie.title, pie.height, pie.width = "Répartition par poche", 7.5, 15
     pie.add_data(Reference(db, min_col=2, min_row=17, max_row=24), titles_from_data=True)
     pie.set_categories(Reference(db, min_col=1, min_row=18, max_row=24))
-    db.add_chart(pie, "I19")
+    db.add_chart(pie, "L19")
 
     bar = BarChart()
     bar.type, bar.title, bar.height, bar.width = "col", "Actuel et cible par poche", 7.5, 15
     for c in (3, 4):
         bar.add_data(Reference(db, min_col=c, min_row=17, max_row=24), titles_from_data=True)
     bar.set_categories(Reference(db, min_col=1, min_row=18, max_row=24))
-    db.add_chart(bar, "S19")
+    db.add_chart(bar, "V19")
 
     pie2 = PieChart()
     pie2.title, pie2.height, pie2.width = "Répartition par enveloppe", 7.5, 15
     pie2.add_data(Reference(db, min_col=2, min_row=27, max_row=33), titles_from_data=True)
     pie2.set_categories(Reference(db, min_col=1, min_row=28, max_row=33))
-    db.add_chart(pie2, "I35")
+    db.add_chart(pie2, "L35")
 
     bud = BarChart()
     bud.type, bud.grouping, bud.overlap = "col", "stacked", 100
@@ -469,13 +582,13 @@ def construire(chemin, exemple=False):
     for c in (2, 3, 4):
         bud.add_data(Reference(db, min_col=c, min_row=63, max_row=75), titles_from_data=True)
     bud.set_categories(Reference(db, min_col=1, min_row=64, max_row=75))
-    db.add_chart(bud, "S35")
+    db.add_chart(bud, "V35")
 
     obj = BarChart()
     obj.type, obj.title, obj.height, obj.width = "bar", "Progression des objectifs", 7.5, 15
     obj.add_data(Reference(ob, min_col=7, min_row=1, max_row=11), titles_from_data=True)
     obj.set_categories(Reference(ob, min_col=2, min_row=2, max_row=11))
-    db.add_chart(obj, "I51")
+    db.add_chart(obj, "L51")
 
     if exemple:
         donnees_exemple(wb)
@@ -515,6 +628,14 @@ def donnees_exemple(wb):
     ob["A2"], ob["B2"], ob["C2"], ob["D2"], ob["E2"], ob["F2"] = "Alice", "Apport", 20000, date(2026, 1, 1), date(2028, 1, 1), 3000
     jo = wb["Journal"]
     jo["A2"], jo["B2"] = date(2026, 6, 1), "Alice"
+    tr["A8"], tr["B8"], tr["C8"], tr["D8"], tr["E8"], tr["F8"], tr["G8"], tr["J8"] = (
+        date(2026, 8, 1), "Alice", "PEA", "Versement", "", 1, 1200, 1)
+    hi["P2"], hi["Q2"], hi["P3"], hi["Q3"] = 300, 4500, 250, 4600
+    idees = wb["Idées"]
+    idees["A2"], idees["B2"], idees["C2"], idees["F2"], idees["I2"] = date(2026, 9, 15), "Alice", "Action test", "Réseau social", 8
+    ve = wb["Veille"]
+    ve["A2"], ve["B2"], ve["C2"], ve["D2"] = date(2026, 10, 25), "Marchés", "À surveiller", "Ligne fictive de test"
+    wb["Paramètres"]["E2"] = date(2019, 5, 1)
 
 
 if __name__ == "__main__":

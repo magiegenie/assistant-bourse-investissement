@@ -73,10 +73,12 @@ def main(dossier, versement=0.0, seuil=10.0):
     somme = sum(manques.values())
     print("\nRéinvestissement (dans la même enveloppe que la vente) :")
     achats = 0.0
-    for p, m in manques.items():
-        a = total_ventes * m / somme if somme else 0
-        achats += a
-        print(f"  Acheter {a:>10,.0f} € en {p}")
+    for env, produit in par_enveloppe.items():
+        for p, m in manques.items():
+            a = produit * m / somme if somme else 0
+            achats += a
+            if a >= 1:
+                print(f"  Acheter {a:>10,.0f} € en {p} (enveloppe {env})")
     print(f"\nVentes par enveloppe : " + ", ".join(f"{e} {m:,.0f} €" for e, m in par_enveloppe.items()))
     print(f"Impôt total estimé : {total_impot:,.0f} € (PFU {PFU} % sur les gains en CTO ; calcul détaillé : scripts/fiscalite.py)")
     ok = abs(achats - total_ventes) < 1

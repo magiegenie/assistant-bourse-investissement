@@ -5,11 +5,13 @@ from datetime import date
 from pathlib import Path
 
 def xirr(flux):
-    """flux : liste de (date, montant). Méthode de Newton puis bissection en secours."""
+    """flux : liste de (date, montant). Recherche par bissection entre -99 % et +1 000 % par an."""
     t0 = flux[0][0]
     def vna(r):
         return sum(m / (1 + r) ** ((d - t0).days / 365) for d, m in flux)
     bas, haut = -0.99, 10.0
+    if vna(bas) * vna(haut) > 0:
+        raise ValueError("Pas de rendement calculable : vérifier les signes de flux.csv (versements négatifs).")
     for _ in range(200):
         mil = (bas + haut) / 2
         if vna(bas) * vna(mil) <= 0:
@@ -24,6 +26,8 @@ def main(dossier, taux_ref):
         flux = [(date.fromisoformat(r["date"]), float(r["montant"])) for r in csv.DictReader(f)]
     with open(d / "positions.csv", encoding="utf-8") as f:
         valeur = sum(float(r["valeur"]) for r in csv.DictReader(f))
+    if not flux:
+        raise SystemExit("flux.csv est vide : ajouter au moins un versement (montant négatif).")
     flux.sort()
     aujourdhui = date.today()
     verse = -sum(m for _, m in flux)
