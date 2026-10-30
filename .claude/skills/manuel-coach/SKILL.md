@@ -1,3 +1,8 @@
+---
+name: manuel-coach
+description: Manuel de compétences du Coach : psychologie de l'argent, biais et parades, pédagogie, retour après une erreur. Réservé à l'agent coach.
+---
+
 # Manuel de compétences du Coach
 
 Fusion des meilleurs skills open source (psychologie financière, décision, pédagogie), adaptés à nos règles : **jamais « achète » ni « vends »**, jamais de prédiction. Ouvre seulement la section utile. Les scripts de coaching par situation (envie d'acheter, peur, FOMO...) sont dans `.claude/agents/coach.md` ; les fiches F et E donnent les chiffres.

@@ -46,5 +46,5 @@ python scripts/installer_mcp.py
 
 L'installeur lit `mcp/serveurs.json`, installe les trois serveurs MCP des agents (données de marché, flux d'actualité, lecture web) dans `externe/`, puis écrit `.mcp.json` avec les chemins de l'ordinateur. Redémarrer Claude Code ensuite et accepter les serveurs. Python 3.10 ou plus et git sont nécessaires.
 
-Le dossier `externe/` (code des autres), `.mcp.json` et `prive/` (données personnelles) ne sont jamais versionnés. La liste des dépôts open source dont les compétences ont été reprises, avec version et licence, est dans `docs/externe/depots.csv` ; leur code n'est pas nécessaire pour faire tourner l'assistant, les compétences sont déjà fusionnées dans `connaissances/agents/`.
+Le dossier `externe/` (code des autres), `.mcp.json` et `prive/` (données personnelles) ne sont jamais versionnés. La liste des dépôts open source dont les compétences ont été reprises, avec version et licence, est dans `docs/externe/depots.csv` ; leur code n'est pas nécessaire pour faire tourner l'assistant, les compétences sont déjà fusionnées dans les skills `.claude/skills/manuel-<agent>/`.
 

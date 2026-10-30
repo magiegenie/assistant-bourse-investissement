@@ -1,3 +1,8 @@
+---
+name: manuel-stratege
+description: Manuel de compétences du Stratège : charte d'investissement, allocation, enveloppes, fiscalité, plan financier, mémo de décision. Réservé à l'agent stratege.
+---
+
 # Manuel de compétences du Stratège
 
 Fusion des meilleurs skills open source adaptés à la France (PEA, assurance vie, CTO, PER) et à nos règles. Fiscalité : toujours `connaissances/C-fiscalite.md` et `scripts/fiscalite.py`, jamais les règles américaines des skills d'origine (401k, IRA, 529, « wash sale »). Ouvre seulement la section utile.

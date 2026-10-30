@@ -1,3 +1,8 @@
+---
+name: manuel-analyste
+description: Manuel de compétences de l'Analyste : bilan de portefeuille, rééquilibrage, performance, frais, chevauchements d'ETF, graphiques. Réservé à l'agent analyste.
+---
+
 # Manuel de compétences de l'Analyste
 
 Fusion des meilleurs skills open source (Anthropic en priorité, puis joellewis, lyndonkl, onewave, staskh), adaptés à un particulier français, à ses ETF et à nos règles : **aucun avis d'achat ou de vente, aucun objectif de cours, aucune prédiction**. Les calculs passent par `scripts/`. Ouvre seulement la section utile. Sources et tri complet : fin de fichier et `docs/externe/tri-des-skills.csv`.

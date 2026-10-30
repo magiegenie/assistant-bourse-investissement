@@ -1,3 +1,8 @@
+---
+name: manuel-veilleur
+description: Manuel de compétences du Veilleur : brief du jour, agenda, explication des news, données de marché fiables, sources d'actualité. Réservé à l'agent veilleur.
+---
+
 # Manuel de compétences du Veilleur
 
 Fusion des meilleurs skills open source, adaptés à un particulier français et à nos règles (pas de prédiction, pas d'avis d'achat ou de vente). Sources par compétence en fin de fichier ; tri complet dans `docs/externe/tri-des-skills.csv`. Ouvre la section dont tu as besoin, pas tout le fichier.
