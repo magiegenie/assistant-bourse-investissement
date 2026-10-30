@@ -1,0 +1,11 @@
+indice,date_sommet,date_creux,baisse_pct,duree_de_la_baisse_en_mois,date_de_retour_au_sommet,duree_de_recuperation_en_mois,evenement_declencheur,source_url
+S&P 500,Janvier 1973,Octobre 1974,-48.2,21,Août 1976,22,"Choc pétrolier, stagflation",S&P Dow Jones Indices
+MSCI World,Janvier 1973,Décembre 1974,-42.0,23,À VÉRIFIER,À VÉRIFIER,Choc pétrolier,MSCI
+S&P 500,Août 1987,Décembre 1987,-33.5,4,Juillet 1989,19,Lundi noir,S&P Dow Jones Indices
+S&P 500,Mars 2000,Octobre 2002,-49.1,31,Mai 2007,55,Bulle internet,S&P Dow Jones Indices
+MSCI World,Mars 2000,Mars 2003,-47.0,36,Octobre 2007,55,Bulle internet,MSCI
+S&P 500,Octobre 2007,Mars 2009,-56.8,17,Mars 2013,48,Crise des subprimes,S&P Dow Jones Indices
+MSCI World,Octobre 2007,Mars 2009,-54.0,17,Avril 2013,49,Crise des subprimes,MSCI
+S&P 500,Février 2020,Mars 2020,-33.9,1,Août 2020,5,Pandémie de COVID-19,S&P Dow Jones Indices
+MSCI World,Février 2020,Mars 2020,-34.0,1,Août 2020,5,Pandémie de COVID-19,MSCI
+S&P 500,Janvier 2022,Octobre 2022,-25.4,9,Janvier 2024,15,"Inflation, hausse des taux (FED)",S&P Dow Jones Indices

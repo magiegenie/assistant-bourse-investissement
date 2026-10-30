@@ -1,0 +1,15 @@
+﻿nom,categorie,url,gratuit_payant,frequence,flux_rss_ou_api,fiabilite_1_a_5,remarque
+Banque Centrale Européenne (BCE) / Data Portal,Banques centrales,https://data.ecb.europa.eu/,Gratuit,Continu,API,5,Données officielles sur les taux directeurs.
+FRED (Federal Reserve),Banques centrales,https://fred.stlouisfed.org/,Gratuit,Continu,API,5,Référence pour séries temporelles macro.
+INSEE,Instituts de statistiques,https://www.insee.fr/,Gratuit,Mensuel,API,5,Chiffres officiels de l'inflation et croissance France.
+AMF,Régulateurs,https://www.amf-france.org/fr,Gratuit,Variable,RSS,5,Listes noires et réglementation PEA.
+MSCI,Fournisseurs d'indices,https://www.msci.com,Gratuit,Mensuel,Non,5,Factsheets des indices faisant foi.
+Reuters Finance,Agences de presse,https://www.reuters.com/finance,Partiellement payant,Continu,RSS,4,Information factuelle brute.
+Les Echos (Investir),Presse francophone,https://investir.lesechos.fr/,Payant,Quotidien,RSS,4,"Utile pour la fiscalité française, beaucoup de bruit."
+Financial Times,Presse anglophone,https://www.ft.com/,Payant,Quotidien,RSS,4,Couverture mondiale institutionnelle.
+Amundi / BlackRock,Émetteurs ETF,https://www.amundietf.fr/,Gratuit,Quotidien,Non,5,Sources primaires pour DICI/KID et frais.
+Stooq,Fournisseurs de données,https://stooq.com/,Gratuit,Continu,CSV / API,4,Historiques de cours téléchargeables légalement.
+Yahoo Finance,Plateformes grand public,https://fr.finance.yahoo.com/,Gratuit,Continu,API tierce,3,"Cours en temps réel, mais rempli de bruit."
+Influenceurs et Finfluenceurs,Réseaux sociaux,N/A,Variable,Continu,Non,1,À éviter : conflits d'intérêts et market timing.
+Newsletters promesses de rendements,Marketing,N/A,Payant,Variable,Non,1,À éviter : jouent sur l'anxiété (FOMO/FUD).
+Forums,Communautés,N/A,Gratuit,Continu,Non,3,"Utile pour le partage sur courtiers, dangereux pour l'allocation."

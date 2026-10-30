@@ -1,0 +1,27 @@
+indice,pays,poids_pct,date,source_url
+MSCI World,États-Unis,72.94,2026-09-30,https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb
+MSCI World,Japon,5.91,2026-09-30,https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb
+MSCI World,Royaume-Uni,3.41,2026-09-30,https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb
+MSCI World,Canada,3.29,2026-09-30,https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb
+MSCI World,France,2.24,2026-09-30,https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb
+MSCI World,Autres pays développés,12.21,2026-09-30,https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb
+MSCI ACWI,États-Unis,64.21,2026-09-30,https://www.msci.com/documents/10199/255599/msci-acwi-net.pdf
+MSCI ACWI,Japon,5.2,2026-09-30,https://www.msci.com/documents/10199/255599/msci-acwi-net.pdf
+MSCI ACWI,Taïwan,3.46,2026-09-30,https://www.msci.com/documents/10199/255599/msci-acwi-net.pdf
+MSCI ACWI,Royaume-Uni,3.0,2026-09-30,https://www.msci.com/documents/10199/255599/msci-acwi-net.pdf
+MSCI ACWI,Canada,2.9,2026-09-30,https://www.msci.com/documents/10199/255599/msci-acwi-net.pdf
+MSCI ACWI,Autres pays,21.22,2026-09-30,https://www.msci.com/documents/10199/255599/msci-acwi-net.pdf
+MSCI Emerging Markets,Taïwan,28.94,2026-09-30,https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf
+MSCI Emerging Markets,Corée du Sud,21.4,2026-09-30,https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf
+MSCI Emerging Markets,Chine,19.8,2026-09-30,https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf
+MSCI Emerging Markets,Inde,10.65,2026-09-30,https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf
+MSCI Emerging Markets,Brésil,4.09,2026-09-30,https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf
+MSCI Emerging Markets,Autres pays émergents,15.12,2026-09-30,https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf
+MSCI Europe,Royaume-Uni,22.55,2026-09-30,https://www.msci.com/documents/10199/255599/msci-europe-index.pdf
+MSCI Europe,France,14.79,2026-09-30,https://www.msci.com/documents/10199/255599/msci-europe-index.pdf
+MSCI Europe,Suisse,14.16,2026-09-30,https://www.msci.com/documents/10199/255599/msci-europe-index.pdf
+MSCI Europe,Allemagne,13.62,2026-09-30,https://www.msci.com/documents/10199/255599/msci-europe-index.pdf
+MSCI Europe,Pays-Bas,9.45,2026-09-30,https://www.msci.com/documents/10199/255599/msci-europe-index.pdf
+MSCI Europe,Autres pays européens,25.44,2026-09-30,https://www.msci.com/documents/10199/255599/msci-europe-index.pdf
+S&P 500,États-Unis,100,2026-10-29,Règle de l'indice (sociétés américaines)
+Nasdaq-100,États-Unis,100,2026-09-30,Approximation : la fiche ne donne pas de pays ; l'indice compte quelques sociétés non américaines

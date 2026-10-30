@@ -1,0 +1,12 @@
+.env
+.env.*
+secret/
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+Thumbs.db
+prive/
+/externe/
+.mcp.json

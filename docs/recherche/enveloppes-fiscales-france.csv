@@ -1,0 +1,5 @@
+Enveloppe,Plafond_Versements_Euros,Impots_Plus_Value_Apres_Maturite,Prelevements_Sociaux,Maturite_Fiscale_Annees,Conditions_Retrait_Apres_Maturite,Source_Legale,Date_Mise_A_Jour
+PEA,150000,0%,17.2%,5,Retrait partiel possible sans cloture du plan,BOI-RPPM-RCM-40-50,2026
+Assurance Vie (Versements apres 2017),Pas de plafond,7.5% ou 12.8% (selon encours et abattement),17.2%,8,Retrait libre avec abattement annuel (4600E ou 9200E),BOI-RPPM-RCM-20-10,2026
+CTO,Pas de plafond,12.8% (PFU standard),17.2%,0,Retrait libre a tout moment,BOI-RPPM-RCM-20-10,2026
+PER,Plafond lie aux revenus (Bareme IR),Bareme IR (si deduction a l'entree),17.2% (sur les gains),Age de la retraite,Sortie en capital ou rente (sauf cas deblocage anticipe RP/Accidents),BOI-IR-BASE-20-50,2026

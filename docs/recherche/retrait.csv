@@ -1,0 +1,5 @@
+source, annee, horizon_ans, taux_sur_pct, probabilite_de_succes_pct, hypotheses_actions_obligations, zone_geographique, remarque
+Trinity Study (Cooley et al.), 1998, 30, 4.0, 95, 50% Actions / 50% Obligations, Etats-Unis, Etude fondatrice mais limitée aux données américaines historiques.
+Morningstar State of Retirement, 2025, 30, 4.0, 90, 40% Actions / 60% Obligations, Etats-Unis, "A VERIFIER : estimations Monte Carlo basées sur les valeurs actuelles"
+Early Retirement Now (Karsten Jeske), 2026, 50, 3.25, 99, 75% Actions / 25% Obligations, Etats-Unis, Modélisation spécifique pour le mouvement FIRE (retraites très longues).
+UBS Global Investment Returns Yearbook, 2024, 30, 3.3, 90, 50% Actions / 50% Obligations, Europe, "A VERIFIER : Taux historique calculé pour la zone Europe (impact des guerres et de l'inflation européenne)."

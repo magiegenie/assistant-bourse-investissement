@@ -1,0 +1,4 @@
+profil,pct_actions_monde,pct_actions_emergents,pct_obligations,pct_or,pct_autres,rendement_annualise_historique,volatilite,pire_baisse_pct,periode,source_url
+Prudent (30/70),30,0,70,0,0,4.5,5.5,-12.0,2000-2026,À VÉRIFIER
+Equilibré (60/40),60,0,40,0,0,6.5,9.5,-30.0,2000-2026,À VÉRIFIER
+Dynamique (100%),90,10,0,0,0,9.0,14.0,-53.6,2000-2026,msci.com

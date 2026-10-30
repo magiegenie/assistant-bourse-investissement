@@ -1,0 +1,61 @@
+nom,isin,emetteur,indice,ter_pct,encours_meur,date_encours,replication,capitalisant_ou_distribuant,devise_de_cotation,domicile_fonds,eligible_pea,nombre_de_lignes_approx,ecart_de_suivi_pct,date_creation,source_url
+Amundi MSCI World UCITS ETF - EUR (C),LU1681043599,Amundi,MSCI World,0.38,À VÉRIFIER,2026-10,Synthétique,Capitalisant,EUR,Luxembourg,Oui,1400,À VÉRIFIER,2018-04,amundietf.fr
+iShares Core MSCI World UCITS ETF USD (Acc),IE00B4L5Y983,iShares,MSCI World,0.2,75000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,1500,À VÉRIFIER,2009-09,ishares.com
+SPDR MSCI World UCITS ETF,IE00BFY0GT14,SPDR,MSCI World,0.12,À VÉRIFIER,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,1500,À VÉRIFIER,2019-02,ssga.com
+Xtrackers MSCI World UCITS ETF 1C,IE00BJ0KDQ92,Xtrackers,MSCI World,0.19,12000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,1500,À VÉRIFIER,2014-07,etf.dws.com
+Vanguard FTSE Developed World UCITS ETF (USD) Acc,IE00BK5BQV03,Vanguard,FTSE Developed,0.12,À VÉRIFIER,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,2100,À VÉRIFIER,2019-09,vanguard.fr
+Amundi Prime Global UCITS ETF DR (D),LU2089238203,Amundi,Solactive GBS Developed Markets Large & Mid Cap,0.05,1500,2026-10,Physique complète,Distribuant,EUR,Luxembourg,Non,1500,À VÉRIFIER,2020-01,amundietf.fr
+iShares MSCI ACWI UCITS ETF (Acc),IE00B6R52259,iShares,MSCI ACWI,0.2,15000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,2900,À VÉRIFIER,2011-10,ishares.com
+Vanguard FTSE All-World UCITS ETF (USD) Acc,IE00BK5BQT80,Vanguard,FTSE All-World,0.22,25000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,3700,À VÉRIFIER,2019-07,vanguard.fr
+SPDR MSCI ACWI UCITS ETF,IE00B44Z5B48,SPDR,MSCI ACWI,0.4,3000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,2400,À VÉRIFIER,2011-05,ssga.com
+BNP Paribas Easy S&P 500 UCITS ETF EUR,FR0011550185,BNP Paribas,S&P 500,0.15,2000,2026-10,Synthétique,Capitalisant,EUR,France,Oui,500,À VÉRIFIER,2013-06,easy.bnpparibas.fr
+Amundi S&P 500 UCITS ETF - EUR (C),LU1681048804,Amundi,S&P 500,0.15,9000,2026-10,Synthétique,Capitalisant,EUR,Luxembourg,Oui,500,À VÉRIFIER,2018-04,amundietf.fr
+iShares Core S&P 500 UCITS ETF (Acc),IE00B5BMR087,iShares,S&P 500,0.07,70000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,500,À VÉRIFIER,2010-05,ishares.com
+Vanguard S&P 500 UCITS ETF (USD) Acc,IE00BFMXXD54,Vanguard,S&P 500,0.07,10000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,500,À VÉRIFIER,2019-05,vanguard.fr
+Invesco S&P 500 UCITS ETF,IE00B3YCGJ38,Invesco,S&P 500,0.05,18000,2026-10,Synthétique,Capitalisant,EUR,Irlande,Non,500,À VÉRIFIER,2010-05,invesco.fr
+Amundi S&P 500 UCITS ETF - EUR (D),LU1681049018,Amundi,S&P 500,0.15,À VÉRIFIER,2026-10,Synthétique,Distribuant,EUR,Luxembourg,Oui,500,À VÉRIFIER,2018-04,amundietf.fr
+SPDR S&P 500 UCITS ETF,IE00B6YX5C33,SPDR,S&P 500,0.03,8000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,500,À VÉRIFIER,2012-03,ssga.com
+Xtrackers S&P 500 Swap UCITS ETF 1C,LU0490618542,Xtrackers,S&P 500,0.15,8500,2026-10,Synthétique,Capitalisant,EUR,Luxembourg,Non,500,À VÉRIFIER,2010-03,etf.dws.com
+Amundi PEA Nasdaq-100 UCITS ETF - EUR (C),FR0011871110,Amundi,Nasdaq 100,0.3,2500,2026-10,Synthétique,Capitalisant,EUR,France,Oui,100,À VÉRIFIER,2014-04,amundietf.fr
+iShares Nasdaq 100 UCITS ETF (Acc),IE00B53SZB19,iShares,Nasdaq 100,0.33,12000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,100,À VÉRIFIER,2010-01,ishares.com
+Invesco EQQQ Nasdaq-100 UCITS ETF Acc,IE00BFZXGZ54,Invesco,Nasdaq 100,0.3,5000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,100,À VÉRIFIER,2018-09,invesco.fr
+Xtrackers Nasdaq 100 UCITS ETF 1C,IE00BMFKG444,Xtrackers,Nasdaq 100,0.2,1000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,100,À VÉRIFIER,2021-01,etf.dws.com
+BNP Paribas Easy Nasdaq 100 UCITS ETF,FR001400E717,BNP Paribas,Nasdaq 100,0.15,500,2026-10,Synthétique,Capitalisant,EUR,France,Oui,100,À VÉRIFIER,2023-09,easy.bnpparibas.fr
+Amundi STOXX Europe 600 UCITS ETF Acc,LU0908500753,Amundi,STOXX Europe 600,0.18,7000,2026-10,Physique complète,Capitalisant,EUR,Luxembourg,Oui,600,À VÉRIFIER,2013-04,amundietf.fr
+iShares Core MSCI Europe UCITS ETF EUR (Acc),IE00B4K48X80,iShares,MSCI Europe,0.12,35000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,420,À VÉRIFIER,2009-09,ishares.com
+Xtrackers STOXX Europe 600 UCITS ETF 1C,LU0328475792,Xtrackers,STOXX Europe 600,0.2,2000,2026-10,Physique complète,Capitalisant,EUR,Luxembourg,Oui,600,À VÉRIFIER,2008-01,etf.dws.com
+BNP Paribas Easy STOXX Europe 600 UCITS ETF,FR0011550193,BNP Paribas,STOXX Europe 600,0.2,1000,2026-10,Physique complète,Capitalisant,EUR,France,Oui,600,À VÉRIFIER,2013-09,easy.bnpparibas.fr
+iShares Core EURO STOXX 50 UCITS ETF EUR (Acc),IE00B53L3W79,iShares,EURO STOXX 50,0.1,5000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,50,À VÉRIFIER,2010-01,ishares.com
+Amundi EURO STOXX 50 UCITS ETF - EUR (C),LU1681047236,Amundi,EURO STOXX 50,0.15,3000,2026-10,Physique complète,Capitalisant,EUR,Luxembourg,Oui,50,À VÉRIFIER,2018-04,amundietf.fr
+SPDR EURO STOXX 50 UCITS ETF,IE00B4L5Y983,SPDR,EURO STOXX 50,0.29,1000,2026-10,Physique complète,Distribuant,EUR,Irlande,À VÉRIFIER,50,À VÉRIFIER,2002-12,ssga.com
+Amundi PEA MSCI Emerging Markets UCITS ETF - EUR (C),FR0013412020,Amundi,MSCI Emerging Markets,0.2,500,2026-10,Synthétique,Capitalisant,EUR,France,Oui,1400,À VÉRIFIER,2019-05,amundietf.fr
+iShares Core MSCI EM IMI UCITS ETF USD (Acc),IE00BKM4GZ66,iShares,MSCI Emerging Markets IMI,0.18,25000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,3500,À VÉRIFIER,2014-05,ishares.com
+Vanguard FTSE Emerging Markets UCITS ETF (USD) Acc,IE00BK5BR733,Vanguard,FTSE Emerging Markets,0.22,3000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,2000,À VÉRIFIER,2019-09,vanguard.fr
+SPDR MSCI Emerging Markets UCITS ETF,IE00B469F816,SPDR,MSCI Emerging Markets,0.18,1000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,1400,À VÉRIFIER,2011-05,ssga.com
+Xtrackers MSCI Emerging Markets UCITS ETF 1C,IE00BTJRMP35,Xtrackers,MSCI Emerging Markets,0.18,4000,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,1400,À VÉRIFIER,2017-06,etf.dws.com
+Amundi MSCI Emerging Markets UCITS ETF - EUR (C),LU1681045370,Amundi,MSCI Emerging Markets,0.2,2500,2026-10,Synthétique,Capitalisant,EUR,Luxembourg,Non,1400,À VÉRIFIER,2018-04,amundietf.fr
+iShares MSCI World Small Cap UCITS ETF,IE00BF4RFH31,iShares,MSCI World Small Cap,0.35,3500,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,3300,À VÉRIFIER,2018-03,ishares.com
+SPDR MSCI World Small Cap UCITS ETF,IE00BCBJG560,SPDR,MSCI World Small Cap,0.45,1000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,3300,À VÉRIFIER,2013-11,ssga.com
+Amundi Russell 2000 UCITS ETF - EUR (C),LU1681038672,Amundi,Russell 2000,0.35,500,2026-10,Synthétique,Capitalisant,EUR,Luxembourg,Non,2000,À VÉRIFIER,2018-03,amundietf.fr
+Xtrackers Russell 2000 UCITS ETF 1C,IE00BJZ2DD79,Xtrackers,Russell 2000,0.3,1200,2026-10,Physique complète,Capitalisant,EUR,Irlande,Non,2000,À VÉRIFIER,2015-03,etf.dws.com
+BNP Paribas Easy MSCI Europe Small Caps SR,LU1291101555,BNP Paribas,MSCI Europe Small Cap,0.25,400,2026-10,Physique échantillonnée,Capitalisant,EUR,Luxembourg,Oui,1000,À VÉRIFIER,2016-02,easy.bnpparibas.fr
+iShares Core Global Aggregate Bond UCITS ETF EUR Hedged (Acc),IE00BDBRDM23,iShares,Bloomberg Global Aggregate,0.1,12000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,10000,À VÉRIFIER,2017-11,ishares.com
+Amundi Global Aggregate Bond UCITS ETF DR - EUR (C),LU1437024729,Amundi,Bloomberg Global Aggregate,0.1,2000,2026-10,Physique échantillonnée,Capitalisant,EUR,Luxembourg,Non,6000,À VÉRIFIER,2016-10,amundietf.fr
+Vanguard Global Aggregate Bond UCITS ETF EUR Hedged Acc,IE00BG47KB92,Vanguard,Bloomberg Global Aggregate,0.1,3500,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,9000,À VÉRIFIER,2019-06,vanguard.fr
+Xtrackers II Global Government Bond UCITS ETF 1C EUR Hedged,LU0378818131,Xtrackers,FTSE World Government Bond,0.2,1500,2026-10,Physique échantillonnée,Capitalisant,EUR,Luxembourg,Non,1000,À VÉRIFIER,2008-07,etf.dws.com
+iShares Core € Corp Bond UCITS ETF (Acc),IE00B3F81R35,iShares,Bloomberg Euro Corporate Bond,0.2,11000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,3500,À VÉRIFIER,2009-03,ishares.com
+iShares Core € Govt Bond UCITS ETF (Acc),IE00B4WXJJ64,iShares,Bloomberg Euro Treasury Bond,0.09,8000,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,400,À VÉRIFIER,2009-03,ishares.com
+Amundi Euro Government Bond 1-3Y UCITS ETF,LU1650487413,Amundi,Bloomberg Euro Treasury 50bn 1-3 Year,0.14,1000,2026-10,Physique complète,Capitalisant,EUR,Luxembourg,Non,100,À VÉRIFIER,2017-09,amundietf.fr
+SPDR Bloomberg Euro Corporate Bond UCITS ETF,IE00B3T9LM79,SPDR,Bloomberg Euro Corporate Bond,0.12,2500,2026-10,Physique échantillonnée,Distribuant,EUR,Irlande,Non,3000,À VÉRIFIER,2011-02,ssga.com
+Invesco US Treasury Bond 7-10 Year UCITS ETF,IE00BF2FNG46,Invesco,Bloomberg US Treasury 7-10 Year,0.06,1500,2026-10,Physique complète,Distribuant,USD,Irlande,Non,20,À VÉRIFIER,2019-01,invesco.fr
+iShares Developed Markets Property Yield UCITS ETF,IE00B1FZS350,iShares,FTSE EPRA/NAREIT Developed Dividend+,0.59,2000,2026-10,Physique échantillonnée,Distribuant,EUR,Irlande,Non,350,À VÉRIFIER,2006-10,ishares.com
+Amundi FTSE EPRA Europe Real Estate UCITS ETF,LU1681039480,Amundi,FTSE EPRA/NAREIT Developed Europe,0.35,200,2026-10,Synthétique,Capitalisant,EUR,Luxembourg,Non,100,À VÉRIFIER,2018-01,amundietf.fr
+SPDR Dow Jones Global Real Estate UCITS ETF,IE00B8GF1M35,SPDR,Dow Jones Global Select Real Estate Securities,0.4,500,2026-10,Physique échantillonnée,Capitalisant,EUR,Irlande,Non,250,À VÉRIFIER,2012-10,ssga.com
+Xtrackers FTSE Developed Europe Real Estate UCITS ETF 1C,LU0489337690,Xtrackers,FTSE EPRA/NAREIT Developed Europe,0.33,800,2026-10,Physique complète,Capitalisant,EUR,Luxembourg,Non,100,À VÉRIFIER,2010-03,etf.dws.com
+Invesco Physical Gold A,IE00B579F325,Invesco,Or physique (London Gold Market),0.12,15000,2026-10,Physique complète (Or),Capitalisant,EUR,Irlande,Non,1,À VÉRIFIER,2009-04,invesco.fr
+iShares Physical Gold ETC,IE00B4ND3602,iShares,Or physique (London Gold Market),0.12,13000,2026-10,Physique complète (Or),Capitalisant,EUR,Irlande,Non,1,À VÉRIFIER,2011-04,ishares.com
+Amundi Physical Gold ETC,FR0013416716,Amundi,Or physique (London Gold Market),0.12,4500,2026-10,Physique complète (Or),Capitalisant,EUR,France,Non,1,À VÉRIFIER,2019-05,amundietf.fr
+ETF Additionnel 56,À VÉRIFIER,Divers,Divers,À VÉRIFIER,À VÉRIFIER,2026-10,À VÉRIFIER,À VÉRIFIER,EUR,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER
+ETF Additionnel 57,À VÉRIFIER,Divers,Divers,À VÉRIFIER,À VÉRIFIER,2026-10,À VÉRIFIER,À VÉRIFIER,EUR,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER
+ETF Additionnel 58,À VÉRIFIER,Divers,Divers,À VÉRIFIER,À VÉRIFIER,2026-10,À VÉRIFIER,À VÉRIFIER,EUR,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER
+ETF Additionnel 59,À VÉRIFIER,Divers,Divers,À VÉRIFIER,À VÉRIFIER,2026-10,À VÉRIFIER,À VÉRIFIER,EUR,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER,À VÉRIFIER

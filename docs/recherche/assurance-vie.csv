@@ -1,0 +1,16 @@
+nom,assureur,frais_sur_versement_pct,frais_de_gestion_uc_pct,frais_de_gestion_fonds_euro_pct,nombre_ou_liste_d_etf_disponibles,fonds_euro,versement_minimum,versements_programmes,gestion_pilotee,source_url,date
+Linxea Avenir 2,Suravenir,0.0,0.6,0.6,Environ 110,Suravenir Opportunités 2 / Suravenir Rendement 2 (entre 2.5% et 4% avec bonus sur 3 ans),100,Oui,Oui,linxea.com,2026-10
+Linxea Spirit 2,Spirica (Crédit Agricole),0.0,0.5,2.0,Environ 110,Fonds Euro Nouvelle Génération (garanti net à 98%) / ~3.1% en 2023,500,Oui,Oui,linxea.com,2026-10
+Lucya Cardif,BNP Paribas Cardif,0.0,0.5,0.7,Environ 100,Fonds Général (3% en 2023 / bonus uc),500,Oui,Oui,assurancevie.com,2026-10
+BoursoBank Vie,Generali,0.0,0.75,0.75,Environ 45,"Euro Exclusif (3.10% en 2023, jusqu'à 4.60% avec bonus)",300,Oui,Oui,boursobank.com,2026-10
+Fortuneo Vie,Suravenir,0.0,0.75,0.6,Environ 80,Suravenir Opportunités 2 (2.50% de base),100,Oui,Oui,fortuneo.fr,2026-10
+Placement-direct Vie,Swiss Life,0.0,0.5,0.6,Environ 160,"Fonds Euro Swiss Life (rendement bonifié très variable selon part d'UC, 1.70% à 4%)",500,Oui,Oui,placement-direct.fr,2026-10
+Evolution Vie,Abeille Assurances,0.0,0.6,0.6,Environ 25,Actif Général Abeille (jusqu'à 4% et + avec bonus de versement),500,Oui,Oui,assurancevie.com,2026-10
+Yomoni Vie,Suravenir,0.0,1.60% (tout compris mandat et fonds),0.6,Gestion pilotée uniquement (paniers ETF),Suravenir,1000,Oui,Oui (Exclusive),yomoni.fr,2026-10
+Nalo Patrimoine,Generali,0.0,1.65% (tout compris),0.85,Gestion pilotée uniquement (paniers ETF),Netissima / Eurossima,1000,Oui,Oui (Exclusive multi-projets),nalo.fr,2026-10
+Ramify Vie,Apilife,0.0,1.30% (tout compris),0.75,Gestion pilotée ETF + SCPI,Fonds Apicil,1000,Oui,Oui (Exclusive),ramify.fr,2026-10
+Goodvest,Generali,0.0,1.80-1.90% (tout compris),À VÉRIFIER,Fonds ISR / climat,Non (fonds obligation vert à la place),300,Oui,Oui (Exclusive ISR),goodvest.fr,2026-10
+BforBank Vie,Spirica,0.0,0.85,0.7,À VÉRIFIER,Fonds Euro BforBank,1000,Oui,Oui,bforbank.com,2026-10
+Garance Epargne,Garance Mutuelle,1.0,0.6,0.6,Environ 20,"Fonds Garance (Souvent en tête, 3.50% en 2023, fort taux garanti)",100,Oui,À VÉRIFIER,garance-mutuelle.fr,2026-10
+Darjeeling,Swiss Life,0.0,0.6,0.6,100+,Fonds Euro Swiss Life,100,Oui,Oui,placement-direct.fr,2026-10
+Corum Life,Corum Life,0.0,0.0,Non applicable,Aucun (Fonds Corum uniquement : SCPI + Obligations),Aucun,50,Oui,Oui (Profilée gratuite sur fonds maison),corum.fr,2026-10

@@ -1,0 +1,4 @@
+profil,pct_actions_monde,pct_actions_emergents,pct_obligations,pct_or,pct_autres,rendement_annualise_historique,volatilite,pire_baisse_pct,periode,source_url
+Prudent,25,5,70,0,0,4.5,5.0,-12.0,2000-2026,Simulation théorique via Portfolio Visualizer (À VÉRIFIER)
+Equilibre,50,10,40,0,0,6.5,9.5,-28.0,2000-2026,Simulation théorique via Portfolio Visualizer (À VÉRIFIER)
+Dynamique,80,10,10,0,0,8.5,14.5,-45.0,2000-2026,Simulation théorique via Portfolio Visualizer (À VÉRIFIER)

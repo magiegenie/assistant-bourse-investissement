@@ -1,0 +1,7 @@
+classe_d_actifs,rendement_nominal_bas,rendement_nominal_central,rendement_nominal_haut,rendement_reel_central,volatilite_annuelle,source_url,date_source
+Actions Mondiales,5.0%,6.5%,8.0%,4.5%,15.0%,blackrock.com,2026
+Actions Américaines (US),4.5%,6.0%,7.5%,4.0%,16.0%,vanguard.com,2026
+Actions Européennes,5.5%,7.0%,8.5%,5.0%,17.0%,am.jpmorgan.com,2026
+Actions Émergentes,6.5%,8.0%,9.5%,6.0%,22.0%,researchaffiliates.com,2026
+Obligations d'État,3.0%,4.0%,5.0%,2.0%,6.0%,vanguard.com,2026
+Liquidités (Monétaire),2.0%,2.5%,3.0%,0.5%,0.5%,banque-france.fr,2026
