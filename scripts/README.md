@@ -29,3 +29,7 @@ date,montant
 - `python scripts/exposition.py prive/<prenom>` : exposition réelle par pays, part en dollars et grandes entreprises à travers les ETF (données datées dans `donnees/indices-pays.csv` et `indices-entreprises.csv`, à mettre à jour chaque trimestre). Colonne facultative `indice` dans positions.csv pour forcer le rattachement.
 - `python scripts/stress.py prive/<prenom>` : impact en euros de 6 scénarios de crise (hypothèses, pas des prévisions)
 - `python scripts/fiscalite.py pea 8000 24000 15000 --anciennete 6` : impôt estimé d'un retrait (enveloppe `cto`, `pea` ou `av`, retrait, valeur totale, total versé). Options : `--anciennete ANS`, `--couple` et `--primes MONTANT` (assurance vie), `--moins-values MONTANT` (CTO). Taux 2026 dans le dictionnaire `TAUX` du script, à revérifier chaque année (fiche C).
+
+## Tests et classeur
+- `python -m unittest discover tests` : vérifie les calculs sur le jeu fictif `templates/exemple/` (à lancer après toute modification d'un script)
+- `python scripts/creer_sheet.py [sortie.xlsx] [--exemple]` : génère le classeur de suivi (modèle vide par défaut)

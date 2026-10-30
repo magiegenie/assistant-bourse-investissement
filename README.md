@@ -28,11 +28,20 @@ Tes données (profil, portefeuille, budget, journal) sont dans `prive/<prénom>/
 ## Contenu du dépôt
 
 - `CLAUDE.md` : le Directeur, qui comprend ta demande et appelle le bon agent
-- `.claude/agents/` : les 5 agents
-- `connaissances/` : les 50 principes d'investissement et de budget, avec leurs sources
-- `scripts/` : les calculs (répartition, performance, projection)
-- `templates/` : modèles de profil, de budget et de portefeuille
-- `docs/` : cahier des charges et idées
+- `.claude/agents/` : les 5 agents, et `.claude/skills/manuel-<agent>/` : leur manuel de compétences, chargé au démarrage
+- `connaissances/` : les principes d'investissement et de budget, avec leurs sources
+- `scripts/` : les calculs (répartition, performance, projection, rééquilibrage, exposition, stress, fiscalité) et le générateur du classeur
+- `tests/` : tests des calculs (`python -m unittest discover tests`), sur le jeu fictif `templates/exemple/`
+- `templates/` : modèles de profil, de budget, de charte, de newsletter et le classeur `Portefeuille-complet.xlsx`
+- `docs/` : cahier des charges, idées, et `NEWSLETTER.md` (la newsletter automatique du dimanche)
+
+## Le classeur (Google Sheets ou Excel)
+
+`templates/Portefeuille-complet.xlsx` est un modèle vide de 15 feuilles : Dashboard (chiffres clés, alertes, graphiques), Paramètres, Actifs, Transactions, Positions, Historique, Cibles, Budget, Objectifs, Journal, Revenus et frais, Fiscalité, Idées, Veille. Pour l'utiliser dans Google Sheets : l'importer dans le dossier Drive « Assistant investissement », l'ouvrir, puis Fichier, Enregistrer au format Google Sheets, en gardant « Portefeuille » dans le titre. Pour le régénérer : `python scripts/creer_sheet.py` (ajouter `--exemple` pour une version remplie de données fictives).
+
+## La newsletter du dimanche
+
+Chaque dimanche à 18 h 47, une tâche planifiée Claude Code lit le Sheet, rassemble l'actualité de la semaine et l'agenda de la suivante, puis envoie un email. Détails et texte de la tâche : `docs/NEWSLETTER.md`.
 
 Aide à la réflexion uniquement, pas un conseil en investissement réglementé. Les clés API éventuelles vont dans `.env`, jamais dans le code.
 
