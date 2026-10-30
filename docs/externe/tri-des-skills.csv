@@ -1,0 +1,738 @@
+depot,skill,verdict,agent,competence,raison
+anthropics_financial-services-plugins,verify,écarté,,,"outil technique sans rapport (création de skills, PowerPoint, Microsoft 365)"
+anthropics_financial-services-plugins,audit-xls,retenu,analyste,Livrables tableur fiables,
+anthropics_financial-services-plugins,earnings-analysis,retenu,analyste,Lire les résultats d'une entreprise,
+anthropics_financial-services-plugins,earnings-preview,retenu,analyste,Lire les résultats d'une entreprise,
+anthropics_financial-services-plugins,model-update,écarté,,,"rapports d'analyste professionnel, couverts par equity-research et tear-sheet"
+anthropics_financial-services-plugins,morning-note,retenu,veilleur,Brief du jour,
+anthropics_financial-services-plugins,xlsx-author,retenu,analyste,Livrables tableur fiables,
+anthropics_financial-services-plugins,audit-xls,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,break-trace,écarté,,,comptabilité d'entreprise ou de fonds
+anthropics_financial-services-plugins,gl-recon,écarté,,,comptabilité d'entreprise ou de fonds
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,kyc-doc-parse,écarté,,,conformité KYC des établissements
+anthropics_financial-services-plugins,kyc-rules,écarté,,,conformité KYC des établissements
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,competitive-analysis,retenu,analyste,Avantage concurrentiel,
+anthropics_financial-services-plugins,comps-analysis,retenu,analyste,Valorisation par comparaison,
+anthropics_financial-services-plugins,idea-generation,écarté,,,génère des idées d'achat (contraire à nos règles)
+anthropics_financial-services-plugins,pptx-author,écarté,,,"outil technique sans rapport (création de skills, PowerPoint, Microsoft 365)"
+anthropics_financial-services-plugins,sector-overview,retenu,veilleur,Comprendre un secteur,
+anthropics_financial-services-plugins,client-report,retenu,analyste,Bilan et rapport de portefeuille,
+anthropics_financial-services-plugins,client-review,retenu,analyste,Revue périodique du portefeuille,
+anthropics_financial-services-plugins,investment-proposal,retenu,stratege,Proposition d'allocation et charte,
+anthropics_financial-services-plugins,pptx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,3-statement-model,retenu,analyste,Lire les états financiers,
+anthropics_financial-services-plugins,audit-xls,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,comps-analysis,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,dcf-model,retenu,analyste,Valorisation par les flux (DCF),
+anthropics_financial-services-plugins,lbo-model,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,accrual-schedule,écarté,,,comptabilité d'entreprise ou de fonds
+anthropics_financial-services-plugins,audit-xls,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,roll-forward,écarté,,,comptabilité d'entreprise ou de fonds
+anthropics_financial-services-plugins,variance-commentary,écarté,,,comptabilité d'entreprise ou de fonds
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,3-statement-model,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,audit-xls,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,comps-analysis,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,dcf-model,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,deck-refresh,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,ib-check-deck,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,lbo-model,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,pitch-deck,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,pptx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,sector-overview,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,audit-xls,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,nav-tieout,écarté,,,comptabilité d'entreprise ou de fonds
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,ic-memo,retenu,stratege,Mémo de décision,
+anthropics_financial-services-plugins,portfolio-monitoring,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,returns-analysis,retenu,analyste,Sensibilité des rendements,
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,bond-futures-basis,écarté,,,"trading institutionnel (dérivés, taux)"
+anthropics_financial-services-plugins,bond-relative-value,écarté,,,"trading institutionnel (dérivés, taux)"
+anthropics_financial-services-plugins,equity-research,retenu,analyste,Fiche entreprise (fondamentaux),
+anthropics_financial-services-plugins,fixed-income-portfolio,retenu,analyste,Poche obligataire,
+anthropics_financial-services-plugins,fx-carry-trade,écarté,,,"trading institutionnel (dérivés, taux)"
+anthropics_financial-services-plugins,macro-rates-monitor,retenu,veilleur,Tableau de bord macro et taux,
+anthropics_financial-services-plugins,option-vol-analysis,écarté,,,"trading institutionnel (dérivés, taux)"
+anthropics_financial-services-plugins,swap-curve-strategy,écarté,,,"trading institutionnel (dérivés, taux)"
+anthropics_financial-services-plugins,earnings-preview-single,retenu,analyste,Lire les résultats d'une entreprise,
+anthropics_financial-services-plugins,funding-digest,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,tear-sheet,retenu,analyste,Fiche entreprise (fondamentaux),
+anthropics_financial-services-plugins,catalyst-calendar,retenu,veilleur,Agenda des événements,
+anthropics_financial-services-plugins,earnings-analysis,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,earnings-preview,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,idea-generation,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,initiating-coverage,écarté,,,"rapports d'analyste professionnel, couverts par equity-research et tear-sheet"
+anthropics_financial-services-plugins,model-update,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,morning-note,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,sector-overview,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,thesis-tracker,retenu,coach,Thèse réfutable et suivi,
+anthropics_financial-services-plugins,3-statement-model,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,audit-xls,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,clean-data-xls,retenu,analyste,Livrables tableur fiables,
+anthropics_financial-services-plugins,competitive-analysis,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,comps-analysis,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,dcf-model,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,deck-refresh,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,ib-check-deck,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,lbo-model,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,ppt-template-creator,écarté,,,"outil technique sans rapport (création de skills, PowerPoint, Microsoft 365)"
+anthropics_financial-services-plugins,pptx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,skill-creator,écarté,,,"outil technique sans rapport (création de skills, PowerPoint, Microsoft 365)"
+anthropics_financial-services-plugins,xlsx-author,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,accrual-schedule,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,break-trace,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,gl-recon,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,nav-tieout,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,roll-forward,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,variance-commentary,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,buyer-list,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,cim-builder,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,datapack-builder,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,deal-tracker,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,merger-model,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,pitch-deck,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,process-letter,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,fsi-strip-profile,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,teaser,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,kyc-doc-parse,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,kyc-rules,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,ai-readiness,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,dd-checklist,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,dd-meeting-prep,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,deal-screening,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,deal-sourcing,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,ic-memo,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,portfolio-monitoring,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,returns-analysis,écarté,,,doublon exact d'un autre skill
+anthropics_financial-services-plugins,unit-economics,écarté,,,banque d'affaires ou private equity
+anthropics_financial-services-plugins,value-creation-plan,écarté,,,banque d'affaires ou private equity
+joellewis_finance_skills,advisor-dashboards,écarté,,,"gestion d'un cabinet de conseil (CRM, facturation)"
+joellewis_finance_skills,client-onboarding,écarté,,,"gestion d'un cabinet de conseil (CRM, facturation)"
+joellewis_finance_skills,client-reporting-delivery,écarté,,,"gestion d'un cabinet de conseil (CRM, facturation)"
+joellewis_finance_skills,client-review-prep,retenu,analyste,Revue périodique du portefeuille,
+joellewis_finance_skills,crm-client-lifecycle,écarté,,,"gestion d'un cabinet de conseil (CRM, facturation)"
+joellewis_finance_skills,fee-billing,écarté,,,"gestion d'un cabinet de conseil (CRM, facturation)"
+joellewis_finance_skills,financial-planning-integration,retenu,stratege,Démarche de plan financier,
+joellewis_finance_skills,financial-planning-workflow,retenu,stratege,Démarche de plan financier,
+joellewis_finance_skills,next-best-action,retenu,directeur,Suites possibles pertinentes,
+joellewis_finance_skills,order-management-advisor,écarté,,,"gestion d'un cabinet de conseil (CRM, facturation)"
+joellewis_finance_skills,portfolio-management-systems,écarté,,,"gestion d'un cabinet de conseil (CRM, facturation)"
+joellewis_finance_skills,proposal-generation,retenu,stratege,Proposition d'allocation et charte,
+joellewis_finance_skills,account-maintenance,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,account-opening-compliance,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,account-opening-workflow,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,account-transfers,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,corporate-actions,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,reconciliation,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,stp-automation,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,workflow-automation,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,advertising-compliance,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,advice-standards,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,anti-money-laundering,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,books-and-records,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,client-disclosures,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,conflicts-of-interest,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,examination-readiness,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,fee-disclosure,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,fiduciary-standards,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,gips-compliance,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,investment-suitability,retenu,stratege,Adéquation au profil,
+joellewis_finance_skills,know-your-customer,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,privacy-data-security,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,private-placements,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,reg-bi,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,regulatory-reporting,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,sales-practices,écarté,,,"réglementation américaine (FINRA, SEC)"
+joellewis_finance_skills,return-calculations,retenu,analyste,Mesure de performance,
+joellewis_finance_skills,statistics-fundamentals,retenu,analyste,Statistiques de base,
+joellewis_finance_skills,time-value-of-money,retenu,stratege,Objectifs et épargne nécessaire,
+joellewis_finance_skills,data-quality,retenu,analyste,Données de marché fiables,
+joellewis_finance_skills,integration-patterns,écarté,,,intégration de données d'entreprise
+joellewis_finance_skills,market-data,retenu,veilleur,Données de marché fiables,
+joellewis_finance_skills,reference-data,écarté,,,intégration de données d'entreprise
+joellewis_finance_skills,counterparty-risk,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,exchange-connectivity,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,margin-operations,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,operational-risk,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,order-lifecycle,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,post-trade-compliance,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,pre-trade-compliance,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,settlement-clearing,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,trade-execution,écarté,,,opérations d'un établissement financier
+joellewis_finance_skills,alternatives,retenu,analyste,Immobilier et actifs réels,
+joellewis_finance_skills,asset-allocation,retenu,stratege,Allocation stratégique,
+joellewis_finance_skills,bet-sizing,retenu,analyste,Taille maximale d'une ligne,
+joellewis_finance_skills,commodities,retenu,analyste,Or et matières premières,
+joellewis_finance_skills,currencies-and-fx,retenu,analyste,Exposition aux devises,
+joellewis_finance_skills,debt-management,retenu,conseiller-budget,Dettes et crédit,
+joellewis_finance_skills,digital-assets,retenu,analyste,Crypto-actifs,
+joellewis_finance_skills,diversification,retenu,analyste,Diversification,
+joellewis_finance_skills,emergency-fund,retenu,conseiller-budget,Épargne de précaution,
+joellewis_finance_skills,equities,retenu,analyste,Fiche entreprise (fondamentaux),
+joellewis_finance_skills,equity-compensation,retenu,stratege,Épargne salariale et actions gratuites,
+joellewis_finance_skills,estate-gifting,retenu,stratege,Transmission,
+joellewis_finance_skills,factor-investing,retenu,analyste,"Facteurs (value, petites capitalisations)",
+joellewis_finance_skills,finance-psychology,retenu,coach,Psychologie de l'argent,
+joellewis_finance_skills,financial-statements,retenu,analyste,Lire les états financiers,
+joellewis_finance_skills,fixed-income-corporate,retenu,analyste,Poche obligataire,
+joellewis_finance_skills,fixed-income-municipal,écarté,,,"produit américain ou hors besoin (obligations municipales, titrisation, dérivés)"
+joellewis_finance_skills,fixed-income-sovereign,retenu,analyste,Poche obligataire,
+joellewis_finance_skills,fixed-income-structured,écarté,,,"produit américain ou hors besoin (obligations municipales, titrisation, dérivés)"
+joellewis_finance_skills,forward-risk,écarté,,,"produit américain ou hors besoin (obligations municipales, titrisation, dérivés)"
+joellewis_finance_skills,fund-vehicles,retenu,analyste,Choisir un fonds ou un ETF,
+joellewis_finance_skills,historical-risk,retenu,analyste,Risque historique,
+joellewis_finance_skills,insurance-planning,retenu,conseiller-budget,Assurances et prévoyance,
+joellewis_finance_skills,investment-policy,retenu,stratege,Proposition d'allocation et charte,
+joellewis_finance_skills,lending,retenu,conseiller-budget,Dettes et crédit,
+joellewis_finance_skills,liquidity-management,retenu,conseiller-budget,Trésorerie du foyer,
+joellewis_finance_skills,performance-attribution,retenu,analyste,Mesure de performance,
+joellewis_finance_skills,performance-metrics,retenu,analyste,Mesure de performance,
+joellewis_finance_skills,performance-reporting,retenu,analyste,Bilan et rapport de portefeuille,
+joellewis_finance_skills,qualitative-valuation,retenu,analyste,Avantage concurrentiel,
+joellewis_finance_skills,quantitative-valuation,retenu,analyste,Valorisation par les flux (DCF),
+joellewis_finance_skills,real-assets,retenu,analyste,Immobilier et actifs réels,
+joellewis_finance_skills,rebalancing,retenu,analyste,Rééquilibrage,
+joellewis_finance_skills,retirement-decumulation,retenu,stratege,Retraite et retraits,
+joellewis_finance_skills,savings-goals,retenu,stratege,Objectifs et épargne nécessaire,
+joellewis_finance_skills,tax-efficiency,retenu,stratege,Optimisation fiscale des enveloppes,
+joellewis_finance_skills,tax-loss-harvesting,retenu,stratege,Optimisation fiscale des enveloppes,
+joellewis_finance_skills,volatility-modeling,retenu,analyste,Risque historique,
+longonlyx_Skills,portfolio-cio,écarté,,,"idées déjà reprises (stress test, historique) ; recommandations chiffrées contraires à nos règles"
+lyndonkl_claude,abstraction-concrete-examples,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,academic-letter-architect,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,adr-architecture,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,adverse-selection-prior,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,advisory-edit,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,alignment-values-north-star,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,analogy-weight-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,anomaly-fraud-scanner,retenu,conseiller-budget,Détection d'anomalies et fraudes,
+lyndonkl_claude,answer-uncomfortable-question,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,attribute-performance,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,auction-first-price-shading,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,auction-winners-curse-haircut,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,audit-drift,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,bayesian-reasoning-calibration,retenu,coach,Calibration des croyances,
+lyndonkl_claude,brainstorm-diverge-converge,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,business-narrative-builder,retenu,analyste,Histoire et chiffres d'une entreprise,
+lyndonkl_claude,career-document-architect,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,cash-flow-forecaster,retenu,conseiller-budget,Trésorerie du foyer,
+lyndonkl_claude,category-allocation-best-response,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,category-trend-analyzer,retenu,conseiller-budget,Suivi des dépenses par catégorie,
+lyndonkl_claude,causal-inference-root-cause,retenu,veilleur,Ne pas inventer de récit,
+lyndonkl_claude,chain-estimation-decision-storytelling,retenu,stratege,Décider sous incertitude,
+lyndonkl_claude,chain-roleplay-debate-synthesis,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,chain-spec-risk-metrics,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,check-analogy-novelty,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,check-corpus-readiness,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,chef-assistant,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,citation-form-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,claim-extractor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,classify-claim,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,classify-post-to-section,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,closer-critique,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,cluster-corpus-by-theme,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,code-data-analysis-scaffolds,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,cognitive-design,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,cognitive-fallacies-guard,retenu,analyste,Graphiques honnêtes,
+lyndonkl_claude,communication-storytelling,retenu,directeur,Synthèse claire,
+lyndonkl_claude,company-classification-routing,retenu,analyste,Fiche entreprise (fondamentaux),
+lyndonkl_claude,component-extraction,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,compute-baseline,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,concept-rediscovery-walk,retenu,coach,Pédagogie,
+lyndonkl_claude,conf-abstract-enrichment,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,conf-pipeline-orchestration,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,conf-preference-elicitation,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,conf-program-extraction,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,conf-schedule-optimization,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,conf-theme-clustering,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,constraint-based-creativity,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,corporate-governance-analysis,retenu,analyste,Gouvernance d'une entreprise,
+lyndonkl_claude,cost-of-capital-toolkit,retenu,analyste,Valorisation par les flux (DCF),
+lyndonkl_claude,cross-poster-blurb,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,cross-ref-topic-ledger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,cross-reference-claim,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,d3-visualization,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,data-schema-knowledge-modeling,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,dcf-valuation-engine,retenu,analyste,Valorisation par les flux (DCF),
+lyndonkl_claude,debt-design,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,decision-matrix,retenu,stratege,Décider sous incertitude,
+lyndonkl_claude,decomposition-reconstruction,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,dedupe-against-corpus,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,deliberation-debate-red-teaming,retenu,coach,Avocat du diable,
+lyndonkl_claude,derive-section-voice-overlay,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,design-evaluation-audit,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,design-of-experiments,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,dialectical-mapping-steelmanning,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,discovery-interviews-surveys,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,domain-research-health-science,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,embedding-fusion-strategy,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,environmental-scanning-foresight,retenu,veilleur,Veille structurée,
+lyndonkl_claude,equivariant-architecture-designer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,estimation-fermi,retenu,coach,Pédagogie,
+lyndonkl_claude,ethics-safety-impact,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,evaluation-rubrics,retenu,directeur,Contrôle qualité des réponses,
+lyndonkl_claude,expected-value,retenu,stratege,Décider sous incertitude,
+lyndonkl_claude,experiential-kolb-teaching,retenu,coach,Pédagogie,
+lyndonkl_claude,extract-thread-spine,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,facilitation-patterns,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,fetch-arxiv-recent,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,fetch-preprint-recent,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,fetch-public-page-stats,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,fetch-pubmed-recent,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,fetch-substack-stats,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,fetch-watchlist-sources,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,financial-data-sourcing,retenu,analyste,Données de marché fiables,
+lyndonkl_claude,financial-statement-normalization,retenu,analyste,Lire les états financiers,
+lyndonkl_claude,financial-unit-economics,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,flag-boundary-break,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,focus-timeboxing-8020,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,forecast-premortem,retenu,coach,Pré-mortem,
+lyndonkl_claude,generate-analogy-set,retenu,coach,Pédagogie,
+lyndonkl_claude,genomics-viz,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,geometric-algebraic-bridge,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,glossary-alignment-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,goal-reset-proposal,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,grant-proposal-assistant,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,graphrag-evaluation,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,graphrag-system-design,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,hedge-detector,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,heuristics-and-checklists,retenu,coach,Listes de contrôle,
+lyndonkl_claude,high-dim-intuition-rebuild,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,hook-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,household-finance-dashboard-builder,retenu,conseiller-budget,Tableau de bord du foyer,
+lyndonkl_claude,hsa-receipt-vault,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,hypotheticals-counterfactuals,retenu,stratege,Décider sous incertitude,
+lyndonkl_claude,identify-kill-list,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,information-architecture,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,ingest-inbox-item,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,ingest-substack-csv,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,inspectional-reading,retenu,veilleur,Lire vite un document,
+lyndonkl_claude,kill-criteria-exit-ramps,retenu,coach,Critères de sortie écrits à l'avance,
+lyndonkl_claude,knowledge-graph-construction,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,ladder-of-abstraction,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,layered-reasoning,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,learning-in-public-voice,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,linkedin-post-rewrite,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,map-analogy-to-concept,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mapping-visualization-scaffolds,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,markdown-to-pdf,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,market-mechanics-betting,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mastery-assessment,retenu,coach,Pédagogie,
+lyndonkl_claude,matchup-win-probability-sim,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mcphee-structure-derivation,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,memory-retrieval-learning,retenu,coach,Pédagogie,
+lyndonkl_claude,meta-prompt-engineering,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,metrics-tree,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,ml-primitive-decoder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-beginner-translator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-category-state-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-closer-tracker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-decision-logger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-faab-sizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-league-state-reader,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-matchup-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-opponent-profiler,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-player-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-playoff-scheduler,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-regression-flagger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-signal-emitter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-trade-evaluator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,mlb-two-start-scout,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,model-equivariance-auditor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,monte-carlo-valuation,retenu,stratege,Projections en probabilités,
+lyndonkl_claude,morphological-analysis-triz,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,narrative-arc-mapping,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,narrative-evidence-ledger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,narrative-fallacy-guard,retenu,veilleur,Ne pas inventer de récit,
+lyndonkl_claude,narrative-fidelity-audit,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,narrative-form-triage,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,narrative-handoff-contract,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,narrative-opposition-web,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,narrative-to-numbers,retenu,analyste,Histoire et chiffres d'une entreprise,
+lyndonkl_claude,negative-contrastive-framing,retenu,coach,Pédagogie,
+lyndonkl_claude,negotiation-alignment-governance,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,normalize-format,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,numbers-in-narrative,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,one-pager-prd,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,opener-critique,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,opponent-archetype-classifier,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,option-valuation-toolkit,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,paid-tier-readiness-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,paper-cluster-by-theme,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,paper-relevance-filter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,paper-three-pass-extraction,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,paragraph-rhythm-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,payout-policy-analysis,retenu,analyste,Dividendes et rachats,
+lyndonkl_claude,pdf-statement-parser,retenu,analyste,Lire un relevé de courtier,
+lyndonkl_claude,per-section-tracking,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,platform-voice-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,portfolio-drift-rebalancer,retenu,analyste,Rééquilibrage,
+lyndonkl_claude,portfolio-roadmapping-bets,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,postmortem,retenu,coach,Bilan des décisions,
+lyndonkl_claude,prioritization-effort-impact,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,product-hiding-scan,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,project-investment-analysis,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,project-risk-register,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,propose-counterfactual,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,propose-section,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,prose-force-and-rhythm,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,prototyping-pretotyping,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,quarterly-zoomout,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,rank-by-user-fit,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,readability-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,reader-first-prose,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,recommend-prune,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,recurring-charge-detector,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,reference-class-forecasting,retenu,stratege,Objectifs réalistes,
+lyndonkl_claude,relative-valuation-toolkit,retenu,analyste,Valorisation par comparaison,
+lyndonkl_claude,research-claim-map,retenu,veilleur,Vérifier une information,
+lyndonkl_claude,retrieval-search-orchestration,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,reviews-retros-reflection,retenu,coach,Bilan des décisions,
+lyndonkl_claude,roadmap-backcast,retenu,stratege,Planifier à rebours,
+lyndonkl_claude,role-switch,retenu,coach,Avocat du diable,
+lyndonkl_claude,scene-construction-scam,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,scientific-clarity-checker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,scientific-email-polishing,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,scientific-manuscript-review,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,score-intuition-density,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,scout-mindset-bias-check,retenu,coach,Détection des biais,
+lyndonkl_claude,search-corpus,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,section-break-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,section-portfolio-assessment,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,security-threat-model,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,skill-construction,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,skill-creator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,slop-detector,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,socratic-teaching-scaffolds,retenu,coach,Pédagogie,
+lyndonkl_claude,special-situation-models,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,spoken-draft-cleanup,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,stakeholders-org-design,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,statement-reconciler,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,strategist-voice,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,strategy-and-competitive-analysis,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,stress-test-analogy,retenu,coach,Pédagogie,
+lyndonkl_claude,structural-analysis,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,structural-review,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,substack-note-rewrite,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,summarize-signal,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,sweep-stale-seeds,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,symmetry-discovery-questionnaire,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,symmetry-group-identifier,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,symmetry-validation-suite,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,synthesis-and-analogy,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,synthesis-application,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,systemic-protagonist,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,systems-thinking-leverage,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,tag-by-topic,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,tax-loss-harvest-scanner,retenu,stratege,Optimisation fiscale des enveloppes,
+lyndonkl_claude,term-interrogation,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,transaction-categorizer,retenu,conseiller-budget,Suivi des dépenses par catégorie,
+lyndonkl_claude,transaction-deduplicator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,translation-reframing-audience-shift,retenu,directeur,Adapter le niveau d'explication,
+lyndonkl_claude,update-analogy-catalog,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,update-audience-notes,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,update-section-map,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,update-topic-ledger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,update-watchlist,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,valuation-consistency-checks,retenu,analyste,Contre-expertise d'une valorisation,
+lyndonkl_claude,valuation-red-team,retenu,analyste,Contre-expertise d'une valorisation,
+lyndonkl_claude,valuation-reporting,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,variance-strategy-selector,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,visual-storytelling-design,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,visualization-choice-reporting,retenu,analyste,Graphiques honnêtes,
+lyndonkl_claude,voice-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,voice-fitness-check,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-archetype-mutation,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-building-block-crossover,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-captain-ladder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-chip-timing,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-clean-sheet-model,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-decision-board,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-decision-logger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-fitness-eval,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-fixture-progression,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-matchday-timing,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-ownership-meta,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-player-ev,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-population-diversity,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-signal-emitter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-tournament-state,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,wc-transfer-planner,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,worked-example-walkthrough,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,write-review-artifact,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,write-section-promise,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,write-weekly-digest,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,write-weekly-report,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,writing-pre-publish-checklist,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,writing-revision,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,writing-stickiness,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,writing-structure-planner,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,x-thread-rewrite,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+lyndonkl_claude,zettel-note,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,accessibility-auditor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,agent-army,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,agent-eval-harness,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,agent-swarm-deployer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,agent-team-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,agent-to-agent,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,ai-coding-guardrails,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,ai-readiness-assessment,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,animate,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,api-documentation-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,api-endpoint-scaffolder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,api-load-tester,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,athlete-social-media-manager,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,before-you-build,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,bi-measure-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,board-deck-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,bookkeeping-close,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,bracket-predictor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,brand-consistency-checker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,brand-voice-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,browser-test-loop,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,budget-optimizer,retenu,conseiller-budget,Suivi des dépenses par catégorie,
+onewave-ai_claude-skills,cash-flow-forecaster,retenu,conseiller-budget,Trésorerie du foyer,
+onewave-ai_claude-skills,champion-identifier,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,churn-autopsy,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,claude-design-critic,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,claude-design-system-architect,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,claude-landing-composer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,claude-md-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,client-health-dashboard,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,client-proposal-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,code-review-pro,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cold-email-sequence-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,color-palette-extractor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,commercial-lease-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,company-announcement-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,competitor-content-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,competitor-intel-agent,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,competitor-price-tracker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,compliance-checker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,contact-hunter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,content-repurposer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,context-budget,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,contract-analyzer,retenu,conseiller-budget,Lire un contrat,
+onewave-ai_claude-skills,contract-redliner,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,conversation-archaeologist,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-calendar-defrag,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-contract-renewal-radar,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-data-room-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-deal-room,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-expense-audit,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-folder-organizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-hiring-screener,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-home-inventory,retenu,conseiller-budget,Assurances et prévoyance,
+onewave-ai_claude-skills,cowork-inbox-triage,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-invoice-chaser,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-medical-bill-auditor,retenu,conseiller-budget,Assurances et prévoyance,
+onewave-ai_claude-skills,cowork-qbr-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-rfp-response,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-sop-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cowork-tax-prep-organizer,retenu,stratege,Préparer sa déclaration,
+onewave-ai_claude-skills,cowork-vendor-comparison,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,crm-data-cleanup,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,cross-conversation-project-manager,retenu,directeur,Suivi entre les séances,
+onewave-ai_claude-skills,css-animation-creator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,csv-excel-merger,retenu,analyste,Livrables tableur fiables,
+onewave-ai_claude-skills,customer-journey-mapper,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,customer-panel-of-experts,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,customer-review-aggregator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,dark-mode-converter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,data-pipeline-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,database-migrator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,database-schema-designer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,deal-closer-playbook,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,deal-momentum-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,deal-review-framework,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,debate-simulator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,dependency-auditor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,design-export-repair,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,design-style-installer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,design-system-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,design-tokens-sync,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,devils-advocate,retenu,coach,Avocat du diable,
+onewave-ai_claude-skills,docker-debugger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,email-subject-line-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,email-template-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,employee-handbook-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,env-setup-wizard,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,error-boundary-creator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,executive-dashboard-generator,retenu,analyste,Bilan et rapport de portefeuille,
+onewave-ai_claude-skills,expansion-revenue-finder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,expert-panel,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,fantasy-lineup-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,financial-goal-planner,retenu,stratege,Objectifs et épargne nécessaire,
+onewave-ai_claude-skills,financial-parser,retenu,conseiller-budget,Suivi des dépenses par catégorie,
+onewave-ai_claude-skills,flashcard-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,font-pairing-suggester,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,fresh-library-docs,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,full-codebase-migrator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,game-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,game-recap-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,game-strategy-simulator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,gillby-water,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,git-pr-reviewer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,gmail-to-crm-pipeline,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,grill-the-brief,retenu,directeur,Clarifier une demande,
+onewave-ai_claude-skills,highlight-reel-scripter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,hiring-scorecard,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,hyperframes-ad-director,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,hyperframes-explainer-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,hyperframes-local-promo,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,hyperframes-sales-demo-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,hyperframes-testimonial-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,hypothesis-testing-engine,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,icp-deep-scanner,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,inbound-lead-qualifier,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,incident-responder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,injury-report-tracker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,intent-signal-aggregator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,internal-email-composer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,inventory-reorder-planner,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,investor-update-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,itinerary-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,jev-audit,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,jev-eval,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,jev-integrate,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,job-application-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,job-post-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,job-profitability-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,knowledge-base-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,landing-page-copywriter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,landing-page-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,lead-scoring-model,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,linkedin-post-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,linkedin-sales-navigator-alt,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,local-seo-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,lookalike-customer-finder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,market-sizing,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,mcp-server-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,meeting-intelligence,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,meeting-to-tasks,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,motion-language-designer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,multi-agent-client-onboarding,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,mvp-case-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,objection-pattern-detector,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,okr-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,onboarding-checklist,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,overnight-repo-auditor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,performance-profiler,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,personalization-at-scale,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,pipeline-health-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,pitch-deck-reviewer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,plan-in-files,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,play-by-play-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,player-comparison-tool,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,agent-army,écarté,,,doublon exact d'un autre skill
+onewave-ai_claude-skills,scout,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,scout-pro,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,podcast-content-suite,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,podcast-studio,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,portfolio-analyzer,retenu,analyste,Bilan et rapport de portefeuille,
+onewave-ai_claude-skills,post-game-press-conference-simulator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,practice-plan-creator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,presentation-design-enhancer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,pricing-change-strategist,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,pricing-strategy,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,product-launch-war-room,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,prospect-panel-simulator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,prospect-research-compiler,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,quiz-maker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,quota-setting-calculator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,raise-negotiation-prep,retenu,conseiller-budget,Augmenter ses revenus,
+onewave-ai_claude-skills,ramping-rep-tracker,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,react-component-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,reddit-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,regex-debugger,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,renewal-predictor,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,rep-performance-scorecard,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,responsive-layout-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,review-response-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,roi-calculator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,runbook-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,saas-replacement-planner,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sales-call-prep-assistant,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sales-coaching-plan-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sales-comp-plan-designer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sales-forecast-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sales-methodology-implementer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,scout,écarté,,,doublon exact d'un autre skill
+onewave-ai_claude-skills,scout-pro,écarté,,,doublon exact d'un autre skill
+onewave-ai_claude-skills,scouting-report-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,screenshot-to-code,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sec-filing-puller,retenu,analyste,Fiche entreprise (fondamentaux),
+onewave-ai_claude-skills,security-pentest-planner,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,seo-keyword-cluster-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,seo-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,session-handoff,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,skill-composer-studio,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,skill-navigator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,slack-message-formatter,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sms-text-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,social-repurposer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,social-selling-content-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sow-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sports-betting-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sports-meme-creator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sports-podcast-outline-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sports-trivia-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,spreadsheet-model-auditor,retenu,analyste,Livrables tableur fiables,
+onewave-ai_claude-skills,spreadsheet-qa,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,statement-extract-and-prove,retenu,analyste,Lire un relevé de courtier,
+onewave-ai_claude-skills,static-analysis-sweep,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,stock-photo-finder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,sub-agent-orchestrator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,tax-strategy-optimizer,retenu,stratege,Optimisation fiscale des enveloppes,
+onewave-ai_claude-skills,team-chemistry-evaluator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,tech-due-diligence,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,technical-writer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,template-deck-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,territory-planning-optimizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,test-coverage-improver,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,trade-quote-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,training-log-analyzer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,trash-talk-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,typography-scale-builder,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,utm-link-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,utm-parameter-generator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,weak-signal-synthesizer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,webinar-content-repurposer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,webinar-to-content-multiplier,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,weekly-business-report,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,workflow-automator,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+onewave-ai_claude-skills,workout-program-designer,écarté,,,"hors sujet (code, design, marketing, vente, sport, écriture de newsletter...)"
+staskh_trading_skills,earnings-calendar,retenu,veilleur,Agenda des événements,
+staskh_trading_skills,fundamentals,retenu,analyste,Fiche entreprise (fondamentaux),
+staskh_trading_skills,greeks,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-account,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-collar,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-create-consolidated-report,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-find-short-roll,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-option-chain,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-pmcc-advisor,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-portfolio,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-portfolio-action-report,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-report-delta-adjusted-notional-exposure,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-stop-loss,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-trades-history,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib-trailing-stop,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,ib_0dte,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,insider-trading,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,markdown-to-pdf,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,news-sentiment,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,option-chain,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,price-history,retenu,veilleur,Données de marché fiables,
+staskh_trading_skills,report-stock,retenu,analyste,Fiche entreprise (fondamentaux),
+staskh_trading_skills,risk-assessment,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,scanner-bullish,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,scanner-pmcc,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,spread-analysis,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,stock-quote,retenu,veilleur,Données de marché fiables,
+staskh_trading_skills,technical-analysis,écarté,,,trading actif ou options (contraire à nos règles)
+staskh_trading_skills,whale-hunting,écarté,,,trading actif ou options (contraire à nos règles)

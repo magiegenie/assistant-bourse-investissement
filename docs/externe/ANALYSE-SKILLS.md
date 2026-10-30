@@ -49,3 +49,28 @@ Aucun skill ne couvre la fiscalité française (PEA, assurance vie, PFU, prélè
 | Serveur MCP `financial-mcp-server` (déclaré MIT dans pyproject, pas de fichier LICENSE) | `externe/triplom_financial-mcp-server/.venv` + `.mcp.json` (ignoré par git, chemin propre à ce PC) | `pip install -e .` dans un environnement dédié, `mcp` limité à la version 1.x (la 2.x fait planter le serveur) | 24 outils testés : cours de CW8.PA reçu. Clés facultatives (FRED, Tiingo...) dans un fichier `.env` du dossier du serveur. Accès donné au Veilleur et à l'Analyste. |
 
 Sur un autre ordinateur, il faudra refaire ces installations (le dossier `externe/` et `.mcp.json` ne sont pas versionnés).
+
+## 6. Fusion dans les agents (30/10/2026)
+
+Les skills autonomes ne sont plus dans le projet : `.claude/skills/` est supprimé (client-report, client-review, investment-proposal, report-stock). Leur contenu est fusionné dans un **manuel de compétences par agent** (`connaissances/agents/`), que chaque agent ouvre au besoin. Le Directeur a aussi le sien. Le code de `report-stock` (Python 3.13) n'est plus utilisé : l'Analyste fait la fiche entreprise avec le serveur `financial-data`.
+
+**Tri** : 737 fichiers de skills lus (hors le dépôt `anthropics/financial-services`, identique à `-plugins`), dont 51 doublons exacts. **148 retenus, 78 compétences** distinctes ; détail ligne par ligne dans `tri-des-skills.csv` (verdict, agent, compétence, raison) et inventaire brut dans `inventaire-brut.csv`.
+
+| Dépôt | Skills lus | Retenus | Écartés |
+|---|---|---|---|
+| Anthropic (64 skills distincts) | 112 fichiers | 23 | banque d'affaires et private equity, comptabilité, KYC, trading institutionnel, outils Microsoft 365 et PowerPoint |
+| joellewis | 91 | 46 | réglementation américaine, opérations d'établissement, cabinet de conseil, intégration de données |
+| lyndonkl | 271 | 55 | sport fantasy, écriture de newsletter, architecture logicielle, science et recherche |
+| onewave-ai | 233 | 19 | vente, marketing, design, code, rédaction |
+| staskh | 29 | 5 | trading d'options et Interactive Brokers |
+| longonlyx | 1 | 0 | idées déjà reprises, recommandations contraires à nos règles |
+
+Répartition des 148 retenus : Analyste 65, Stratège 26, Coach 21, Conseiller budget 17, Veilleur 13, Directeur 6 (plusieurs skills se fondent en une même compétence).
+
+**Anthropic n'a pas 86 skills utiles pour un particulier** : sur 64 skills distincts, 23 sont retenus. Les autres servent des métiers que notre équipe n'a pas (banquier d'affaires, comptable, fonds de capital-investissement). Anthropic a été prioritaire à chaque fois qu'un de ses skills couvrait une compétence ; sinon c'est la meilleure version parmi les autres dépôts.
+
+**Retiré systématiquement des skills retenus** : recommandations d'achat et de vente, objectifs de cours, « idées de trades », vocabulaire de conformité américaine, fiscalité américaine (401k, IRA, 529, wash sale).
+
+## 7. Serveurs d'actualité (non installés, décision en attente)
+
+Candidats gratuits repérés : `feed-mcp` (PyPI, MIT, lecteur de flux RSS avec recherche), `feed-reader-mcp` (npm, MIT), `mcp-server-fetch` (serveur de référence du projet Model Context Protocol, lit une page web). Flux testés depuis ce poste : BCE (communiqués de presse), Le Monde économie et BBC Business répondent ; AMF, INSEE, Les Échos, Boursorama et Zonebourse bloquent les robots ou ne répondent pas. Les paquets `feed-mcp` et `mcp-server-fetch` ont été téléchargés dans `externe/.venv-actu` mais **jamais lancés ni branchés** : le lancement a été refusé tant qu'ils n'ont pas été validés. En attendant, le Veilleur dispose de la recherche web et de `financial-data` (`get_stock_news`, `get_crypto_news`).
