@@ -27,7 +27,7 @@ ORDRE = ["banque centrale", "statistique", "regulateur", "presse", "emetteur ETF
 
 def lire_sources(chemin=RACINE / "donnees" / "sources.csv"):
     with open(chemin, encoding="utf-8") as f:
-        return [r for r in csv.DictReader(f) if r.get("url_flux")]
+        return [r for r in csv.DictReader(f) if r.get("url_flux") and r.get("statut") != "exclue"]
 
 
 def telecharger(url, delai=20):
