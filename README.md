@@ -33,7 +33,9 @@ Tes données (profil, portefeuille, budget, journal) sont dans `prive/<prénom>/
 - `scripts/` : les calculs (répartition, performance, projection, rééquilibrage, exposition, stress, fiscalité) et le générateur du classeur
 - `tests/` : tests des calculs (`python -m unittest discover tests`), sur le jeu fictif `templates/exemple/`
 - `templates/` : modèles de profil, de budget, de charte, de newsletter et le classeur `Portefeuille-complet.xlsx`
-- `docs/` : cahier des charges, idées, et `NEWSLETTER.md` (la newsletter automatique du dimanche)
+- `docs/` : `GUIDE.md` (que demander et quand), `NEWSLETTER.md` (la newsletter du dimanche), `veille/` (titres de la semaine collectés automatiquement), `evaluations/` (notes du banc d'essai des agents), cahier des charges
+- `donnees/` : indices (composition datée), catalogue de sources, calendrier des rendez-vous
+- `.github/workflows/veille-hebdo.yml` : chaque dimanche, collecte des flux publics, vérification des sources et tests
 
 ## Le classeur (Google Sheets ou Excel)
 
