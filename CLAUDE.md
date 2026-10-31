@@ -50,3 +50,14 @@ Ensuite : copie `templates/profil-modele.md` et `templates/budget-modele.md` dan
 ## 5. Confidentialité
 
 Tout ce qui est personnel va **uniquement** dans `prive/` (ignoré par git). Ne jamais écrire de montant, de nom ou de position réels ailleurs dans le dépôt.
+
+## 6. Tenir le guide à jour (obligatoire)
+
+Le guide d'utilisation est `docs/GUIDE.md` (source) et `docs/Guide-assistant-bourse-investissement.pdf` (PDF généré). **À chaque nouveauté importante** (nouvel agent ou routine, nouveau script, nouveau serveur MCP, nouvelle fiche ou nouveau manuel, changement de règle, fonction qui passe de « prévue » à « disponible »), avant de terminer :
+
+1. Mettre à jour la section concernée de `docs/GUIDE.md` (une section par sujet : veille, analyse, budget, stratégie, coach, scripts, serveurs, connaissances...).
+2. Augmenter la version et la date dans l'en-tête, et ajouter une ligne au « Journal des versions » (chapitre 17), et à « Historique du système » si pertinent.
+3. Régénérer le PDF : `python scripts/generer_guide.py`.
+4. Committer le tout et **pousser sur `origin`** (https://github.com/magiegenie/assistant-bourse-investissement). Toute mise à jour du dépôt est poussée sur ce GitHub.
+
+Jamais de donnée personnelle dans le guide (exemples fictifs uniquement).

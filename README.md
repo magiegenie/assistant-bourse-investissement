@@ -32,7 +32,8 @@ Tes données (profil, portefeuille, budget, journal) sont dans `prive/<prénom>/
 - `connaissances/` : les 50 principes d'investissement et de budget, avec leurs sources
 - `scripts/` : les calculs (répartition, performance, projection)
 - `templates/` : modèles de profil, de budget et de portefeuille
-- `docs/` : cahier des charges et idées
+- `docs/Guide-assistant-bourse-investissement.pdf` : **le guide d'utilisation complet** (source : `docs/GUIDE.md`, mis à jour à chaque nouveauté, regénéré par `python scripts/generer_guide.py`)
+- `docs/` : guide, cahier des charges et idées
 
 Aide à la réflexion uniquement, pas un conseil en investissement réglementé. Les clés API éventuelles vont dans `.env`, jamais dans le code.
 
