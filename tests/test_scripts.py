@@ -142,6 +142,70 @@ class NouveauxCalculs(unittest.TestCase):
         self.assertNotIn("Erreur du script", sortie)
 
 
+class Saisie(unittest.TestCase):
+    def setUp(self):
+        import shutil
+        import tempfile
+        self.dossier = Path(tempfile.mkdtemp())
+        for f in ("positions.csv", "flux.csv", "cibles.csv"):
+            shutil.copy(EXEMPLE / f, self.dossier / f)
+
+    def lignes(self, nom):
+        return allocation.lire(self.dossier / nom)
+
+    def test_investir_ligne_existante(self):
+        import saisie
+        saisie.appliquer(self.dossier, "investir", ["world", "500"], date(2026, 11, 5))
+        world = [p for p in self.lignes("positions.csv") if "World" in p["nom"]][0]
+        self.assertEqual((float(world["investi"]), float(world["valeur"])), (6700, 7635))
+        self.assertEqual(self.lignes("flux.csv")[-1], {"date": "2026-11-05", "montant": "-500"})
+        self.assertTrue((self.dossier / "positions.csv.bak").exists())
+
+    def test_nouvelle_ligne_et_ambiguite(self):
+        import saisie
+        with self.assertRaises(SystemExit):
+            saisie.appliquer(self.dossier, "achat", ["ETF", "100"], date(2026, 11, 5))
+        with self.assertRaises(SystemExit):
+            saisie.appliquer(self.dossier, "achat", ["ETF Nasdaq 100", "100"], date(2026, 11, 5))
+        saisie.appliquer(self.dossier, "achat", ["ETF Nasdaq 100", "100"], date(2026, 11, 5), "USA", "PEA", 0.3)
+        self.assertEqual(len(self.lignes("positions.csv")), 7)
+        self.assertEqual(len(self.lignes("flux.csv")), 5)  # achat seul : pas de flux
+
+    def test_vente_et_retrait(self):
+        import saisie
+        saisie.appliquer(self.dossier, "vente", ["bitcoin", "620"], date(2026, 11, 5), retrait=True)
+        btc = [p for p in self.lignes("positions.csv") if p["nom"] == "Bitcoin"][0]
+        self.assertEqual((float(btc["investi"]), float(btc["valeur"])), (250, 620))
+        self.assertEqual(self.lignes("flux.csv")[-1]["montant"], "620")
+        with self.assertRaises(SystemExit):
+            saisie.appliquer(self.dossier, "vente", ["bitcoin", "5000"], date(2026, 11, 5))
+
+    def test_scripts_relisent_apres_saisie(self):
+        import saisie
+        saisie.appliquer(self.dossier, "investir", ["world", "500"], date(2026, 11, 5))
+        self.assertIn("XIRR", lancer(SCRIPTS / "performance.py", self.dossier, 7))
+
+
+class ImportClasseur(unittest.TestCase):
+    def test_import_depuis_classeur_recalcule(self):
+        import shutil
+        import tempfile
+        if not shutil.which("soffice"):
+            self.skipTest("LibreOffice absent : recalcul impossible")
+        import creer_sheet
+        import import_sheet
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d)
+            creer_sheet.construire(d / "ex.xlsx", exemple=True)
+            subprocess.run(["soffice", "--headless", "--convert-to", "xlsx", "--outdir", str(d / "calc"),
+                            str(d / "ex.xlsx")], capture_output=True, timeout=120)
+            positions, flux, cibles = import_sheet.lire_classeur(d / "calc" / "ex.xlsx", "Alice")
+        self.assertEqual(len(positions), 3)
+        self.assertAlmostEqual(sum(float(p["valeur"]) for p in positions), 3100)
+        self.assertEqual(flux, [{"date": "2026-08-01", "montant": "-1200"}])
+        self.assertAlmostEqual(sum(float(c["cible_pct"]) for c in cibles), 100)
+
+
 class Classeur(unittest.TestCase):
     def test_feuilles(self):
         import tempfile

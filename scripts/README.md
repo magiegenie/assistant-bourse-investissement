@@ -20,6 +20,8 @@ date,montant
 ```
 
 ## Commandes
+- `python scripts/saisie.py prive/<prenom> investir world 500` : enregistre une opération (investir, versement, achat, vente, valeur, retrait) dans positions.csv et flux.csv ensemble, sans éditer de fichier
+- `python scripts/import_sheet.py classeur.xlsx <Prénom> prive/<prenom>` : reconstruit positions, flux et cibles depuis le classeur téléchargé
 - `python scripts/allocation.py prive/<prenom> 1000` : poids, écarts, répartition d'un versement de 1 000 €, frais
 - `python scripts/performance.py prive/<prenom> 7` : rendement réel (XIRR) comparé aux mêmes versements placés à 7 %/an
 - `python scripts/projection.py 6000 1000 5 15 300000 --inflation 2` : capital, versement mensuel, rendement nominal %, années, objectif ; affiche le délai et le versement mensuel nécessaire, et avec `--inflation` l'équivalent en euros d'aujourd'hui
