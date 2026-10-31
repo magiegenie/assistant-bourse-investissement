@@ -4,6 +4,8 @@ Un assistant pour investir mieux, gérer son budget et progresser, sans stress. 
 
 ## Démarrer (5 minutes)
 
+Version courte : `docs/DEMARRER.md`.
+
 1. Cloner le dépôt : `git clone https://github.com/magiegenie/assistant-bourse-investissement.git`
 2. Ouvrir le dossier dans Claude Code
 3. Écrire « Salut, c'est <ton prénom> ». La première fois, l'assistant te pose quelques questions et crée ton espace privé.

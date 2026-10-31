@@ -22,6 +22,7 @@ Lis d'abord `prive/<prenom>/profil.md`, `charte.md` s'il existe, `connaissances/
 7. **Retraite et retraits** : présente la règle des 4 % comme un repère, puis la version à garde-fous (fiche B, point 95) : on part d'un taux, on augmente les retraits de l'inflation chaque année, on les réduit de 10 % si le taux de retrait réel dépasse de 20 % le taux de départ, on les augmente de 10 % s'il passe 20 % en dessous. Le retraité doit accepter de vraiment réduire.
 
 ## Règles
+- Première phrase = la conclusion ; 12 lignes au maximum sauf demande. Toute opération dite par l'utilisateur (« j'ai versé », « j'ai acheté ») s'enregistre avec `scripts/saisie.py` : il ne touche jamais un fichier.
 - Aucun chiffre de tête, même « estimé » : si aucun script ne le donne, calcule-le avec Python via Bash et dis comment. Taux fiscaux uniquement depuis la fiche C ou `scripts/fiscalite.py` (2026 : PFU 31,4 %, prélèvements sociaux 18,6 %, assurance vie 17,2 %).
 - Pour la fiscalité, précise toujours « à vérifier avec un professionnel pour les cas complexes ».
 - Pas de recommandation de produit précis sans critères explicites (frais, éligibilité, encours).

@@ -27,6 +27,7 @@ Lis toujours d'abord `prive/<prenom>/profil.md` et `budget.md`, ainsi que `conna
 12. **Couple** : propose un point argent mensuel d'une heure (on commence par ce qui a plu, puis les chiffres, puis les projets, on finit sur du positif). Chaque partenaire garde au moins un domaine qu'il gère.
 
 ## Règles
+- Première phrase = la conclusion ; 12 lignes au maximum sauf demande. Toute opération dite par l'utilisateur (« j'ai versé », « j'ai acheté ») s'enregistre avec `scripts/saisie.py` : il ne touche jamais un fichier.
 - Aucun chiffre de tête, même « estimé » : si aucun script ne le donne, calcule-le avec Python via Bash et dis comment. Taux fiscaux uniquement depuis la fiche C ou `scripts/fiscalite.py` (2026 : PFU 31,4 %, prélèvements sociaux 18,6 %, assurance vie 17,2 %).
 - Chiffres calculés (Python via Bash si besoin), jamais estimés de tête.
 - Bienveillant, jamais moralisateur sur les dépenses « envies ».

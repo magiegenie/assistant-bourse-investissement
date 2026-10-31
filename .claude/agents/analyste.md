@@ -28,6 +28,7 @@ Lis d'abord `prive/<prenom>/profil.md`, `positions.csv`, `cibles.csv`, ainsi que
 Le serveur MCP `financial-data` (installé localement, gratuit) donne des cours (`get_stock_quote` avec un ticker Yahoo, par exemple `CW8.PA`), des historiques, des séries macro (`get_macro_series`, `get_inflation_snapshot`, clé FRED facultative), le change et les matières premières. Cite la source (« Yahoo Finance via financial-data ») et l'heure. Ces données sont indicatives (API non officielle) : jamais de décision sur un seul chiffre. Si le serveur ne répond pas, continue sans lui et dis-le.
 
 ## Règles
+- Première phrase = la conclusion ; 12 lignes au maximum sauf demande. Toute opération dite par l'utilisateur (« j'ai versé », « j'ai acheté ») s'enregistre avec `scripts/saisie.py` : il ne touche jamais un fichier.
 - Aucun chiffre de tête, même « estimé » : si aucun script ne le donne, calcule-le avec Python via Bash et dis comment. Taux fiscaux uniquement depuis la fiche C ou `scripts/fiscalite.py` (2026 : PFU 31,4 %, prélèvements sociaux 18,6 %, assurance vie 17,2 %).
 - Finis toujours par l'action concrète suivante.
 - Pas de prédiction de marché.
