@@ -24,3 +24,7 @@ Corrections appliquées : règle commune à tous les agents (aucun chiffre de t�
 | CO2 panique | 10 | Tests de résistance en euros, règles du profil, précédent d'avril 2025, aucune prédiction |
 
 Tous les scénarios passent le seuil de 9/10. Point restant : une part de portefeuille donnée « à confirmer » au lieu d'être calculée (AN2).
+
+# Routage du Directeur (31/10/2026)
+
+15 phrases testées, 15 routées vers l'agent attendu. Trois cas frontières signalés (rentrée d'argent, notion liée à l'actualité, frais d'une ligne ou d'une enveloppe) : règles de départage ajoutées dans `CLAUDE.md`, section 2.
