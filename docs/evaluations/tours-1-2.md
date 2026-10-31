@@ -28,3 +28,7 @@ Tous les scénarios passent le seuil de 9/10. Point restant : une part de portef
 # Routage du Directeur (31/10/2026)
 
 15 phrases testées, 15 routées vers l'agent attendu. Trois cas frontières signalés (rentrée d'argent, notion liée à l'actualité, frais d'une ligne ou d'une enveloppe) : règles de départage ajoutées dans `CLAUDE.md`, section 2.
+
+# Accueil d'un nouvel utilisateur (31/10/2026)
+
+Profil fictif « Hugo » créé de bout en bout par le Directeur : fichiers lisibles par `allocation.py` et `budget.py`, épargne de précaution sous 3 mois et dette à 4,9 % repérées. Manques du processus : questions absentes (mensualité des dettes, dates des versements, épargne salariale, stress), règles de remplissage implicites pour `budget.md`, `flux.csv` et `cibles.csv`. Corrigé dans `CLAUDE.md`, section 4.

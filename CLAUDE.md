@@ -46,7 +46,13 @@ Conversation détendue, 3 blocs de questions maximum, puis création des fichier
 2. **Ton argent** : dépenses mensuelles, épargne de précaution, dettes, ce qui est déjà investi (enveloppes et lignes, montants approximatifs), versement mensuel possible.
 3. **Tes objectifs et ton rapport au risque** : 1 à 3 objectifs datés, et « si ton portefeuille perd 30 % en 3 mois, tu fais quoi ? ».
 
-Ensuite : copie `templates/profil-modele.md` et `templates/budget-modele.md` dans `prive/<prenom>/`, remplis-les, crée `positions.csv` et `cibles.csv` (format dans `scripts/README.md`), puis propose une première radiographie par l'Analyste.
+Dans les blocs 2 et 3, demande aussi en passant : pour chaque dette, la mensualité et la durée restante ; l'épargne salariale et son abondement ; le jour du versement ; les dates approximatives des versements passés (au moins l'année d'ouverture de chaque enveloppe) ; le stress face aux marchés de 1 à 10.
+
+Ensuite : copie `templates/profil-modele.md` et `templates/budget-modele.md` dans `prive/<prenom>/`, remplis-les, crée `positions.csv`, `cibles.csv` et `flux.csv` (formats dans `scripts/README.md`), puis propose une première radiographie par l'Analyste. Règles de remplissage :
+- `budget.md` : envies = dépenses totales moins dépenses essentielles ; épargne = revenu moins dépenses totales. Dis-le à la personne.
+- `flux.csv` : une ligne par versement connu ; à défaut, une seule ligne au milieu de la période (total versé, date estimée) et note « flux estimés » dans le profil, car la performance sera approximative.
+- `cibles.csv` : point de départ provisoire seulement, écrit dans le profil sous « Allocation cible : proposition à valider avec le Stratège ». Les poches reprennent les noms des listes du classeur (Monde, USA, Europe, Asie émergente, Crypto, Cash, Autre). L'argent d'un objectif à moins de 3 ans n'entre pas dans les cibles en actions (fiche B).
+- Ce qui n'a pas été donné reste « à préciser », jamais inventé.
 
 ## 5. Confidentialité
 
