@@ -1,5 +1,7 @@
 """Génère le classeur du portefeuille (modèle vide, anonyme) : python scripts/creer_sheet.py [sortie.xlsx] [--exemple]"""
+import csv
 import sys
+from pathlib import Path
 from datetime import date
 from openpyxl import Workbook
 from openpyxl.chart import BarChart, LineChart, PieChart, Reference
@@ -68,27 +70,24 @@ def construire(chemin, exemple=False):
     ws.title = "Lisez-moi"
     ws.sheet_properties.tabColor = "999999"
     lignes = [
-        "PORTEFEUILLE : mode d'emploi",
+        "DÉMARRER EN 5 MINUTES",
         "",
-        "Cases JAUNES ou en-têtes BLEUS = tu saisis. En-têtes GRIS et cases grisées = calculé, ne rien écrire dedans.",
+        "1. Paramètres : remplace « Prénom 1 » par ton prénom et règle ton versement mensuel.",
+        "2. Actifs : dans la colonne ID, choisis ton ETF dans la liste (WPEA, CW8, ESE...). Nom, frais, poche et prix se remplissent seuls.",
+        "3. Transactions : une ligne par opération. Versement = argent envoyé sur le compte ; Achat = parts achetées. Rien d'autre à remplir.",
+        "4. Positions : choisis ton prénom et l'ID de chaque ETF détenu. Tout le reste se calcule.",
+        "5. Cibles : ta répartition voulue en % (doit faire 100 %).",
+        "C'est tout. Le Dashboard affiche ce que tu as, ce qui dérive et combien verser où.",
         "",
-        "1. Paramètres : remplace Prénom 1 et Prénom 2, règle le versement mensuel (une seule fois).",
-        "2. Actifs : une ligne par ETF, action ou crypto (ID court unique, ticker, poche, enveloppe, frais).",
-        "3. Transactions : à chaque opération, une ligne. On ajoute, on n'efface jamais.",
-        "   Pour Versement, Dividende, Frais, Retrait, Intérêts : mets Quantité = 1 et le montant dans Prix unitaire.",
-        "4. Positions : une ligne par (personne, actif) que tu détiens. Choisis la personne et l'ID, tout le reste se calcule.",
-        "5. Historique : une ligne par mois et par personne (valeur du portefeuille, total versé, valeur de l'indice). 5 minutes par mois.",
-        "6. Cibles : saisis ta cible en % par poche. Le tableau te dit combien mettre où au prochain versement.",
-        "7. Budget : une ligne par mois. Le taux d'épargne se calcule.",
-        "8. Objectifs : tes objectifs chiffrés et datés. La progression se calcule.",
-        "9. Journal : les décisions d'achat ou de vente (rempli avec le Coach ou à la main).",
-        "10. Revenus et frais, Fiscalité : calculés depuis Transactions et Positions (dividendes, frais, impôt estimé d'une sortie).",
-        "11. Idées : toute envie d'achat hors plan attend 30 jours ici avant décision (fiche H).",
-        "12. Veille : les infos retenues chaque semaine par la newsletter du dimanche.",
-        "13. Dashboard : choisis ton prénom en haut, tout s'affiche (chiffres clés, alertes, à-faire, graphiques).",
+        "Chaque mois (2 minutes) : une ligne Versement et une ligne Achat dans Transactions, puis une ligne dans Historique.",
+        "Pour aller plus loin (facultatif) : Budget, Objectifs, Journal, Idées, Veille, Revenus et frais, Fiscalité.",
         "",
-        "Prix : GOOGLEFINANCE fonctionne pour la plupart des ETF cotés. Pour la crypto et les ETF non reconnus, tape le prix à la main dans Actifs, colonne Prix actuel.",
-        "Confidentialité : ce fichier est vide. Ne le mets jamais dans un dépôt public.",
+        "Couleurs : cases et en-têtes BLEUS = tu saisis ; GRIS = calculé, ne rien écrire.",
+        "Catalogue ETF : ETF courants éligibles au PEA, avec source et date de vérification. Vérifie les frais chez l'émetteur avant d'acheter.",
+        "Prix : GOOGLEFINANCE met à jour les ETF cotés à Paris. Pour la crypto ou un ticker vide, tape le prix dans Actifs, colonne Prix actuel.",
+        "Avec l'assistant : télécharge le classeur en .xlsx (Fichier, Télécharger) et dis « mets à jour depuis mon classeur ».",
+        "Confidentialité : ne mets jamais ce fichier rempli dans un dépôt public.",
+        "Outil d'aide à la réflexion, pas un conseil en investissement réglementé.",
     ]
     for l in lignes:
         ws.append([l])
@@ -129,6 +128,19 @@ def construire(chemin, exemple=False):
     UTIL = f"={PS}!$A$2:$A$3"
     LP, LE, LT, LO = L("N", 7), L("L", 6), L("K", 7), L("S", 2)
 
+    # ---------- Catalogue ETF (donnees/etf-pea.csv)
+    ca = wb.create_sheet("Catalogue ETF")
+    ca.sheet_properties.tabColor = "5B6770"
+    with open(Path(__file__).resolve().parent.parent / "donnees" / "etf-pea.csv", encoding="utf-8") as f:
+        catalogue = list(csv.DictReader(f))
+    tete(ca, [("Code", 9), ("Nom", 34), ("ISIN", 15), ("Ticker", 11), ("Type", 8), ("Poche", 14), ("Enveloppe", 10),
+              ("Frais %", 8), ("Réplication", 12), ("Cap / dist", 12), ("Source", 30), ("Vérifié le", 11), ("Remarque", 50)],
+         calc=tuple(range(1, 14)))
+    for e in catalogue:
+        ca.append([e["code"], e["nom"], e["isin"], e["ticker"], e["type"], e["poche"], e["enveloppe"],
+                   float(e["frais_pct"]), e["replication"], e["cap_dist"], e["source"], e["verifie_le"], e["remarque"]])
+    NCAT = len(catalogue) + 1
+
     # ---------- Actifs
     ac = wb.create_sheet("Actifs")
     ac.sheet_properties.tabColor = "F2B01E"
@@ -136,10 +148,20 @@ def construire(chemin, exemple=False):
               ("Poche", 16), ("Secteur", 14), ("Devise de cotation", 10), ("Exposition devise", 12),
               ("Enveloppe", 14), ("Frais annuels (TER) %", 11), ("Cap / dist", 14), ("Cœur / satellite", 12),
               ("Prix actuel", 12), ("Date du prix", 12)])
+    def cat(col, r):
+        return f"=IFERROR(INDEX('Catalogue ETF'!${col}:${col},MATCH($A{r},'Catalogue ETF'!$A:$A,0)),\"\")"
     for r in range(2, 62):
+        for dst, src in (("B", "B"), ("C", "C"), ("D", "D"), ("E", "E"), ("F", "F"), ("J", "G"), ("K", "H"), ("L", "J")):
+            ac[f"{dst}{r}"] = cat(src, r)
         ac[f"N{r}"] = f'=IF(D{r}="","",IFERROR(GOOGLEFINANCE(D{r}),""))'
         ac[f"N{r}"].number_format = EUR
         ac[f"O{r}"].number_format = DATE
+    dv_id = DataValidation(type="list", formula1=f"='Catalogue ETF'!$A$2:$A${NCAT}", allow_blank=True,
+                           showErrorMessage=False)
+    ac.add_data_validation(dv_id)
+    dv_id.add("A2:A61")
+    ac["Q1"] = "Choisis un code du Catalogue ETF en colonne A : le reste se remplit. Pour un autre actif, tape un code et écrase les cases."
+    ac["Q1"].font = Font(italic=True)
     liste(ac, "E2:E61", L("M", 6))
     liste(ac, "F2:F61", LP)
     liste(ac, "H2:H61", L("Q", 4))
@@ -461,6 +483,9 @@ def construire(chemin, exemple=False):
         db.column_dimensions[get_column_letter(i)].width = 17
     db.column_dimensions["A"].width = 20
 
+    db["A3"] = ('=IF(A5=0,"Commence par l\'onglet Lisez-moi : 5 minutes pour tout remplir.",'
+                '"En bref : "&TEXT(A5,"# ##0")&" € en portefeuille, "&TEXT(C5,"+0;-0")&" € de plus-value. "&A9)')
+    db["A3"].font = Font(bold=True, size=12)
     db["A7"] = "À FAIRE CE MOIS"
     db["A7"].font = Font(bold=True, size=12, color=BLEU)
     db["A8"] = (f'="Versement prévu : "&TEXT(IFERROR(INDEX({PS}!$C:$C,MATCH({U},{PS}!$A:$A,0)),0),"#,##0")'
@@ -628,6 +653,7 @@ def donnees_exemple(wb):
     ob["A2"], ob["B2"], ob["C2"], ob["D2"], ob["E2"], ob["F2"] = "Alice", "Apport", 20000, date(2026, 1, 1), date(2028, 1, 1), 3000
     jo = wb["Journal"]
     jo["A2"], jo["B2"] = date(2026, 6, 1), "Alice"
+    ac["A5"] = "WPEA"  # actif du catalogue : le reste de la ligne se remplit par formule
     tr["A8"], tr["B8"], tr["C8"], tr["D8"], tr["E8"], tr["F8"], tr["G8"], tr["J8"] = (
         date(2026, 8, 1), "Alice", "PEA", "Versement", "", 1, 1200, 1)
     hi["P2"], hi["Q2"], hi["P3"], hi["Q3"] = 300, 4500, 250, 4600
