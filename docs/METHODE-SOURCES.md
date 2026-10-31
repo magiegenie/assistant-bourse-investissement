@@ -8,6 +8,15 @@ But : une base de sources unique (`donnees/sources.csv`) d'où part toute veille
 3. **Presse et sites de bourse** : presse économique de référence, sites de cours et d'analyse.
 4. **Pédagogie** : chaînes YouTube, podcasts, comptes Instagram et TikTok, blogs, forums.
 5. **Outils et données** : comparateurs d'ETF, bases de fonds, simulateurs officiels.
+6. **Macroéconomie** : FMI, OCDE, Banque mondiale, banques centrales de chaque grande région, instituts statistiques, instituts de prévision, indices PMI, énergie.
+7. **Politique et géopolitique** : institutions (budget, lois), agences de presse, presse européenne et asiatique, think tanks, calendriers électoraux et sommets.
+
+Chaque source porte une **région** : France, Europe, États-Unis, Chine, Japon, Inde, Asie ou Monde.
+
+## Règles propres à la politique et à la géopolitique
+- Faits et calendriers d'abord : scrutins, budgets, sanctions, droits de douane, conflits. L'opinion vient après et se signale comme telle.
+- Sources pluralistes : une source partisane ou militante ne dépasse pas 6 sur 10 ; un média d'État ou à transparence limitée se croise toujours.
+- Jamais de lien direct « événement politique, donc acheter ou vendre ». La question utile est : quel risque concret pour mes placements (taux, devise, secteur, pays) et à quel horizon ?
 
 ## Requêtes types (à relancer à chaque mise à jour)
 - « <institution> recherche économique perspectives marchés page officielle »

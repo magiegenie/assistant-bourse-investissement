@@ -11,6 +11,9 @@ Une cause n'est donnée que si une source la fournit (« selon Reuters ... »). 
 
 Repères chiffrés de la semaine : MSCI World, S&P 500, Stoxx Europe 600, CAC 40, MSCI Emerging Markets, euro/dollar, taux à 10 ans allemand et américain, bitcoin. Variation sur la semaine, source et date.
 
+## Politique et macro qui peuvent toucher tes placements
+2 à 3 points maximum, toutes régions confondues (France, Europe, États-Unis, Asie) : élection, budget, droits de douane, banque centrale, conflit, énergie. Pour chacun : le fait daté et sourcé, le canal concret (taux, devise, secteur, pays de tes ETF) et l'horizon. Si aucun canal concret : « à ignorer ». Jamais « donc acheter ou vendre ».
+
 ## Ce que ça change pour toi
 À partir du Google Sheet (feuilles Positions, Cibles, Dashboard) :
 - valeur approximative du portefeuille et variation de la semaine, si les prix sont à jour ;
