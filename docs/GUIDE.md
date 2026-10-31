@@ -1,7 +1,7 @@
 ---
 titre: Guide d'utilisation
 sous_titre: Assistant Bourse Investissement
-version: 1.1
+version: 1.2
 date: 2026-10-31
 ---
 
@@ -247,7 +247,7 @@ Elles sont dans `connaissances/agents/veilleur.md`. Demande-les simplement :
 
 ## Ce qu'il ne fait pas
 
-Aucune prédiction, aucun objectif de cours, aucune « opportunité ». **Le brief n'est pas automatique pour l'instant** : tu le demandes quand tu en as envie (voir le chapitre 16 pour ce qui est prévu).
+Aucune prédiction, aucun objectif de cours, aucune « opportunité ». **Le brief n'est pas automatique pour l'instant** : tu le demandes quand tu en as envie (voir le chapitre 17 pour ce qui est prévu).
 
 # 7. L'analyse du portefeuille (l'Analyste)
 
@@ -473,6 +473,8 @@ Tu n'as **jamais besoin de les lancer à la main** : les agents le font. Ils son
 | `exposition.py` | Exposition réelle par pays, part en dollars et grandes entreprises à travers tes ETF | Analyste, Coach |
 | `stress.py` | Impact en euros de 6 scénarios de crise (hypothèses, pas des prévisions), comparé à ta perte maximale acceptable | Analyste, Stratège |
 | `fiscalite.py` | Impôt estimé d'un retrait en CTO, PEA ou assurance vie | Stratège |
+| `historique.py` | Interroge la base historique des marchés : un mois, une période, les grandes baisses, les rendements glissants, un événement ; régénère le classeur Excel et la base SQLite | Veilleur, Coach, Stratège, Analyste |
+| `maj_historique.py` | Met à jour la base historique (Yahoo Finance, STOXX, FRED), contrôle sa qualité et vérifie les liens des événements | Toi ou l'assistant, une fois par mois |
 | `profil_risque.py` | Affiche le test de profil de risque chiffré sur ton montant, puis note tes réponses : capacité, tolérance, besoin de risque, connaissances, profil retenu, perte maximale acceptable, alertes | Directeur (accueil), Stratège |
 | `creer_sheet.py` | Génère le classeur Excel du portefeuille (modèle vide) | Toi, à la demande |
 | `installer_mcp.py` | Installe les serveurs de données et d'actualité sur un ordinateur | Toi, une fois |
@@ -583,7 +585,72 @@ Le dossier `docs/recherche/` contient les 12 recherches de départ (fiscalité, 
 
 Dans `donnees/` : la composition par pays et par grandes entreprises des principaux indices, **datée**. `exposition.py` s'en sert. **À mettre à jour chaque trimestre** : l'assistant te prévient quand elles ont plus de 3 mois.
 
-# 14. Le classeur Excel
+# 14. L'historique des marchés
+
+## Ce que c'est
+
+Une **base de données des marchés financiers, mois par mois**, pour relativiser, comparer et apprendre avec de vrais chiffres plutôt qu'avec des souvenirs. Elle est dans `donnees/historique/`.
+
+- **14 indices** : MSCI World, MSCI ACWI, émergents, S&P 500 (prix et dividendes réinvestis), Nasdaq-100, Nasdaq Composite, Dow Jones, STOXX Europe 600, Euro Stoxx 50, CAC 40, DAX, FTSE 100, Nikkei 225. Pour chaque mois : la clôture, la variation en %, la source.
+- **La macro** : inflation aux États-Unis et en France, taux de la Fed et de la BCE, taux à 10 ans, euro contre dollar, pétrole, périodes de récession.
+- **Une frise de 86 événements** de 1971 à 2025 : chocs pétroliers, Lundi noir, bulle internet, Lehman, crise de l'euro, Brexit, Covid, guerre en Ukraine, élections, décisions des banques centrales. Chacun a sa date et **sa source, dont le lien a été vérifié**.
+
+## Jusqu'où ça remonte
+
+| Depuis | Indices |
+|---|---|
+| 1927 | S&P 500 |
+| 1965 | Nikkei 225 |
+| 1971-1972 | Nasdaq Composite, MSCI World |
+| 1984-1988 | FTSE 100, Nasdaq-100, STOXX Europe 600, Euro Stoxx 50, DAX, MSCI ACWI, S&P 500 dividendes réinvestis |
+| 1990-1994 | CAC 40, Dow Jones, émergents |
+
+Un indice commence à sa création ou au début de l'historique librement accessible. **Rien n'est inventé pour combler un trou.**
+
+## Ce que tu peux demander
+
+| Tu dis | Tu obtiens |
+|---|---|
+| « Que s'est-il passé en octobre 2008 ? » | La variation de chaque indice ce mois-là et sur 12 mois, la macro, les événements |
+| « Montre-moi les grandes baisses du MSCI World » | Chaque baisse de plus de 20 % : sommet, creux, durée, temps pour revenir au sommet |
+| « Sur 20 ans, un ETF monde a-t-il déjà perdu de l'argent ? » | Le pire, le médian et le meilleur rendement sur 20 ans glissants, en euros et après inflation |
+| « Combien a fait le CAC 40 depuis 2000 ? » | Le rendement cumulé et annualisé, le meilleur et le pire mois, la plus forte baisse |
+| « Comment les marchés ont réagi au Covid ? » | L'événement, sa source, et la variation des grands indices 1, 3 et 12 mois après |
+
+Les agents s'en servent d'eux-mêmes :
+- le **Veilleur** et le **Coach** quand ça chute, pour remettre la baisse en perspective ;
+- le **Stratège** pour montrer ce que l'histoire a réellement donné sur la durée de tes projections ;
+- l'**Analyste** pour comparer ta performance à un indice.
+
+## Le classeur Excel
+
+`docs/Historique-marches.xlsx` contient :
+- **un onglet par indice** : une ligne par année, une case par mois, en vert quand ça monte et en rouge quand ça baisse, et le total de l'année ;
+- **une synthèse annuelle** de tous les indices ;
+- **les grandes baisses** avec les événements autour du creux ;
+- **la frise d'événements** avec la réaction des marchés ;
+- **la macro année par année**.
+
+## Quelques repères tirés de la base
+
+Ces chiffres sont **en prix seul**, sans les dividendes :
+
+- **Le MSCI World en dollars** a fait environ **+7,1 % par an** de 1972 à 2026. **Sur 20 ans glissants, il n'a jamais perdu** : la pire période (2000-2020) a encore fait +1,3 % par an.
+- **En euros et après inflation**, 91 % des périodes de 20 ans sont positives. La pire (1972-1992) a perdu 4,1 % par an.
+- **Le Nikkei** a mis **34 ans** à retrouver son sommet de 1989 : c'est la meilleure leçon de diversification mondiale.
+
+## Les limites
+
+- **Prix seul pour la plupart des indices** : sans les dividendes, le rendement est sous-estimé d'environ 2 à 4 % par an. Exceptions : S&P 500 dividendes réinvestis, DAX, et la série émergents.
+- **Devises** : chaque indice est dans sa devise d'origine. L'option « en euros » existe pour les indices en dollars ; avant 1999, elle passe par le mark allemand (série reconstituée).
+- **Fins de mois** : les baisses mesurées au jour le jour sont plus fortes. Pour le Covid, le S&P 500 a perdu environ 34 % en séance, mais 20 % en fin de mois.
+- **Émergents** : l'indice MSCI n'étant pas accessible, on utilise un fonds Vanguard qui le suit (dividendes réinvestis, frais déduits).
+- **Le passé n'annonce pas l'avenir.** La base sert à relativiser et à calibrer des hypothèses, jamais à prédire.
+- **Usage personnel** : ces données ne doivent pas être publiées. Le dépôt GitHub est privé et doit le rester.
+
+Le détail des sources, de la couverture et des contrôles qualité est dans `donnees/historique/SOURCES.md`.
+
+# 15. Le classeur Excel
 
 Le fichier `templates/Portefeuille-complet.xlsx` est un classeur **vide et anonyme** pour suivre ton portefeuille à la main ou en parallèle de l'assistant. Il peut être régénéré avec `python scripts/creer_sheet.py` (option `--exemple` pour une version remplie d'exemples).
 
@@ -609,7 +676,7 @@ Le fichier `templates/Portefeuille-complet.xlsx` est un classeur **vide et anony
 
 > **Confidentialité** : ce fichier est vide. Une fois rempli, ne le mets jamais dans un dépôt public.
 
-# 15. Tes fichiers privés
+# 16. Tes fichiers privés
 
 Tout ce qui te concerne est dans **`prive/<ton prénom>/`**. Ce dossier est exclu de git (`.gitignore`) : **il ne part jamais sur GitHub**. Chacun garde le sien sur son ordinateur.
 
@@ -633,7 +700,7 @@ Tout ce qui te concerne est dans **`prive/<ton prénom>/`**. Ce dossier est excl
 - Si tu sauvegardes le projet sur GitHub, seules les parties non personnelles partent (agents, fiches, scripts, modèles, guide).
 - Les clés API vont dans `.env` (aussi exclu de git), jamais dans le code.
 
-# 16. Ton rythme conseillé
+# 17. Ton rythme conseillé
 
 Une heure par semaine suffit. Voici un rythme réaliste. Tu n'as rien à retenir : à chaque moment, dis simplement la phrase indiquée.
 
@@ -644,6 +711,7 @@ Une heure par semaine suffit. Voici un rythme réaliste. Tu n'as rien à retenir
 | Le jour de la paie | « Je viens d'être payé » | Le virement automatique est vérifié, le versement est réparti en ordres concrets |
 | Après avoir passé les ordres | « J'ai fait mon versement » | `flux.csv` est mis à jour |
 | Fin de mois | « Fais-moi le bilan du mois » | Performance, versements, frais, écarts, décisions hors plan |
+| Début de mois | « Mets à jour l'historique des marchés » | La base historique gagne le mois écoulé, le classeur Excel est régénéré |
 
 ## Quand tu veux (2 minutes)
 
@@ -654,6 +722,7 @@ Une heure par semaine suffit. Voici un rythme réaliste. Tu n'as rien à retenir
 
 - **Audit des abonnements** (Conseiller budget).
 - **Mise à jour des données d'indices** de `donnees/` (Analyste).
+- **Nouveaux événements marquants** ajoutés à la frise de l'historique, avec leur source (Veilleur).
 - **Revue des thèses** de tes lignes satellites (Coach) et **veille structurée** (Veilleur).
 
 ## Chaque année
@@ -679,9 +748,9 @@ Le cahier des charges (`docs/CAHIER-DES-CHARGES-MVP.md`) prévoit des évolution
 - un score de santé du portefeuille sur 100 ;
 - la lecture directe d'un Google Sheet.
 
-Aujourd'hui, tout se passe en **conversation dans Claude Code**. Quand une de ces fonctions arrive, ce guide est mis à jour (voir le chapitre 18).
+Aujourd'hui, tout se passe en **conversation dans Claude Code**. Quand une de ces fonctions arrive, ce guide est mis à jour (voir le chapitre 19).
 
-# 17. Limites, précautions et dépannage
+# 18. Limites, précautions et dépannage
 
 ## Les limites à garder en tête
 
@@ -714,7 +783,7 @@ python scripts/installer_mcp.py
 
 Le dossier `externe/` (code des autres), `.mcp.json` et `prive/` (tes données) ne sont **jamais versionnés** : tes données ne se retrouvent donc que sur ton ordinateur, à sauvegarder toi-même si tu veux les garder.
 
-# 18. Comment ce guide reste à jour
+# 19. Comment ce guide reste à jour
 
 ## Le principe
 
@@ -745,6 +814,7 @@ Les fichiers concernés :
 
 | Version | Date | Ce qui change |
 |---|---|---|
+| **1.2** | 31/10/2026 | Nouveau chapitre 14 « L'historique des marchés » : base mensuelle de 14 indices (depuis 1927 à 1994 selon l'indice), macro, frise de 86 événements sourcés, scripts `historique.py` et `maj_historique.py`, classeur `Historique-marches.xlsx` ; chapitres suivants renumérotés |
 | **1.1** | 31/10/2026 | Accueil en 6 étapes avec pause et reprise ; nouveau chapitre 3 « Ton profil de risque » (test en 4 dimensions, script `profil_risque.py`, alertes, lien avec le Stratège, l'Analyste et le Coach) ; test de résistance comparé à la perte maximale acceptable ; chapitres renumérotés |
 | **1.0** | 31/10/2026 | Première édition du guide : le Directeur et les 5 agents, les 9 scripts, les 3 serveurs MCP, les 9 fiches et les 6 manuels de compétences, le classeur Excel, le rythme conseillé |
 
@@ -758,3 +828,4 @@ Les fichiers concernés :
 | 30/10/2026 | Configuration MCP reproductible : liste des serveurs, installeur, liste des dépôts externes |
 | 31/10/2026 | Guide d'utilisation complet en PDF |
 | 31/10/2026 | Accueil enrichi et test de profil de risque (capacité, tolérance, besoin, connaissances) |
+| 31/10/2026 | Base historique des marchés : 14 indices mensuels, macro, 86 événements sourcés |

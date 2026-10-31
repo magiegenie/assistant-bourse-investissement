@@ -1,0 +1,15 @@
+serie,fred,description
+inflation_us_indice,CPIAUCSL,"Indice des prix à la consommation, États-Unis (1982-84 = 100)"
+inflation_fr_indice_ocde,FRACPIALLMINMEI,"Indice des prix à la consommation, France (OCDE, 2015 = 100)"
+inflation_fr_ipch,CP0000FRM086NEST,"Indice des prix harmonisé, France (Eurostat, 2015 = 100)"
+taux_fed,FEDFUNDS,"Taux directeur effectif de la Fed, %"
+taux_10ans_us,GS10,"Taux de l'emprunt d'État américain à 10 ans, %"
+taux_10ans_fr,IRLTLT01FRM156N,"Taux de l'emprunt d'État français à 10 ans, %"
+taux_bce_depot,ECBDFR,"Taux de la facilité de dépôt de la BCE, % (fin de mois)"
+usd_par_eur,DEXUSEU,Dollars pour 1 euro (fin de mois)
+dem_par_usd,EXGEUS,"Marks allemands pour 1 dollar (moyenne du mois, 1971-2001)"
+petrole_wti,WTISPLC,"Pétrole WTI, dollars le baril (moyenne du mois)"
+recession_us,USREC,Récession américaine selon le NBER (1 = oui)
+recession_zone_euro,EUROREC,Récession zone euro selon l'OCDE (1 = oui)
+usd_par_eur_long,EXGEUS + DEXUSEU,Dollars pour 1 euro depuis 1971 (synthétique avant 1999)
+inflation_fr_long,FRACPIALLMINMEI + CP0000FRM086NEST,"Indice des prix France depuis 1955, prolongé"

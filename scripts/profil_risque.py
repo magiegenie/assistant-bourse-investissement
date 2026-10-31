@@ -18,6 +18,7 @@ connaissances/questionnaire-risque.json. Le script n'écrit rien. Outil d'aide, 
 import json
 import sys
 sys.stdout.reconfigure(encoding="utf-8")
+sys.stderr.reconfigure(encoding="utf-8")
 from pathlib import Path
 from allocation import lire
 from projection import rendement_requis

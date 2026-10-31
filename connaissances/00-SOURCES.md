@@ -26,6 +26,10 @@ Les compléments des fiches D et E viennent de recherches externes (`docs/recher
 
 Les compléments viennent de `docs/recherche/07-comportement.md`, `09-veille.md` et `sources-veille.csv` (recherches externes), et du brouillon `08-pedagogie.md` (rédigé par Claude, sans source externe). Études à retrouver avant de citer un chiffre : Morningstar « Mind the Gap 2024 », Vanguard « Advisor's Alpha », DALBAR (méthode critiquée), Barber et Odean (2000), Benartzi et Thaler (1995), Kahneman et Tversky (1979), Shefrin et Statman (1985), études de l'AMF sur les CFD et Forex, loi n° 2023-451 sur l'influence commerciale.
 
+## Base historique des marchés (fiche G, point 119)
+
+Collectée le 31/10/2026 par `scripts/maj_historique.py`, depuis Yahoo Finance, le fichier officiel STOXX et FRED. Couverture réelle, sources indice par indice, contrôles et limites (prix seul, devises, séries synthétiques) dans `donnees/historique/SOURCES.md`. La frise `donnees/historique/evenements.csv` compte 86 événements, chacun avec un lien vérifié. Elle **remplace** `docs/recherche/rendements-annuels.csv` (resté largement « à vérifier ») et `baisses-majeures.csv` (recalculées et comparées) : pour un chiffre historique, passer par `scripts/historique.py`.
+
 ## Test de profil de risque (fiche D, point 118)
 
 - **Vérifié le 31/10/2026** : page de l'AMF « Vous souhaitez mieux vous connaître en tant qu'épargnant ? » (amf-france.org, espace épargnants, conseils pratiques, article du 05/10/2022) : autodiagnostic pédagogique ; rappelle que le profil réglementaire MIF porte sur la situation financière, les objectifs, l'horizon, la capacité à subir des pertes, le profil d'investisseur et le niveau de connaissances et d'expérience. https://www.amf-france.org/fr/espace-epargnants/savoir-bien-investir/conseils-pratiques/mieux-se-connaitre-en-tant-quepargnant

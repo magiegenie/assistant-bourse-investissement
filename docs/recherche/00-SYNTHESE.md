@@ -8,7 +8,7 @@ Ce fichier résume l'état des 12 domaines et liste les contradictions à tranch
 |---|---|---|---|---|
 | 1 | `01-fiscalite.md` | Fiscalité complète, simulations | Bonne base, à corriger sur l'assurance vie (voir §2) | `fiscalite-parametres.csv`, `enveloppes-fiscales-france.csv` |
 | 2 | `02-produits.md` | ETF, courtiers, assurance vie | Moyenne : lignes factices, ISIN en double, écart de suivi vide | `etf.csv`, `courtiers.csv`, `assurance-vie.csv` |
-| 3 | `03-historique.md` | Rendements, baisses | Faible : le CSV de rendements est quasi vide | `rendements-annuels.csv`, `baisses-majeures.csv` |
+| 3 | `03-historique.md` | Rendements, baisses | Faible : le CSV de rendements est quasi vide. **Remplacé** par `donnees/historique/` (31/10/2026) | `rendements-annuels.csv`, `baisses-majeures.csv` |
 | 4 | `04-projection.md` | Hypothèses, Monte Carlo | Moyenne : plusieurs montants faux (recalculés) | `hypotheses-projection.csv` |
 | 5 | `05-retrait.md` | Règle des 4 %, retrait | Moyenne : fiscalité périmée | `retrait.csv` |
 | 6 | `06-allocation.md` et `06b-allocation-bis.md` | Allocation (deux versions) | Moyenne : chiffres différents d'une version à l'autre | `allocations-types.csv`, `allocations-types-b.csv` |

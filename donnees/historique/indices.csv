@@ -1,0 +1,15 @@
+id,nom,zone,devise,type,fournisseur,sources,debut,fin,nb_mois,remarques
+MSCI_WORLD,MSCI World,Monde développé,USD,prix,MSCI,^990100-USD-STRD,1972-01,2026-10,658,"Prix seul, en dollars. Les versions dividendes réinvestis et en euros ne sont pas accessibles librement (site MSCI protégé contre les robots)."
+MSCI_ACWI,MSCI ACWI (monde entier),Monde,USD,prix,MSCI,^892400-USD-STRD,1988-01,2026-10,466,"Pays développés et émergents. Prix seul, en dollars."
+MSCI_EM,MSCI Emerging Markets (via fonds Vanguard),Émergents,USD,dividendes réinvestis (fonds),Vanguard (fonds VEIEX),VEIEX,1994-05,2026-10,390,"Approximation : fonds indiciel Vanguard Emerging Markets, cours ajusté des dividendes, frais déduits. Il suivait le MSCI EM, puis un indice FTSE Emerging à partir de 2013. L'indice MSCI EM lui-même n'est pas accessible librement."
+SP500,S&P 500,États-Unis,USD,prix,S&P Dow Jones Indices,^GSPC,1927-12,2026-10,1187,Prix seul.
+SP500_TR,S&P 500 dividendes réinvestis,États-Unis,USD,dividendes réinvestis,S&P Dow Jones Indices,^SP500TR,1988-01,2026-10,466,Version « total return ».
+NASDAQ100,Nasdaq-100,États-Unis,USD,prix,Nasdaq,^NDX,1985-10,2026-10,493,Les 100 plus grosses valeurs non financières du Nasdaq. Prix seul.
+NASDAQ_COMP,Nasdaq Composite,États-Unis,USD,prix,Nasdaq,^IXIC,1971-02,2026-10,669,"Toutes les valeurs du Nasdaq, plus long historique que le Nasdaq-100. Prix seul."
+DOW_JONES,Dow Jones Industrial Average,États-Unis,USD,prix,S&P Dow Jones Indices,^DJI,1992-01,2026-10,418,"30 valeurs, pondéré par le prix. Historique libre seulement depuis 1992."
+STOXX600,STOXX Europe 600,Europe,EUR,prix,STOXX,SXXP ; ^STOXX,1986-12,2026-10,479,"Fichier officiel STOXX de 1986 à 2016, puis Yahoo Finance. Prix seul."
+EUROSTOXX50,Euro Stoxx 50,Zone euro,EUR,prix,STOXX,SX5E ; ^STOXX50E,1986-12,2026-10,479,"Fichier officiel STOXX de 1986 à 2016, puis Yahoo Finance. Prix seul."
+CAC40,CAC 40,France,EUR,prix,Euronext,^FCHI,1990-03,2026-10,440,"Base 1 000 au 31/12/1987 ; historique libre depuis mars 1990. Prix seul (francs avant 1999, niveau d'indice inchangé)."
+DAX,DAX,Allemagne,EUR,dividendes réinvestis,Deutsche Börse,^GDAXI,1987-12,2026-10,467,"Attention : le DAX est un indice de performance, dividendes réinvestis, contrairement au CAC 40."
+FTSE100,FTSE 100,Royaume-Uni,GBP,prix,FTSE Russell,^FTSE,1984-01,2026-10,514,"Prix seul, en livres sterling."
+NIKKEI225,Nikkei 225,Japon,JPY,prix,Nikkei,^N225,1965-01,2026-10,742,"Prix seul, en yens. Pondéré par le prix."

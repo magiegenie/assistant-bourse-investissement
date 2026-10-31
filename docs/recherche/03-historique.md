@@ -3,6 +3,7 @@
 - Origine : recherche externe (autre IA), déposée le 30/10/2026. Texte brut, mis en forme Markdown, contenu non modifié.
 - Statut : **non vérifié**. Rien n'est intégré dans `connaissances/`.
 - Fichiers de données associés (copiés tels quels) : `rendements-annuels.csv`, `baisses-majeures.csv`.
+- **Remplacé le 31/10/2026** par la base historique `donnees/historique/` (données collectées par script, sourcées et contrôlées ; voir `donnees/historique/SOURCES.md`). Pour un chiffre historique, utiliser `python scripts/historique.py`, pas ces fichiers.
 
 ## Notes de relecture (ajoutées par Claude, ne font pas partie du rapport)
 
