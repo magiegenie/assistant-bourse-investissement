@@ -19,6 +19,14 @@ date,montant
 2026-01-15,-500
 ```
 
+Les formats de tous les fichiers d'un profil (colonnes des CSV, paramètres) sont définis une seule fois dans `scripts/fichiers_profil.py`.
+
+## Mise en place et données d'un profil
+- `python scripts/nouveau_profil.py <prenom>` : crée `prive/<prenom>/` avec tous les documents (profil, profil de risque, budget, charte, plan d'investissement, checklist, journal, bilans, accueil) et les CSV vides au bon format. N'écrase jamais rien.
+- `python scripts/creer_sheet.py prive/<prenom>/Portefeuille-<prenom>.xlsx --profil prive/<prenom>` : classeur de la personne, pré-rempli (paramètres, cibles, lignes déjà détenues en « Reprise », objectifs, budget), à importer dans Google Drive. Sans `--profil` : modèle vide ; `--exemple` : données fictives.
+- `python scripts/synchro_sheet.py prive/<prenom> <Sheet exporté.xlsx>` : relit le Google Sheet et réécrit `transactions.csv`, `positions.csv`, `flux.csv`, `budget.csv`, `objectifs.csv` (prix : saisi, GOOGLEFINANCE ou Yahoo). Signale les écarts de cibles et de paramètres sans les écraser.
+- `python scripts/importer_releve.py prive/<prenom> <releve.csv> --enveloppe PEA` : import d'un relevé exporté du courtier (colonnes reconnues via `templates/courtiers.csv`), sans doublons, vers `import-<date>.xlsx` à coller dans le Sheet. Voir `docs/CONNECTER-BANQUE-COURTIER.md`.
+
 ## Commandes
 - `python scripts/allocation.py prive/<prenom> 1000` : poids, écarts, répartition d'un versement de 1 000 €, frais
 - `python scripts/performance.py prive/<prenom> 7` : rendement réel (XIRR) comparé aux mêmes versements placés à 7 %/an

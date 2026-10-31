@@ -1,0 +1,11 @@
+champ,synonymes
+date,date|date d'operation|date operation|date de l'operation|date valeur|date d'execution|datum|buchungsdatum|trade date|execution date|settlement date
+type,type|type d'operation|operation|nature|sens|transaction type|typ|transaktion|action
+libelle,libelle|description|designation|note|details|beschreibung|reference|commentaire|intitule
+isin,isin|code isin|isin code
+nom,nom|valeur|titre|instrument|produit|security|name|wertpapier|asset|support
+quantite,quantite|qte|nombre|nb titres|nombre de titres|shares|quantity|anzahl|stuck|units|parts
+prix,prix|cours|prix unitaire|cours d'execution|price|kurs|unit price|execution price|valeur liquidative
+montant,montant|montant net|montant total|amount|value|betrag|total|net amount|credit/debit|montant (eur)|montant en eur
+frais,frais|commission|courtage|fee|fees|gebuhr|gebuhren|costs|frais de courtage
+devise,devise|currency|wahrung|monnaie

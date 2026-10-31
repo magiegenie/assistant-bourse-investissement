@@ -54,9 +54,9 @@ _Mis à jour le : JJ/MM/AAAA. Accueil : terminé / en cours (voir `accueil.md`).
 - Épargne salariale (PEE, PER collectif, abondement de l'employeur et part utilisée) :
 
 ## Investissement
-- Versement mensuel prévu :
-- Jour du versement :
-- Allocation cible : voir `cibles.csv`
+- Versement mensuel, jour, courtier, date du PEA, plafonds, partage avec l'associé : **dans `parametres.csv`** (lu par les scripts, le Sheet et l'app)
+- Allocation cible : `cibles.csv` ; plan détaillé : `plan-investissement.md`
+- Google Sheet et application : liens dans `parametres.csv`
 
 ## Règles personnelles (en attendant la charte)
 - Crypto : 10 % maximum du portefeuille
@@ -64,5 +64,5 @@ _Mis à jour le : JJ/MM/AAAA. Accueil : terminé / en cours (voir `accueil.md`).
 - Toute décision hors plan : 24 à 72 h de délai et passage par le Coach
 - Versement mensuel quoi qu'il arrive sur les marchés
 
-## Partage avec l'associé
-- Peut voir mon portefeuille : oui / non
+## Fichiers de ce dossier
+`parametres.csv` (réglages), `positions.csv`, `transactions.csv`, `flux.csv`, `cibles.csv`, `objectifs.csv`, `budget.csv` (données, mises à jour par la synchro du Sheet), `profil-risque.md`, `charte.md`, `plan-investissement.md`, `checklist.md`, `journal.md`, `bilans.md`, `accueil.md`.
