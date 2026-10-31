@@ -31,7 +31,7 @@ Tes données (profil, portefeuille, budget, journal) sont dans `prive/<prénom>/
 - `.claude/agents/` : les 5 agents
 - `connaissances/` : les 50 principes d'investissement et de budget, avec leurs sources
 - `scripts/` : les calculs (répartition, performance, projection, profil de risque, historique des marchés)
-- `donnees/historique/` : la base historique des marchés (14 indices mois par mois, macro, frise d'événements sourcés), lisible aussi dans `docs/Historique-marches.xlsx`. Usage personnel, ne pas rendre le dépôt public
+- `donnees/historique/` : la base historique des marchés (24 séries mois par mois, Dow Jones depuis 1885, macro, frise d'événements sourcés ; base de données `marches.sqlite`), lisible aussi dans `docs/Historique-marches.xlsx`. Usage personnel, ne pas rendre le dépôt public
 - `templates/` : modèles de profil, de budget et de portefeuille
 - `docs/Guide-assistant-bourse-investissement.pdf` : **le guide d'utilisation complet** (source : `docs/GUIDE.md`, mis à jour à chaque nouveauté, regénéré par `python scripts/generer_guide.py`)
 - `docs/` : guide, cahier des charges et idées

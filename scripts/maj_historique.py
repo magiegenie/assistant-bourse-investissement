@@ -48,8 +48,8 @@ INDICES = [
     {"id": "NASDAQ_COMP", "nom": "Nasdaq Composite", "zone": "États-Unis", "devise": "USD", "type": "prix",
      "fournisseur": "Nasdaq", "sources": [("yahoo", "^IXIC", "close")], "remarques": "Toutes les valeurs du Nasdaq, plus long historique que le Nasdaq-100. Prix seul."},
     {"id": "DOW_JONES", "nom": "Dow Jones Industrial Average", "zone": "États-Unis", "devise": "USD", "type": "prix",
-     "fournisseur": "S&P Dow Jones Indices", "sources": [("yahoo", "^DJI", "close")],
-     "remarques": "30 valeurs, pondéré par le prix. Historique libre seulement depuis 1992."},
+     "fournisseur": "S&P Dow Jones Indices", "sources": [("yahoo", "^DJI", "close"), ("measuringworth", "DJA")],
+     "remarques": "30 valeurs, pondéré par le prix. Yahoo Finance depuis 1992 ; avant, série MeasuringWorth (Samuel H. Williamson, « Daily Closing Value of the Dow Jones Average, 1885 to Present »), raccordée par MeasuringWorth avant 1914."},
     {"id": "STOXX600", "nom": "STOXX Europe 600", "zone": "Europe", "devise": "EUR", "type": "prix",
      "fournisseur": "STOXX", "sources": [("stoxx", "SXXP"), ("yahoo", "^STOXX", "close")],
      "remarques": "Fichier officiel STOXX de 1986 à 2016, puis Yahoo Finance. Prix seul."},
@@ -66,7 +66,32 @@ INDICES = [
      "fournisseur": "FTSE Russell", "sources": [("yahoo", "^FTSE", "close")], "remarques": "Prix seul, en livres sterling."},
     {"id": "NIKKEI225", "nom": "Nikkei 225", "zone": "Japon", "devise": "JPY", "type": "prix",
      "fournisseur": "Nikkei", "sources": [("yahoo", "^N225", "close")], "remarques": "Prix seul, en yens. Pondéré par le prix."},
+    {"id": "HANG_SENG", "nom": "Hang Seng", "zone": "Hong Kong", "devise": "HKD", "type": "prix",
+     "fournisseur": "Hang Seng Indexes", "sources": [("yahoo", "^HSI", "close")], "remarques": "Prix seul, en dollars de Hong Kong."},
 ]
+
+# Indices de cours des actions de l'OCDE (via FRED) : un « minimum » de prix sur longue période pour les marchés
+# dont l'indice phare n'a pas d'historique libre ancien. Base 2015 = 100, MOYENNE du mois (pas une clôture) :
+# à ne pas raccorder aux indices ci-dessus, à utiliser pour les tendances longues.
+OCDE = [
+    ("OCDE_FRANCE", "Actions France (OCDE)", "France", "SPASTT01FRM661N"),
+    ("OCDE_ALLEMAGNE", "Actions Allemagne (OCDE)", "Allemagne", "SPASTT01DEM661N"),
+    ("OCDE_ROYAUME_UNI", "Actions Royaume-Uni (OCDE)", "Royaume-Uni", "SPASTT01GBM661N"),
+    ("OCDE_JAPON", "Actions Japon (OCDE)", "Japon", "SPASTT01JPM661N"),
+    ("OCDE_ZONE_EURO", "Actions zone euro (OCDE)", "Zone euro", "SPASTT01EZM661N"),
+    ("OCDE_INDE", "Actions Inde (OCDE)", "Inde", "SPASTT01INM661N"),
+    ("OCDE_BRESIL", "Actions Brésil (OCDE)", "Brésil", "SPASTT01BRM661N"),  # gardé à partir de 1994-07, voir DEBUT_OCDE
+    ("OCDE_COREE", "Actions Corée du Sud (OCDE)", "Corée du Sud", "SPASTT01KRM661N"),
+    ("OCDE_CHINE", "Actions Chine (OCDE)", "Chine", "SPASTT01CNM661N"),
+]
+# Avant le Plan Real (juillet 1994), l'hyperinflation rend la série brésilienne inutilisable : valeurs arrondies à
+# quelques dix-millièmes, variations de +100 % ou +6 000 % qui sont des effets d'arrondi, pas des mouvements de marché.
+DEBUT_OCDE = {"SPASTT01BRM661N": "1994-07"}
+for _id, _nom, _zone, _serie in OCDE:
+    INDICES.append({"id": _id, "nom": _nom, "zone": _zone, "devise": "monnaie locale", "type": "prix (moyenne du mois)",
+                    "fournisseur": "OCDE (via FRED)", "sources": [("fred", _serie)],
+                    "remarques": "Indice de cours des actions de l'OCDE, base 2015 = 100, moyenne mensuelle et non clôture. "
+                                 "Pour les tendances longues seulement : ne pas comparer mois par mois avec un indice en clôture."})
 
 # Séries macro FRED : (id dans la base, id FRED, description, agrégation des données quotidiennes)
 MACRO = [
@@ -157,6 +182,42 @@ def fred(serie, agregation):
     return {d[:7]: v for d, v in points.items()}
 
 
+def measuringworth(serie):
+    """Clôtures quotidiennes du Dow Jones depuis 1885 (MeasuringWorth, usage non commercial avec citation)."""
+    url = (f"https://www.measuringworth.com/datasets/{serie}/export.php?monthStartD=1&dayStartD=1&yearStartD=1885"
+           f"&monthEndD=12&dayEndD=31&yearEndD={date.today().year}")
+    points = {}
+    for r in csv.reader(telecharger(url).decode("utf-8", "replace").splitlines()):
+        if len(r) == 2 and r[0].count("/") == 2:
+            mo, j, a = r[0].split("/")
+            try:
+                points[f"{a}-{int(mo):02d}-{int(j):02d}"] = float(r[1])
+            except ValueError:
+                pass
+    return fin_de_mois(points), f"MeasuringWorth {serie}"
+
+
+_CACHE = {}
+
+
+def charger(src):
+    """Une source d'indice -> ({AAAA-MM: (date de clôture, valeur)}, libellé). Mise en cache pour la séance."""
+    if src not in _CACHE:
+        if src[0] == "yahoo":
+            _CACHE[src] = yahoo(src[1], src[2])
+        elif src[0] == "stoxx":
+            _CACHE[src] = stoxx(src[1])
+        elif src[0] == "measuringworth":
+            _CACHE[src] = measuringworth(src[1])
+        else:
+            # Les tout premiers points de certains pays valent 0 une fois arrondis (Brésil, hyperinflation) : écartés
+            debut = DEBUT_OCDE.get(src[1], "")
+            _CACHE[src] = ({m: ("", v) for m, v in fred(src[1], None).items() if v > 0 and m >= debut},
+                           f"FRED {src[1]} (OCDE, moyenne du mois)")
+        time.sleep(1)
+    return _CACHE[src]
+
+
 def lire_csv(nom):
     f = DOSSIER / nom
     if not f.exists():
@@ -180,10 +241,9 @@ def collecter_indices():
         print(f"{ind['nom']}...")
         serie = {}
         for src in reversed(ind["sources"]):  # la source prioritaire est écrite en dernier et l'emporte
-            mois, libelle = yahoo(src[1], src[2]) if src[0] == "yahoo" else stoxx(src[1])
+            mois, libelle = charger(src)
             for m, (d, v) in mois.items():
                 serie[m] = (v, libelle, d)
-            time.sleep(1)
         precedent = None
         for m in sorted(serie):
             v, libelle, d = serie[m]
@@ -195,7 +255,7 @@ def collecter_indices():
                     modifies.append(f"{ind['id']} {m} : {ancien['cloture']} -> {v:.4f}")
                 else:
                     date_recup = ancien["recupere_le"]
-            lignes.append({"mois": m, "indice": ind["id"], "date_cloture": d, "cloture": f"{v:.4f}", "variation_pct": var,
+            lignes.append({"mois": m, "indice": ind["id"], "date_cloture": d, "cloture": f"{v:.10g}", "variation_pct": var,
                            "source": libelle, "recupere_le": date_recup})
             precedent = v
         mois_tries = sorted(serie)
@@ -246,6 +306,11 @@ def collecter_macro():
     ecrire_csv("macro-series.csv", ["serie", "fred", "description"], desc)
 
 
+# Mois sans cotation connus, qui ne sont pas des trous de données
+FERMETURES = {"DOW_JONES": {"1914-08": "Bourse de New York fermée (Première Guerre mondiale)", "1914-09": "idem",
+                            "1914-10": "idem", "1914-11": "idem"}}
+
+
 def suivant(m):
     a, mo = int(m[:4]), int(m[5:])
     return f"{a + (mo == 12)}-{1 if mo == 12 else mo + 1:02d}"
@@ -263,7 +328,7 @@ def controler():
         trous, m = [], mois[0]
         while m < mois[-1]:
             m = suivant(m)
-            if m not in s:
+            if m not in s and m not in FERMETURES.get(ind, {}):
                 trous.append(m)
         erreurs = 0
         precedent = None
@@ -278,6 +343,8 @@ def controler():
         # Fin de mois douteuse : dernière cotation plus de 4 jours ouvrés avant la fin du mois (trou de la source)
         douteux = []
         for mm in mois:
+            if not s[mm]["date_cloture"]:  # moyenne du mois (OCDE) : pas de date de clôture
+                continue
             d = date.fromisoformat(s[mm]["date_cloture"])
             fin = date(d.year + (d.month == 12), 1 if d.month == 12 else d.month + 1, 1) - timedelta(days=1)
             ouvres = sum(1 for k in range(1, (fin - d).days + 1) if (d + timedelta(days=k)).weekday() < 5)
@@ -298,8 +365,8 @@ def controler():
     for ind in INDICES:
         if len(ind["sources"]) < 2:
             continue
-        a = yahoo(ind["sources"][1][1], ind["sources"][1][2])[0]
-        b = stoxx(ind["sources"][0][1])[0]
+        a = charger(ind["sources"][1])[0]
+        b = charger(ind["sources"][0])[0]
         communs = sorted(set(a) & set(b))
         ecarts = []
         for m in communs[1:]:

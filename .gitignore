@@ -11,3 +11,4 @@ prive/
 /externe/
 .mcp.json
 *.sqlite
+!donnees/historique/marches.sqlite

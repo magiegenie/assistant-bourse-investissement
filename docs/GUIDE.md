@@ -1,7 +1,7 @@
 ---
 titre: Guide d'utilisation
 sous_titre: Assistant Bourse Investissement
-version: 1.2
+version: 1.3
 date: 2026-10-31
 ---
 
@@ -591,21 +591,52 @@ Dans `donnees/` : la composition par pays et par grandes entreprises des princip
 
 Une **base de données des marchés financiers, mois par mois**, pour relativiser, comparer et apprendre avec de vrais chiffres plutôt qu'avec des souvenirs. Elle est dans `donnees/historique/`.
 
-- **14 indices** : MSCI World, MSCI ACWI, émergents, S&P 500 (prix et dividendes réinvestis), Nasdaq-100, Nasdaq Composite, Dow Jones, STOXX Europe 600, Euro Stoxx 50, CAC 40, DAX, FTSE 100, Nikkei 225. Pour chaque mois : la clôture, la variation en %, la source.
+- **24 séries**, environ 15 500 mois. Pour chaque mois : le niveau, la variation en %, la source.
+  - **15 indices de référence** : MSCI World, MSCI ACWI, émergents, S&P 500 (prix et dividendes réinvestis), Nasdaq-100, Nasdaq Composite, Dow Jones, STOXX Europe 600, Euro Stoxx 50, CAC 40, DAX, FTSE 100, Nikkei 225, Hang Seng.
+  - **9 séries OCDE**, le minimum de prix sur longue période : France, Allemagne, Royaume-Uni, Japon, zone euro, Inde, Brésil, Corée du Sud, Chine.
 - **La macro** : inflation aux États-Unis et en France, taux de la Fed et de la BCE, taux à 10 ans, euro contre dollar, pétrole, périodes de récession.
 - **Une frise de 86 événements** de 1971 à 2025 : chocs pétroliers, Lundi noir, bulle internet, Lehman, crise de l'euro, Brexit, Covid, guerre en Ukraine, élections, décisions des banques centrales. Chacun a sa date et **sa source, dont le lien a été vérifié**.
 
 ## Jusqu'où ça remonte
 
-| Depuis | Indices |
+| Depuis | Séries |
 |---|---|
+| 1885 | Dow Jones (MeasuringWorth avant 1992) |
 | 1927 | S&P 500 |
+| 1955-1960 | Actions France, Royaume-Uni, Japon, Inde et Allemagne (OCDE) |
 | 1965 | Nikkei 225 |
 | 1971-1972 | Nasdaq Composite, MSCI World |
-| 1984-1988 | FTSE 100, Nasdaq-100, STOXX Europe 600, Euro Stoxx 50, DAX, MSCI ACWI, S&P 500 dividendes réinvestis |
-| 1990-1994 | CAC 40, Dow Jones, émergents |
+| 1981 | Actions Corée du Sud (OCDE) |
+| 1984-1988 | FTSE 100, Nasdaq-100, STOXX Europe 600, Euro Stoxx 50, Hang Seng, DAX, MSCI ACWI, S&P 500 dividendes réinvestis, actions zone euro (OCDE) |
+| 1990-1999 | CAC 40, émergents, actions Brésil et Chine (OCDE) |
 
-Un indice commence à sa création ou au début de l'historique librement accessible. **Rien n'est inventé pour combler un trou.**
+Une série commence à sa création ou au début de l'historique librement accessible. **Rien n'est inventé pour combler un trou.**
+
+## Le minimum de prix : les séries OCDE
+
+Quand l'indice phare n'a pas d'historique libre ancien, la base ajoute l'**indice de cours des actions de l'OCDE** du pays. C'est le cas du CAC 40 avant 1990, du DAX avant 1987 et des pays émergents.
+
+- **Ce que c'est** : une **moyenne du mois**, pas une clôture.
+- **À quoi ça sert** : aux tendances longues. Par exemple, sur 20 ans glissants, le marché français a été positif dans 97 % des cas depuis 1955 (prix seul).
+- **À quoi ça ne sert pas** : comparer un mois précis avec un indice en clôture. Les séries OCDE ne sont jamais raccordées aux indices phares.
+
+## La base de données
+
+Tout est réuni dans **`donnees/historique/marches.sqlite`**, une vraie base de données. Elle est versionnée sur GitHub.
+
+| Table | Contenu |
+|---|---|
+| `indices` | La fiche de chaque série : nom, zone, devise, type, sources, début, fin |
+| `niveaux` | Une ligne par mois et par série (environ 15 500) |
+| `macro` | Les séries macroéconomiques mois par mois |
+| `evenements` | La frise d'événements avec leurs sources |
+| `rendements_annuels` (vue) | Le rendement de chaque année, par série |
+
+- **Pour l'ouvrir et l'explorer** : un logiciel gratuit comme DB Browser for SQLite.
+- **Pour la lire sans outil** : le classeur Excel.
+- **Pour l'interroger en langage normal** : demande à l'assistant.
+
+Les fichiers CSV du même dossier restent la source de référence. La base est reconstruite à partir d'eux à chaque mise à jour.
 
 ## Ce que tu peux demander
 
@@ -625,7 +656,7 @@ Les agents s'en servent d'eux-mêmes :
 ## Le classeur Excel
 
 `docs/Historique-marches.xlsx` contient :
-- **un onglet par indice** : une ligne par année, une case par mois, en vert quand ça monte et en rouge quand ça baisse, et le total de l'année ;
+- **un onglet par série** : une ligne par année, une case par mois, en vert quand ça monte et en rouge quand ça baisse, et le total de l'année ;
 - **une synthèse annuelle** de tous les indices ;
 - **les grandes baisses** avec les événements autour du creux ;
 - **la frise d'événements** avec la réaction des marchés ;
@@ -814,6 +845,7 @@ Les fichiers concernés :
 
 | Version | Date | Ce qui change |
 |---|---|---|
+| **1.3** | 31/10/2026 | Historique élargi à 24 séries : Dow Jones depuis 1885, Hang Seng, 9 séries OCDE (le minimum de prix sur longue période pour la France, l'Allemagne, les émergents...) ; base de données `marches.sqlite` décrite et visible sur GitHub |
 | **1.2** | 31/10/2026 | Nouveau chapitre 14 « L'historique des marchés » : base mensuelle de 14 indices (depuis 1927 à 1994 selon l'indice), macro, frise de 86 événements sourcés, scripts `historique.py` et `maj_historique.py`, classeur `Historique-marches.xlsx` ; chapitres suivants renumérotés |
 | **1.1** | 31/10/2026 | Accueil en 6 étapes avec pause et reprise ; nouveau chapitre 3 « Ton profil de risque » (test en 4 dimensions, script `profil_risque.py`, alertes, lien avec le Stratège, l'Analyste et le Coach) ; test de résistance comparé à la perte maximale acceptable ; chapitres renumérotés |
 | **1.0** | 31/10/2026 | Première édition du guide : le Directeur et les 5 agents, les 9 scripts, les 3 serveurs MCP, les 9 fiches et les 6 manuels de compétences, le classeur Excel, le rythme conseillé |
@@ -829,3 +861,4 @@ Les fichiers concernés :
 | 31/10/2026 | Guide d'utilisation complet en PDF |
 | 31/10/2026 | Accueil enrichi et test de profil de risque (capacité, tolérance, besoin, connaissances) |
 | 31/10/2026 | Base historique des marchés : 14 indices mensuels, macro, 86 événements sourcés |
+| 31/10/2026 | Base historique élargie à 24 séries (Dow Jones depuis 1885, séries OCDE depuis 1955), base SQLite versionnée |

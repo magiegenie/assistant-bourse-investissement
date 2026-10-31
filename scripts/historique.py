@@ -128,9 +128,9 @@ def annualise(cumul, nb_mois):
 
 
 def cmd_resume():
-    print(f"{'Indice':<13}{'Nom':<45}{'Type':<32}{'Devise':<7}{'Début':<9}{'Fin':<9}")
+    print(f"{'Indice':<18}{'Nom':<45}{'Type':<31}{'Devise':<16}{'Début':<9}{'Fin':<9}")
     for i, f in FICHES.items():
-        print(f"{i:<13}{f['nom'][:44]:<45}{f['type'][:31]:<32}{f['devise']:<7}{f['debut']:<9}{f['fin']:<9}")
+        print(f"{i:<18}{f['nom'][:44]:<45}{f['type'][:30]:<31}{f['devise']:<16}{f['debut']:<9}{f['fin']:<9}")
     print(f"\nMacro : {', '.join(sorted(MACRO))}\nÉvénements : {len(EVENEMENTS)}")
 
 

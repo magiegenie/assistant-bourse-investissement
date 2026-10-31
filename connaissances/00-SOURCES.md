@@ -28,7 +28,7 @@ Les compléments viennent de `docs/recherche/07-comportement.md`, `09-veille.md`
 
 ## Base historique des marchés (fiche G, point 119)
 
-Collectée le 31/10/2026 par `scripts/maj_historique.py`, depuis Yahoo Finance, le fichier officiel STOXX et FRED. Couverture réelle, sources indice par indice, contrôles et limites (prix seul, devises, séries synthétiques) dans `donnees/historique/SOURCES.md`. La frise `donnees/historique/evenements.csv` compte 86 événements, chacun avec un lien vérifié. Elle **remplace** `docs/recherche/rendements-annuels.csv` (resté largement « à vérifier ») et `baisses-majeures.csv` (recalculées et comparées) : pour un chiffre historique, passer par `scripts/historique.py`.
+Collectée le 31/10/2026 par `scripts/maj_historique.py`, depuis Yahoo Finance, le fichier officiel STOXX, FRED (macro et indices de cours de l'OCDE) et MeasuringWorth (Dow Jones avant 1992, usage non commercial avec citation). Couverture réelle, sources indice par indice, contrôles et limites (prix seul, devises, séries synthétiques) dans `donnees/historique/SOURCES.md`. La frise `donnees/historique/evenements.csv` compte 86 événements, chacun avec un lien vérifié. Elle **remplace** `docs/recherche/rendements-annuels.csv` (resté largement « à vérifier ») et `baisses-majeures.csv` (recalculées et comparées) : pour un chiffre historique, passer par `scripts/historique.py`.
 
 ## Test de profil de risque (fiche D, point 118)
 
