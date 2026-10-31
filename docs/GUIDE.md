@@ -1,7 +1,7 @@
 ---
 titre: Guide d'utilisation
 sous_titre: Assistant Bourse Investissement
-version: 1.0
+version: 1.1
 date: 2026-10-31
 ---
 
@@ -37,12 +37,12 @@ Il fonctionne dans **Claude Code**, en langage normal. **Tu n'as aucune commande
 
 | Qui | Ce qu'il fait | Chapitre |
 |---|---|---|
-| **Le Directeur** | Comprend ta demande, appelle le bon agent, fait la synthèse | 4 |
-| **Le Veilleur** | Actualités filtrées sur tes placements, brief du jour, explication d'une chute | 5 |
-| **L'Analyste** | Portefeuille, versement du mois, performance, frais, chevauchements d'ETF | 6 |
-| **Le Conseiller budget** | Budget, épargne de précaution, dettes, primes, arnaques, prévoyance | 7 |
-| **Le Stratège** | Objectifs, enveloppes (PEA, assurance vie...), impôts, charte d'investissement | 8 |
-| **Le Coach** | Décisions d'achat et de vente, émotions, journal, apprentissage | 9 |
+| **Le Directeur** | Comprend ta demande, appelle le bon agent, fait la synthèse | 5 |
+| **Le Veilleur** | Actualités filtrées sur tes placements, brief du jour, explication d'une chute | 6 |
+| **L'Analyste** | Portefeuille, versement du mois, performance, frais, chevauchements d'ETF | 7 |
+| **Le Conseiller budget** | Budget, épargne de précaution, dettes, primes, arnaques, prévoyance | 8 |
+| **Le Stratège** | Objectifs, enveloppes (PEA, assurance vie...), impôts, charte d'investissement | 9 |
+| **Le Coach** | Décisions d'achat et de vente, émotions, journal, apprentissage | 10 |
 
 # 2. Démarrer en 5 minutes
 
@@ -50,31 +50,96 @@ Il fonctionne dans **Claude Code**, en langage normal. **Tu n'as aucune commande
 
 - **Claude Code** (l'application ou le terminal).
 - Le dossier du projet sur ton ordinateur (`git clone https://github.com/magiegenie/assistant-bourse-investissement.git`).
-- Facultatif mais recommandé : les serveurs de données de marché et d'actualité (chapitre 11), installés par une seule commande.
+- Facultatif mais recommandé : les serveurs de données de marché et d'actualité (chapitre 12), installés par une seule commande.
 
 ## Première séance
 
 1. Ouvre le dossier du projet dans Claude Code.
 2. Écris simplement : **« Salut, c'est Melvin »** (avec ton prénom).
-3. L'assistant ne te connaît pas encore : il lance tout seul l'**accueil**, une conversation détendue en trois blocs.
+3. L'assistant ne te connaît pas encore : il lance tout seul l'**accueil**, une conversation détendue d'environ 20 minutes, en 6 étapes, une ou deux questions à la fois. Le **test de profil de risque** (chapitre 3) est réparti dans ces étapes.
 
-| Bloc | Les questions |
+| Étape | Les questions |
 |---|---|
-| **Toi** | Prénom, âge, situation (étudiant, salarié...), revenu net mensuel, expérience en bourse |
-| **Ton argent** | Dépenses mensuelles, épargne de précaution, dettes, ce qui est déjà investi (enveloppes, lignes, montants approximatifs), versement mensuel possible |
-| **Tes objectifs et ton rapport au risque** | 1 à 3 objectifs datés, et la question clé : « si ton portefeuille perd 30 % en 3 mois, tu fais quoi ? » |
+| **1. Toi** | Prénom, âge, famille et personnes à charge, métier et stabilité du revenu, logement, projets de vie, protection en cas de coup dur |
+| **2. Ton argent** | Revenu, dépenses essentielles, épargne de précaution, dettes et taux, ce qui est déjà investi, épargne salariale, versement mensuel possible, et « si cette somme perdait la moitié pendant deux ans, ta vie changerait ? » |
+| **3. Tes objectifs** | 1 à 3 objectifs nommés, datés et chiffrés, leur horizon, ce qui serait « assez », la priorité |
+| **4. Tes connaissances** | Un petit quiz de 6 questions (« je ne sais pas » est une bonne réponse), ton expérience, le temps que tu as, tes sources d'information |
+| **5. Ton rapport au risque** | 10 mises en situation chiffrées en euros sur ton propre montant |
+| **6. Ton rapport à l'argent et tes préférences** | Ce qu'on disait de l'argent chez toi, ton profil (Évitant, Optimiseur, Inquiet, Rêveur), tes valeurs et exclusions, le niveau d'explication que tu veux, le partage avec l'associé |
 
-4. À la fin, il crée ton espace privé `prive/<prénom>/` avec ton profil, ton budget, tes positions et tes cibles, puis te propose une **première radiographie** de ton portefeuille par l'Analyste.
+4. **Pause possible à tout moment** : l'avancement est noté, et l'assistant te propose de reprendre là où tu t'es arrêté à la séance suivante. Pressé ? Une version courte fait les étapes 1, 2, 3 et 5, et garde les autres pour plus tard.
+5. À la fin, il calcule ton **profil de risque**, te l'explique en langage simple et te demande si ça te ressemble. Puis il crée ton espace privé `prive/<prénom>/` (profil, profil de risque, budget, positions, cibles), et te propose une **première radiographie** et un **test de résistance** par l'Analyste, puis l'écriture de ta charte avec le Stratège.
 
 ## Les séances suivantes
 
-Dis qui tu es, c'est tout. L'assistant recharge ton profil, ta charte et ton journal, et te rappelle en une ligne ce qui est en attente (un bilan de décision à 3 mois, un délai de réflexion en cours, une revue de charte à venir).
+Dis qui tu es, c'est tout. L'assistant recharge ton profil, ton profil de risque, ta charte et ton journal, et te rappelle en une ligne ce qui est en attente (un accueil à terminer, un bilan de décision à 3 mois, un délai de réflexion en cours, une revue de charte à venir, un test de risque de plus d'un an).
+
+# 3. Ton profil de risque
+
+## Pourquoi un test
+
+Tout le reste en dépend : la part d'actions, la charte, la façon dont le Coach te parle quand ça baisse. Une seule question du type « tu fais quoi à -30 % ? » ne suffit pas : on surestime facilement son courage, surtout quand les marchés montent. Le test mesure donc **quatre choses**, séparément.
+
+| Dimension | La question qu'elle pose | Exemples |
+|---|---|---|
+| **Capacité** (tes finances) | Peux-tu encaisser une perte sans que ta vie change ? | Épargne de précaution, stabilité du revenu, dettes, horizon, personnes à charge |
+| **Tolérance** (tes émotions) | Supportes-tu de voir la perte sans vendre ? | Choix entre gains sûrs et paris, baisse de 20 % puis de 35 %, ce que tu as **réellement** fait lors d'une vraie baisse |
+| **Besoin de risque** | Quel rendement te faut-il vraiment pour ton objectif ? | Calculé par l'assistant à partir de ton objectif, de ton capital et de ton versement |
+| **Connaissances** | Sais-tu ce que tu achètes ? | Un quiz de 6 questions et ton expérience |
+
+Les questions de tolérance sont **chiffrées en euros sur ton propre montant** : « ton portefeuille perd 20 %, soit 4 000 € » parle plus que « -20 % ». La dernière te demande à partir de quelle perte, en euros, tu dormirais mal : c'est ta **perte maximale acceptable**.
+
+## Comment lire ton résultat
+
+Un profil sur 5 niveaux, avec un repère de part d'actions :
+
+| Niveau | Profil | Part d'actions (repère) |
+|---|---|---|
+| 1 | Très prudent | 0 à 20 % |
+| 2 | Prudent | 20 à 40 % |
+| 3 | Équilibré | 40 à 60 % |
+| 4 | Dynamique | 60 à 85 % |
+| 5 | Offensif | 85 à 100 % |
+
+Les règles, appliquées par un script (jamais de tête) :
+
+- **Le plus prudent de la capacité et de la tolérance décide.** Avoir les nerfs solides ne sert à rien si tu n'as pas d'épargne de précaution, et inversement.
+- **Plafonds** : l'argent dont tu as besoin dans moins de 3 ans ne va pas en actions ; ta perte maximale acceptable limite la part d'actions (dans un krach type 2008, une allocation perd environ la moitié de sa part en actions).
+- **Besoin de risque faible** : si un placement prudent suffit pour ton objectif, l'assistant te propose un cran plus prudent. C'est toi qui choisis.
+- **Objectif trop exigeant** pour ton profil : on revoit le montant, le délai ou le versement, pas le risque.
+
+## Les alertes
+
+Le test signale aussi ce qui mérite une discussion :
+
+- pas d'épargne de précaution, ou une dette chère : à régler avant d'investir plus (Conseiller budget) ;
+- un écart important entre ce que tes finances permettent et ce que tes émotions supportent ;
+- tu as vendu lors d'une vraie baisse, mais tu déclares que tu tiendrais : **le réel compte plus que le déclaré** ;
+- une tolérance élevée jamais testée en vrai : commencer un cran en dessous ;
+- un test passé quand les marchés sont au plus haut : à refaire après une baisse ;
+- des connaissances encore fragiles, ou des réponses fausses données avec assurance (excès de confiance). Le quiz est corrigé, sans jugement.
+
+## Ce que ça change ensuite
+
+- Le **Stratège** garde ton allocation dans la fourchette de ton profil et pré-remplit ta charte.
+- L'**Analyste** compare le pire scénario du test de résistance à ta perte maximale acceptable, et te prévient si elle est dépassée.
+- Le **Coach** te rappelle ta perte maximale acceptable quand tu as peur ou que tu t'emballes, et choisit par où commencer ton apprentissage d'après le quiz.
+
+## Quand le refaire
+
+Une fois par an, après un événement de vie (naissance, perte d'emploi, héritage, achat immobilier), et **après une grosse baisse** : on compare alors ce que tu as vraiment fait à ce que tu avais déclaré. Dis simplement « refais mon test de risque » ou « quel est mon profil ? ». Chaque résultat est gardé dans l'historique de `profil-risque.md`.
+
+## Te comparer à un test externe (facultatif)
+
+L'AMF propose un autodiagnostic pédagogique gratuit, en français : « Vous souhaitez mieux vous connaître en tant qu'épargnant ? », sur amf-france.org, rubrique Espace épargnants, Conseils pratiques. Si son résultat diffère beaucoup du nôtre, parles-en à l'assistant. Pour les curieux, la référence académique la plus connue est l'échelle de Grable et Lytton (1999, 13 questions, en anglais).
+
+> **Limites** : ce test est un outil d'aide à la réflexion, rédigé par nous à partir de travaux reconnus, **non validé scientifiquement**. Ce n'est pas le profil réglementaire qu'une banque ou un conseiller doit établir avant de te conseiller (questionnaire MIF 2).
 
 ## À deux sur le même ordinateur
 
 Chaque personne a son dossier. L'assistant ne mélange jamais les données de deux personnes et ne parle jamais du portefeuille de l'un à l'autre, sauf si les deux l'ont autorisé dans leur profil (champ « Partage avec l'associé »).
 
-# 3. Comment lui parler
+# 4. Comment lui parler
 
 ## Parle normalement
 
@@ -108,7 +173,7 @@ Chaque réponse se termine par une ou deux suites en phrases simples, par exempl
 
 Dis-le simplement : « explique-moi comme à un débutant » ou « donne-moi les hypothèses et les limites ». Le fond reste identique (mêmes chiffres, mêmes limites), seuls le ton et la profondeur changent. Un terme technique est toujours défini à sa première apparition.
 
-# 4. Le Directeur
+# 5. Le Directeur
 
 Le Directeur est le **chef d'orchestre**. Il ne calcule pas et ne conseille pas lui-même : il comprend, route et synthétise. Il est défini dans `CLAUDE.md`, qui est chargé automatiquement à chaque séance.
 
@@ -127,7 +192,7 @@ Le Directeur est le **chef d'orchestre**. Il ne calcule pas et ne conseille pas 
 - Toujours une ou deux suites possibles.
 - Un rappel discret « outil d'aide à la réflexion, pas un conseil réglementé » quand c'est pertinent.
 
-# 5. La veille (le Veilleur)
+# 6. La veille (le Veilleur)
 
 **Sa mission : moins d'informations, mais les bonnes.** Seulement ce qui touche tes placements et tes objectifs. Moins de bruit, c'est moins de stress.
 
@@ -182,9 +247,9 @@ Elles sont dans `connaissances/agents/veilleur.md`. Demande-les simplement :
 
 ## Ce qu'il ne fait pas
 
-Aucune prédiction, aucun objectif de cours, aucune « opportunité ». **Le brief n'est pas automatique pour l'instant** : tu le demandes quand tu en as envie (voir le chapitre 15 pour ce qui est prévu).
+Aucune prédiction, aucun objectif de cours, aucune « opportunité ». **Le brief n'est pas automatique pour l'instant** : tu le demandes quand tu en as envie (voir le chapitre 16 pour ce qui est prévu).
 
-# 6. L'analyse du portefeuille (l'Analyste)
+# 7. L'analyse du portefeuille (l'Analyste)
 
 **Sa mission : des chiffres justes et compréhensibles, toujours suivis de la prochaine action concrète.** Tous les chiffres viennent des scripts.
 
@@ -221,7 +286,7 @@ Dans `connaissances/agents/analyste.md` : bilan et rapport de portefeuille, ré�
 
 > **Exemple (fictif)** : « Ton portefeuille vaut 12 400 €. Tu es à 52 % en actions USA pour une cible de 40 % (écart de 12 points). Frais moyens : 0,12 % par an. Pour ton versement de 500 € : 0 € sur les USA, 350 € sur l'Europe, 150 € sur les émergents. Point à retenir : ne vends rien, le versement suffit à rééquilibrer en 4 mois. »
 
-# 7. Le budget (le Conseiller budget)
+# 8. Le budget (le Conseiller budget)
 
 **Sa mission : que tu dépenses mieux, épargnes plus et investisses plus, sans stress.** Au début, le **taux d'épargne** est le premier levier de richesse.
 
@@ -265,7 +330,7 @@ Dans `connaissances/agents/conseiller-budget.md` : épargne de précaution, plan
 
 Bienveillant, **jamais moralisateur** sur les dépenses « envies ». L'argent plaisir est fait pour être dépensé, puisque l'essentiel est déjà financé.
 
-# 8. La stratégie (le Stratège)
+# 9. La stratégie (le Stratège)
 
 **Sa mission : que tu saches où tu vas, dans quelles enveloppes, et avec quelles règles écrites.**
 
@@ -309,7 +374,7 @@ C'est **ton règlement intérieur d'investisseur**, écrit à froid, en une page
 7. **En cas de baisse** : ce que tu fais à -20 % et à -35 %
 8. **Mesure et revue** : indice de référence choisi **maintenant**, revue annuelle et après un événement de vie
 
-Le Stratège teste ton allocation avec le test de résistance avant de la valider. Le modèle est dans `templates/charte-modele.md`.
+La partie 2 est pré-remplie avec ton profil de risque (chapitre 3), et l'allocation cible reste dans la fourchette d'actions de ton profil. Le Stratège teste ton allocation avec le test de résistance avant de la valider. Le modèle est dans `templates/charte-modele.md`.
 
 ## La retraite et les retraits
 
@@ -323,7 +388,7 @@ Dans `connaissances/agents/stratege.md` : charte, allocation stratégique, objec
 
 Il précise toujours « à vérifier avec un professionnel pour les cas complexes » sur la fiscalité, et ne recommande **aucun produit précis sans critères explicites** (frais, éligibilité, encours).
 
-# 9. Le coach
+# 10. Le coach
 
 **Sa mission : te protéger de tes émotions et te faire progresser.** Le comportement pèse plus que le choix des placements.
 
@@ -395,7 +460,7 @@ Dans `connaissances/agents/coach.md` : psychologie de l'argent, biais et parades
 
 Empathique mais ferme, jamais culpabilisant. **Raisonnable plutôt que rationnel** : un plan un peu moins optimal que tu tiendras pendant une baisse de 35 % vaut mieux qu'un plan parfait que tu abandonneras. Il ne dit jamais « achète » ou « vends ».
 
-# 10. Les calculs (les scripts)
+# 11. Les calculs (les scripts)
 
 Tu n'as **jamais besoin de les lancer à la main** : les agents le font. Ils sont dans le dossier `scripts/` et lisent tes fichiers privés. Voici ce qui existe, pour comprendre d'où viennent les chiffres.
 
@@ -406,8 +471,9 @@ Tu n'as **jamais besoin de les lancer à la main** : les agents le font. Ils son
 | `projection.py` | Capital futur, délai ou versement nécessaire pour un objectif, équivalent en euros d'aujourd'hui avec l'inflation | Stratège |
 | `reequilibrage.py` | Plan de ventes si une poche dépasse le seuil, impôt estimé, contrôle achats = ventes. Ne passe aucun ordre | Analyste |
 | `exposition.py` | Exposition réelle par pays, part en dollars et grandes entreprises à travers tes ETF | Analyste, Coach |
-| `stress.py` | Impact en euros de 6 scénarios de crise (hypothèses, pas des prévisions) | Analyste, Stratège |
+| `stress.py` | Impact en euros de 6 scénarios de crise (hypothèses, pas des prévisions), comparé à ta perte maximale acceptable | Analyste, Stratège |
 | `fiscalite.py` | Impôt estimé d'un retrait en CTO, PEA ou assurance vie | Stratège |
+| `profil_risque.py` | Affiche le test de profil de risque chiffré sur ton montant, puis note tes réponses : capacité, tolérance, besoin de risque, connaissances, profil retenu, perte maximale acceptable, alertes | Directeur (accueil), Stratège |
 | `creer_sheet.py` | Génère le classeur Excel du portefeuille (modèle vide) | Toi, à la demande |
 | `installer_mcp.py` | Installe les serveurs de données et d'actualité sur un ordinateur | Toi, une fois |
 
@@ -439,7 +505,7 @@ date,montant
 
 Un modèle de langage peut se tromper sur un calcul ou « deviner » un chiffre. Ici, **tout chiffre qui compte est produit par un programme vérifiable**, et l'assistant se contente de l'expliquer. C'est la règle n° 1.
 
-# 11. Marché et actualité en direct (serveurs MCP)
+# 12. Marché et actualité en direct (serveurs MCP)
 
 Trois petits serveurs donnent aux agents un accès aux données en direct. Ils sont **gratuits** et tournent **sur ton ordinateur**.
 
@@ -469,7 +535,7 @@ Pour régénérer seulement `.mcp.json` sans réinstaller : `python scripts/inst
 
 La liste vit dans `mcp/serveurs.json` (versionnée, avec version et licence de chaque serveur). Une clé API éventuelle va dans un fichier `.env`, **jamais dans le code**.
 
-# 12. La base de connaissances
+# 13. La base de connaissances
 
 ## Les fiches
 
@@ -486,6 +552,8 @@ Le socle de toutes les recommandations. Chaque point est numéroté, et l'assist
 | **G** | Mesure de la performance |
 | **H** | Information et apprentissage |
 | **I** | Protection (arnaques, prévoyance) |
+
+Le test de profil de risque a son propre fichier, `connaissances/questionnaire-risque.json` : toutes les questions, leurs points et les plafonds y sont réunis, et le script ne lit que lui. Sa méthode est résumée dans la fiche D, point 118.
 
 ## Les manuels de compétences
 
@@ -515,7 +583,7 @@ Le dossier `docs/recherche/` contient les 12 recherches de départ (fiscalité, 
 
 Dans `donnees/` : la composition par pays et par grandes entreprises des principaux indices, **datée**. `exposition.py` s'en sert. **À mettre à jour chaque trimestre** : l'assistant te prévient quand elles ont plus de 3 mois.
 
-# 13. Le classeur Excel
+# 14. Le classeur Excel
 
 Le fichier `templates/Portefeuille-complet.xlsx` est un classeur **vide et anonyme** pour suivre ton portefeuille à la main ou en parallèle de l'assistant. Il peut être régénéré avec `python scripts/creer_sheet.py` (option `--exemple` pour une version remplie d'exemples).
 
@@ -541,7 +609,7 @@ Le fichier `templates/Portefeuille-complet.xlsx` est un classeur **vide et anony
 
 > **Confidentialité** : ce fichier est vide. Une fois rempli, ne le mets jamais dans un dépôt public.
 
-# 14. Tes fichiers privés
+# 15. Tes fichiers privés
 
 Tout ce qui te concerne est dans **`prive/<ton prénom>/`**. Ce dossier est exclu de git (`.gitignore`) : **il ne part jamais sur GitHub**. Chacun garde le sien sur son ordinateur.
 
@@ -553,6 +621,9 @@ Tout ce qui te concerne est dans **`prive/<ton prénom>/`**. Ce dossier est excl
 | `cibles.csv` | Ton allocation cible | Stratège, Analyste |
 | `flux.csv` | Tes versements et retraits | Analyste (après ta confirmation) |
 | `charte.md` | Ta charte d'investissement | Stratège avec toi |
+| `profil-risque.md` | Ton profil de risque, ses alertes et l'historique de tes tests | Accueil, Stratège, Coach |
+| `reponses-risque.csv` | Tes réponses au dernier test, lues par le script | Accueil, Stratège |
+| `accueil.md` | L'avancement de l'accueil, pour reprendre après une pause | Directeur |
 | `journal.md` | Tes décisions, leurs raisons et leurs bilans | Coach |
 | `bilans.md` | Tes bilans mensuels et annuels, du plus récent au plus ancien | Analyste |
 
@@ -562,7 +633,7 @@ Tout ce qui te concerne est dans **`prive/<ton prénom>/`**. Ce dossier est excl
 - Si tu sauvegardes le projet sur GitHub, seules les parties non personnelles partent (agents, fiches, scripts, modèles, guide).
 - Les clés API vont dans `.env` (aussi exclu de git), jamais dans le code.
 
-# 15. Ton rythme conseillé
+# 16. Ton rythme conseillé
 
 Une heure par semaine suffit. Voici un rythme réaliste. Tu n'as rien à retenir : à chaque moment, dis simplement la phrase indiquée.
 
@@ -587,6 +658,7 @@ Une heure par semaine suffit. Voici un rythme réaliste. Tu n'as rien à retenir
 
 ## Chaque année
 
+- **Nouveau test de profil de risque** : « refais mon test de risque ».
 - **Revue de la charte** (Stratège), et **test de résistance** avant de la valider.
 - **Déclaration** en avril : formulaires 3916, 2086, IFU (Stratège).
 - **Revue de protection** : bénéficiaires, mutuelle, prévoyance (Conseiller budget).
@@ -607,9 +679,9 @@ Le cahier des charges (`docs/CAHIER-DES-CHARGES-MVP.md`) prévoit des évolution
 - un score de santé du portefeuille sur 100 ;
 - la lecture directe d'un Google Sheet.
 
-Aujourd'hui, tout se passe en **conversation dans Claude Code**. Quand une de ces fonctions arrive, ce guide est mis à jour (voir le chapitre 17).
+Aujourd'hui, tout se passe en **conversation dans Claude Code**. Quand une de ces fonctions arrive, ce guide est mis à jour (voir le chapitre 18).
 
-# 16. Limites, précautions et dépannage
+# 17. Limites, précautions et dépannage
 
 ## Les limites à garder en tête
 
@@ -617,7 +689,7 @@ Aujourd'hui, tout se passe en **conversation dans Claude Code**. Quand une de ce
 - **Pas de prédiction.** Si l'assistant semble en faire une, c'est une erreur : reprends-le.
 - **Données de marché indicatives** : elles servent de repère, jamais de base unique à une décision.
 - **Fiscalité** : les taux sont ceux de 2026 et changent avec les lois de finances. Pour un cas complexe, vérifie avec un professionnel.
-- **Fiches « à vérifier »** : certains chiffres n'ont pas encore été confirmés à la source (voir le chapitre 12).
+- **Fiches « à vérifier »** : certains chiffres n'ont pas encore été confirmés à la source (voir le chapitre 13).
 - **Données personnelles** : tu es responsable de leur traitement. Elles restent sur ton ordinateur.
 
 ## Dépannage
@@ -642,7 +714,7 @@ python scripts/installer_mcp.py
 
 Le dossier `externe/` (code des autres), `.mcp.json` et `prive/` (tes données) ne sont **jamais versionnés** : tes données ne se retrouvent donc que sur ton ordinateur, à sauvegarder toi-même si tu veux les garder.
 
-# 17. Comment ce guide reste à jour
+# 18. Comment ce guide reste à jour
 
 ## Le principe
 
@@ -673,6 +745,7 @@ Les fichiers concernés :
 
 | Version | Date | Ce qui change |
 |---|---|---|
+| **1.1** | 31/10/2026 | Accueil en 6 étapes avec pause et reprise ; nouveau chapitre 3 « Ton profil de risque » (test en 4 dimensions, script `profil_risque.py`, alertes, lien avec le Stratège, l'Analyste et le Coach) ; test de résistance comparé à la perte maximale acceptable ; chapitres renumérotés |
 | **1.0** | 31/10/2026 | Première édition du guide : le Directeur et les 5 agents, les 9 scripts, les 3 serveurs MCP, les 9 fiches et les 6 manuels de compétences, le classeur Excel, le rythme conseillé |
 
 ## Historique du système
@@ -684,3 +757,4 @@ Les fichiers concernés :
 | 30/10/2026 | Branchement des flux d'actualité et de la lecture web sur le Veilleur |
 | 30/10/2026 | Configuration MCP reproductible : liste des serveurs, installeur, liste des dépôts externes |
 | 31/10/2026 | Guide d'utilisation complet en PDF |
+| 31/10/2026 | Accueil enrichi et test de profil de risque (capacité, tolérance, besoin, connaissances) |

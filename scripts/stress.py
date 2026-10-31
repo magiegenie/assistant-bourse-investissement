@@ -9,6 +9,7 @@ limitée à un portefeuille d'ETF de particulier.
 Chaque poche est classée d'après son nom : obligations, or, crypto, liquidités, sinon actions.
 Part en dollars estimée : 100 % pour USA / S&P / Nasdaq, 70 % pour Monde / World / ACWI, 0 % sinon.
 """
+import re
 import sys
 sys.stdout.reconfigure(encoding="utf-8")
 from pathlib import Path
@@ -47,6 +48,20 @@ def part_dollar(poche):
     return 0.0
 
 
+def perte_max(dossier):
+    """Perte maximale acceptable en euros, lue dans profil-risque.md (ligne « perte_max_eur: »), sinon None."""
+    fichier = Path(dossier) / "profil-risque.md"
+    if not fichier.exists():
+        return None
+    m = re.search(r"^perte_max_eur:\s*([\d .,]+)$", fichier.read_text(encoding="utf-8"), re.M)
+    if not m:
+        return None
+    try:
+        return float(m.group(1).replace(" ", "").replace(",", "."))
+    except ValueError:
+        return None
+
+
 def main(dossier):
     positions = lire(Path(dossier) / "positions.csv")
     # Un fonds euro a un capital garanti : on le traite comme des liquidités, même s'il est rangé
@@ -59,6 +74,7 @@ def main(dossier):
         poches[cle] = poches.get(cle, 0) + float(r["valeur"])
     total = sum(poches.values())
     print(f"Portefeuille : {total:,.0f} €\n")
+    pire = 0.0
     for nom, act, obl, gold, cry, usd in SCENARIOS:
         impact = 0.0
         for p, v in poches.items():
@@ -68,6 +84,11 @@ def main(dossier):
                 choc += usd * part_dollar(p)
             impact += v * choc / 100
         print(f"{nom:<44}{impact:>+12,.0f} €  ({impact / total * 100:+.1f} %)")
+        pire = min(pire, impact)
+    limite = perte_max(dossier)
+    if limite is not None:
+        etat = "DÉPASSÉE : allocation trop risquée pour toi, à revoir avec le Stratège" if -pire > limite else "respectée"
+        print(f"\nPire scénario {pire:,.0f} € contre ta perte maximale acceptable de {limite:,.0f} € (profil-risque.md) : {etat}.")
     print("Une seule action en direct : compter -50 % sur la ligne (cela arrive), soit la valeur de la ligne divisée par deux.")
     print("\nHypothèses illustratives, pas des prévisions. Le dollar qui monte amortit souvent les krachs pour un "
           "investisseur en euros. La question utile : « si ça arrivait le mois prochain, changerais-tu quelque chose ? »")

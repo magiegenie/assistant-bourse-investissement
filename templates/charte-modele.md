@@ -10,9 +10,12 @@ Structure inspirée des « Investment Policy Statements » (skill `investment-po
 - Ce qui serait « assez » pour moi, en une phrase :
 
 ## 2. Mon rapport au risque
-- Capacité (revenus stables, dettes, épargne de précaution de ___ mois) : forte / moyenne / faible
-- Volonté (ma réaction honnête à -35 % le mois prochain) :
-- **Règle : la plus prudente des deux décide.** Mon niveau retenu :
+_Pré-rempli à partir de `profil-risque.md` (test du JJ/MM/AAAA)._
+- Capacité (revenus stables, dettes, épargne de précaution de ___ mois) : niveau ___ sur 5
+- Tolérance (ma réaction honnête à -35 % le mois prochain) : niveau ___ sur 5
+- Besoin de risque (rendement réel nécessaire pour mes objectifs) : ___ %
+- Perte maximale acceptable : ___ €
+- **Règle : la plus prudente des deux décide.** Mon niveau retenu : ___ (<nom>), actions entre ___ et ___ %
 
 ## 3. Mes contraintes
 - Liquidité : argent dont j'aurai besoin dans moins de 3 ans (hors actions) :

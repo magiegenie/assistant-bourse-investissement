@@ -22,6 +22,18 @@ def versement_requis(capital, taux, annees, objectif):
         bas, haut = (m, haut) if projeter(capital, m, taux, annees) < objectif else (bas, m)
     return haut
 
+def rendement_requis(capital, mensuel, annees, objectif):
+    """Rendement annuel (en %) qui atteint l'objectif en `annees`, ou None s'il faut plus de 30 %/an."""
+    if projeter(capital, mensuel, 0, annees) >= objectif:
+        return 0.0
+    bas, haut = 0.0, 30.0
+    if projeter(capital, mensuel, haut, annees) < objectif:
+        return None
+    for _ in range(100):
+        m = (bas + haut) / 2
+        bas, haut = (m, haut) if projeter(capital, mensuel, m, annees) < objectif else (bas, m)
+    return haut
+
 def main(capital, mensuel, taux, annees, objectif=None, inflation=None):
     for a in sorted({5, 10, 15, 20, 30, int(annees)}):
         v = projeter(capital, mensuel, taux, a)
