@@ -32,3 +32,13 @@ Tous les scénarios passent le seuil de 9/10. Point restant : une part de portef
 # Accueil d'un nouvel utilisateur (31/10/2026)
 
 Profil fictif « Hugo » créé de bout en bout par le Directeur : fichiers lisibles par `allocation.py` et `budget.py`, épargne de précaution sous 3 mois et dette à 4,9 % repérées. Manques du processus : questions absentes (mensualité des dettes, dates des versements, épargne salariale, stress), règles de remplissage implicites pour `budget.md`, `flux.csv` et `cibles.csv`. Corrigé dans `CLAUDE.md`, section 4.
+
+# Tour 3 : expérience utilisateur (31/10/2026)
+
+| Scénario | Total | Remarque |
+|---|---|---|
+| Saisie naturelle (« j'ai investi 280 € sur le World et 220 € sur l'Europe ») | 10 | `saisie.py` utilisé, fichiers à jour, confirmation courte, aucune manipulation demandée |
+| « paie » (un seul mot) | 9 | Bonne routine ; a lu les fichiers pendant qu'un autre test les modifiait (artefact du banc d'essai, pas de l'agent) |
+| Fausse diversification (ajouter un Nasdaq) | 9 | Excellente analyse chiffrée avec `exposition.py` ; trop longue (règle des 12 lignes) et frais du Nasdaq supposés au lieu de lus |
+
+Corrections : l'Analyste part du catalogue `donnees/etf-pea.csv` pour les frais. Les scénarios du banc d'essai doivent désormais tourner l'un après l'autre sur un même profil.
