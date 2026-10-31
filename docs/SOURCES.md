@@ -1,6 +1,6 @@
 # Sources de veille : la sélection
 
-Base complète, notée et datée : `donnees/sources.csv` (60 lignes). Méthode et grille de notation : `docs/METHODE-SOURCES.md`. Toutes les lignes sont au statut « à vérifier » tant qu'une ouverture réelle n'a pas eu lieu : le réseau de la session de travail est fermé, la vérification des flux se fait chaque dimanche par GitHub Actions, celle des pages et des comptes sociaux depuis un ordinateur.
+Base complète, notée et datée : `donnees/sources.csv` (58 lignes). Méthode et grille de notation : `docs/METHODE-SOURCES.md`. Toutes les lignes sont au statut « à vérifier » tant qu'une ouverture réelle n'a pas eu lieu : le réseau de la session de travail est fermé, la vérification des flux se fait chaque dimanche par GitHub Actions, celle des pages et des comptes sociaux depuis un ordinateur.
 
 ## Les meilleures par usage
 
