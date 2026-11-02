@@ -1,12 +1,12 @@
 {
   "periode": {"debut": "2026-10-26", "fin": "2026-11-01"},
   "resume": {
-    "verdict": "**Rien à faire** sur un plan de versements réguliers. Mais la semaine a basculé : tout montait jusqu'à mercredi, puis la tech américaine a plongé jeudi et vendredi, et l'Asie technologique avec elle.",
+    "verdict": "Rien à faire sur ton plan de versements réguliers. Mais la semaine a vraiment changé de visage : ça montait jusqu'à mercredi, puis la tech américaine a plongé jeudi et vendredi, et l'Asie des puces a suivi.",
     "points": [
-      "S&P 500 à -0,6 % sur la semaine, Nasdaq à -2,0 % [[src:yahoo]]. Depuis le sommet de mercredi : -2,1 % et -4,2 %.",
-      "Deux séances ont tout fait : Alphabet -12 % jeudi, sa pire séance de l'histoire, puis Intel -30 % vendredi [[src:ap_adn]].",
-      "L'Europe a fait l'inverse : CAC 40 à +2,4 %, Stoxx 600 à +1,7 % [[src:yahoo]].",
-      "Les 10 millions de barils de la France ne sont pas un achat : l'État les met sur le marché depuis ses réserves, pour baisser le carburant dès le 1er novembre [[src:sudradio_diesel]]."
+      "Le S&P 500 finit à -0,6 % sur la semaine, le Nasdaq à -2,0 % [[src:yahoo]]. Depuis le sommet de mercredi, ça fait -2,1 % et -4,2 %.",
+      "Tout vient de deux séances : Alphabet a perdu plus de 12 % jeudi, sa pire séance de l'histoire, puis Intel presque 30 % vendredi [[src:ap_adn]].",
+      "L'Europe a fait le contraire : CAC 40 à +2,4 %, Stoxx 600 à +1,7 % [[src:yahoo]].",
+      "Les 10 millions de barils dont parle la France, c'est une mise sur le marché de ses réserves, pas un achat. Le but : faire baisser le carburant dès le 1er novembre [[src:sudradio_diesel]]."
     ],
     "chiffre_cle": {"valeur": "-12 %", "legende": "Alphabet jeudi 29 octobre, sa pire séance de l'histoire [[src:ap_adn]]"},
     "rdv": [
@@ -16,7 +16,7 @@
     ]
   },
   "bilan": {
-    "intro": "Chaque variation compare la clôture de vendredi 30 octobre à celle du vendredi 23. Le total cache l'essentiel : la bourse américaine a monté lundi, mardi et mercredi, puis baissé jeudi et vendredi. Cours indicatifs de Yahoo Finance [[src:yahoo]].",
+    "intro": "Chaque variation compare la clôture de vendredi 30 octobre à celle du vendredi 23. Le total cache ce qui compte : la bourse américaine a monté lundi, mardi et mercredi, puis baissé jeudi et vendredi. Les cours viennent de Yahoo Finance et sont indicatifs [[src:yahoo]].",
     "reperes": [
       {"groupe": "États-Unis", "nom": "S&P 500", "variation": "-0,57 %", "note": "-2,1 % depuis mercredi."},
       {"groupe": "États-Unis", "nom": "Nasdaq Composite", "variation": "-2,00 %", "note": "-4,2 % depuis mercredi."},
@@ -38,32 +38,32 @@
       {"groupe": "Devises, taux, matières premières", "nom": "Bitcoin", "variation": "-3,53 %", "note": "Vers 77 000 dollars [[src:ap_adn]]."}
     ],
     "jours": [
-      {"jour": "Lundi 26 octobre", "titre": "La bourse américaine monte, le pétrole recule", "texte": "S&P 500 à +0,7 %. Le Brent descend vers 110 dollars malgré les tensions : Donald Trump doit choisir entre la diplomatie avec l'Iran et une reprise des opérations militaires [[src:boursenews_brent]]."},
-      {"jour": "Mardi 27 octobre", "titre": "La tech rebondit", "texte": "Nasdaq à +1,2 %, KOSPI à +3,1 % [[src:yahoo]]. Cause : cause non établie dans les sources lues."},
-      {"jour": "Mercredi 28 octobre", "titre": "Sommet de la semaine, la Fed ne bouge pas", "texte": "La Fed garde sa fourchette à 3,75-4,00 % par 10 voix contre 2 [[src:fed_admiral]]. Le KOSPI bondit de 6,6 % [[src:yahoo]]. Cause du bond : cause non établie."},
-      {"jour": "Jeudi 29 octobre", "titre": "Alphabet chute, la BCE ne bouge pas", "texte": "Alphabet perd plus de 12 % et pèse presque seule sur le S&P 500 [[src:ap_adn]]. La BCE garde son taux de dépôt à 2,50 % et Christine Lagarde annonce son départ pour le 7 février 2027 [[src:bce_29oct]]. Le CAC 40 gagne 1,1 %."},
-      {"jour": "Vendredi 30 octobre", "titre": "La grosse chute de la tech", "texte": "S&P 500 à -1,8 %, Nasdaq à -2,9 %. Intel perd près de 30 %, Nvidia 4,2 % [[src:ap_adn]]. L'Asie suit : KOSPI -3,5 %, Nikkei -2,1 %, Taïwan -2,5 % [[src:te_taiwan]]. Le CAC 40 reste stable."}
+      {"jour": "Lundi 26 octobre", "titre": "La bourse américaine monte, le pétrole recule", "texte": "S&P 500 à +0,7 %. Le Brent redescend vers 110 dollars malgré les tensions : Donald Trump doit choisir entre continuer la diplomatie avec l'Iran et reprendre les opérations militaires [[src:boursenews_brent]]."},
+      {"jour": "Mardi 27 octobre", "titre": "La tech rebondit", "texte": "Nasdaq à +1,2 %, KOSPI à +3,1 % [[src:yahoo]]. La cause, aucune source lue ne la donne : cause non établie."},
+      {"jour": "Mercredi 28 octobre", "titre": "Le sommet de la semaine, la Fed ne bouge pas", "texte": "La Fed garde sa fourchette à 3,75-4,00 % par 10 voix contre 2 [[src:fed_admiral]]. Le KOSPI bondit de 6,6 % [[src:yahoo]]. Pourquoi ce bond : cause non établie."},
+      {"jour": "Jeudi 29 octobre", "titre": "Alphabet s'effondre, la BCE attend", "texte": "Alphabet perd plus de 12 % et fait presque à elle seule reculer le S&P 500 [[src:ap_adn]]. De son côté, la BCE garde son taux de dépôt à 2,50 % et Christine Lagarde annonce qu'elle part le 7 février 2027 [[src:bce_29oct]]. Le CAC 40, lui, gagne 1,1 %."},
+      {"jour": "Vendredi 30 octobre", "titre": "La grosse chute de la tech", "texte": "S&P 500 à -1,8 %, Nasdaq à -2,9 %. Intel perd près de 30 % et Nvidia 4,2 % [[src:ap_adn]]. L'Asie suit : KOSPI -3,5 %, Nikkei -2,1 %, Taïwan -2,5 % [[src:te_taiwan]]. Le CAC 40 ne bouge pas."}
     ]
   },
   "pourquoi_baisse": {
-    "intro": "Une règle : une cause n'est donnée que si une source de la semaine la donne, sinon c'est écrit « cause non établie ». L'idée centrale : la baisse ne vient ni de la politique ni de la Fed. Elle vient d'un doute sur la rentabilité de l'intelligence artificielle, transmis des entreprises américaines à leurs fournisseurs asiatiques.",
+    "intro": "Une règle : je ne donne une cause que si une source de la semaine la donne. Sinon c'est écrit « cause non établie ». Ici, tout part d'un doute sur la rentabilité de l'IA, qui a touché les entreprises américaines puis leurs fournisseurs asiatiques. Aucune source ne relie la baisse à la politique ou à la Fed.",
     "cartes": [
       {
         "titre": "Ton ETF États-Unis (S&P 500)",
         "variation": "-0,57 % sur la semaine",
         "sous_titre": "-2,1 % depuis mercredi, -1,8 % pour la seule séance de vendredi [[src:yahoo]].",
-        "resume": "Le S&P 500 est pondéré par la taille : quand les plus grosses entreprises baissent, l'indice baisse même si la majorité des autres va bien.",
+        "resume": "Le S&P 500 pèse chaque entreprise selon sa taille. Quand les plus grosses baissent, l'indice baisse, même si la plupart des autres vont bien.",
         "etapes": [
-          {"titre": "Jeudi : Alphabet s'effondre", "texte": "Plus de 12 % de baisse. Alphabet pèse 4,5 % de l'indice [[src:ssga_spy]] : sa chute tire presque seule le S&P 500 vers le bas [[src:ap_adn]]."},
-          {"titre": "Vendredi : Intel et Amazon confirment le doute", "texte": "Intel perd près de 30 % : prévision de fin d'année sous les attentes. Amazon dépense 94,8 milliards de dollars en équipements, surtout pour l'IA, avec un flux de trésorerie négatif de 42,4 milliards sur 12 mois [[src:ap_adn]]."},
-          {"titre": "Les investisseurs doutent de la rentabilité de l'IA", "texte": "L'AP résume : des centaines de milliards sont investis et on ne sait pas s'ils seront rentables. Un gérant parle d'une phase de preuves qui remplace celle des espoirs [[src:ap_adn]]."},
-          {"titre": "Nvidia amplifie", "texte": "Nvidia perd 4,2 % et c'est la valeur qui pèse le plus (7,8 % de l'indice) [[src:ssga_spy]]. Cause propre à Nvidia : cause non établie."}
+          {"titre": "Jeudi, Alphabet s'effondre", "texte": "Plus de 12 % de baisse. Alphabet pèse 4,5 % de l'indice [[src:ssga_spy]], donc sa chute suffit presque à elle seule à tirer le S&P 500 vers le bas [[src:ap_adn]]."},
+          {"titre": "Vendredi, Intel et Amazon confirment", "texte": "Intel perd près de 30 % : sa prévision de fin d'année est sous les attentes. Amazon dépense 94,8 milliards de dollars en équipements, surtout pour l'IA, avec un flux de trésorerie négatif de 42,4 milliards sur 12 mois [[src:ap_adn]]."},
+          {"titre": "Les investisseurs se demandent si l'IA va rapporter", "texte": "L'AP le résume ainsi : des centaines de milliards sont investis et personne ne sait s'ils seront rentables. Un gérant cité parle d'un passage de la phase des espoirs à celle des preuves [[src:ap_adn]]."},
+          {"titre": "Nvidia en rajoute", "texte": "Nvidia perd 4,2 %, et c'est la valeur qui pèse le plus dans l'indice (7,8 %) [[src:ssga_spy]]. Pourquoi elle baisse, l'article ne le dit pas : cause non établie."}
         ],
         "non_etabli": [
           "Pourquoi Alphabet a chuté autant : les sources lues ne détaillent pas ses résultats, cause non établie."
         ],
         "precedent": [
-          "L'indice a connu 17 baisses d'au moins 10 % depuis 1929, la dernière de décembre 2021 à septembre 2022 (-24,8 %, retour au sommet 15 mois après le creux) [[src:base_historique]]. Cette semaine, on reste très loin de ce niveau."
+          "Depuis 1929, l'indice a connu 17 baisses d'au moins 10 %. La dernière va de décembre 2021 à septembre 2022 (-24,8 %), avec un retour au sommet 15 mois après le creux [[src:base_historique]]. Là, on en est très loin."
         ],
         "ce_que_ca_change": "Rien dans ton plan : un versement régulier achète moins cher quand l'indice recule."
       },
@@ -71,50 +71,50 @@
         "titre": "Ton ETF Asie",
         "variation": "-0,22 % sur la semaine (Asie hors Japon)",
         "sous_titre": "-3,8 % depuis mercredi. Le détail dépend de l'indice exact de ton ETF, à confirmer [[src:yahoo]].",
-        "resume": "L'Asie n'est pas un bloc : le Japon et Hong Kong ont fini en hausse, Taïwan et la Chine ont baissé. La différence, c'est le poids de la technologie.",
+        "resume": "L'Asie, ce n'est pas un bloc. Le Japon et Hong Kong finissent en hausse, Taïwan et la Chine en baisse. Ce qui change tout, c'est le poids de la tech.",
         "etapes": [
-          {"titre": "Taïwan et la Corée vivent des puces", "texte": "TSMC pèse 15,6 % de l'indice des émergents, Samsung 8,5 % et SK Hynix 5,9 % [[src:msci_em]]. Ils fournissent les géants de l'IA : quand leurs clients doutent, ils baissent."},
-          {"titre": "La chute américaine se transmet un jour plus tard", "texte": "Vendredi, Taïwan recule de 2,5 % en suivant les contrats à terme américains et les résultats décevants de grands groupes tech. TSMC -2,0 %, MediaTek -4,2 % [[src:te_taiwan]]."},
-          {"titre": "Le KOSPI retombe après un bond", "texte": "-3,5 % vendredi par peur d'un retournement de l'IA [[src:ap_adn]], après +6,6 % mercredi : sur la semaine, il reste à +3,3 % [[src:yahoo]]."},
-          {"titre": "Chine et Hong Kong : cause non établie", "texte": "Hong Kong gagne 1,5 % vendredi et Shanghai perd 2,5 % sur la semaine : cause non établie."}
+          {"titre": "Taïwan et la Corée vivent des puces", "texte": "TSMC pèse 15,6 % de l'indice des marchés émergents, Samsung 8,5 % et SK Hynix 5,9 % [[src:msci_em]]. Ils vendent aux géants de l'IA : quand leurs clients doutent, eux baissent."},
+          {"titre": "Le choc américain arrive avec un jour de décalage", "texte": "Vendredi, Taïwan recule de 2,5 %, dans le sillage des contrats à terme américains et des résultats décevants de grands groupes tech. TSMC -2,0 %, MediaTek -4,2 % [[src:te_taiwan]]."},
+          {"titre": "Le KOSPI retombe après un gros bond", "texte": "-3,5 % vendredi par peur d'un retournement de l'IA [[src:ap_adn]], après +6,6 % mercredi. Sur la semaine, il reste à +3,3 % [[src:yahoo]]."},
+          {"titre": "Chine et Hong Kong : cause non établie", "texte": "Hong Kong gagne 1,5 % vendredi et Shanghai perd 2,5 % sur la semaine. Pourquoi : cause non établie."}
         ],
         "non_etabli": [
-          "Contrecoup de Wall Street ou début d'un retournement : aucune source ne le dit."
+          "Contrecoup de Wall Street ou début d'un retournement : aucune source ne tranche."
         ],
         "precedent": [
-          "En juillet 2026, le KOSPI avait déjà perdu près de 9,5 % en une séance sur des doutes liés à l'IA [[src:fxstreet_kospi]]. Ces marchés sont très volatils."
+          "En juillet 2026, le KOSPI avait déjà perdu près de 9,5 % en une séance sur des doutes liés à l'IA [[src:fxstreet_kospi]]. Ces marchés bougent beaucoup."
         ],
-        "ce_que_ca_change": "Une exposition à l'Asie technologique amplifie la tech américaine, à la hausse comme à la baisse : c'est une question de dosage, pas de réaction à une semaine."
+        "ce_que_ca_change": "Une part d'Asie tech amplifie les mouvements de la tech américaine, dans les deux sens. C'est une question de dosage dans ton plan, pas une raison de réagir à une semaine."
       }
     ]
   },
   "contexte": {
-    "intro": "L'arrière-plan en cinq thèmes. Tous ne sont pas la cause de la baisse, mais ils fixent le climat.",
+    "intro": "Le fond de l'actualité, en cinq thèmes. Ils donnent le climat, mais tous ne sont pas liés à la baisse de la semaine.",
     "themes": [
-      {"niveau": "surveiller", "titre": "1. L'IA : des espoirs aux preuves", "paragraphes": [
-        "Les actions liées à l'IA tirent les indices depuis deux ans. Cette semaine, deux géants ont déçu. Un indice est fragile quand cinq entreprises en pèsent près de 30 %. À surveiller : les prévisions des prochaines publications, plus regardées que les bénéfices passés."
+      {"titre": "1. L'IA : des espoirs aux preuves", "paragraphes": [
+        "Les actions liées à l'IA tirent les indices depuis deux ans. Cette semaine, deux géants ont déçu. Quand cinq entreprises pèsent près de 30 % d'un indice, il suffit qu'elles toussent. Ce qu'on regarde maintenant : les prévisions des prochaines publications, plus suivies que les bénéfices passés."
       ]},
-      {"niveau": "surveiller", "titre": "2. Le pétrole et l'Iran", "paragraphes": [
-        "Le Brent reste vers 110 à 113 dollars, près du haut de sa fourchette depuis la guerre avec l'Iran [[src:ap_adn]]. Un pétrole cher fait monter l'inflation et pèse sur la consommation."
+      {"titre": "2. Le pétrole et l'Iran", "paragraphes": [
+        "Le Brent reste entre 110 et 113 dollars, près du haut de sa fourchette depuis la guerre avec l'Iran [[src:ap_adn]]. Un pétrole cher fait monter l'inflation et pèse sur la consommation."
       ]},
-      {"niveau": "surveiller", "titre": "3. Les taux : la Fed et la BCE attendent", "paragraphes": [
-        "La Fed est à 3,75-4,00 % et les marchés anticipent une hausse en décembre [[src:fed_investinglive]]. La BCE est à 2,50 % après une hausse en septembre [[src:bce_septembre]]. Le taux américain à 10 ans, proche de 5 %, freine la valeur des actions."
+      {"titre": "3. Les taux : la Fed et la BCE attendent", "paragraphes": [
+        "La Fed est à 3,75-4,00 % et les marchés anticipent une hausse en décembre [[src:fed_investinglive]]. La BCE est à 2,50 % après une hausse en septembre [[src:bce_septembre]]. Le taux américain à 10 ans, proche de 5 %, pèse sur la valeur des actions."
       ]},
-      {"niveau": "surveiller", "titre": "4. L'inflation reste haute", "paragraphes": [
+      {"titre": "4. L'inflation reste haute", "paragraphes": [
         "3,8 % sur un an en zone euro en septembre, contre 3,2 % en août [[src:inflation_option]]. Prochaine mesure : l'estimation d'octobre, mercredi 4 novembre."
       ]},
-      {"niveau": "surveiller", "titre": "5. La politique américaine", "paragraphes": [
-        "Mi-mandat mardi 3 novembre : le Congrès décide du budget, de la dette et des droits de douane. Les marchés sont en général plus agités avant ce scrutin [[src:capital_group]], et les gérants conseillent de rester investi [[src:rbc]]. Les États-Unis pèsent environ 73 % du MSCI World [[src:msci_fiche]]."
+      {"titre": "5. La politique américaine", "paragraphes": [
+        "Mi-mandat mardi 3 novembre : le Congrès décide du budget, de la dette et des droits de douane. Les marchés sont en général plus nerveux avant ce scrutin [[src:capital_group]], et les gérants conseillent de rester investi [[src:rbc]]. Les États-Unis pèsent environ 73 % du MSCI World [[src:msci_fiche]]."
       ]}
     ]
   },
   "france": {
     "actions": {
       "paragraphes": [
-        "Le CAC 40 gagne 2,4 % sur la semaine et finit à 7 969 points [[src:yahoo]], ce qui efface la baisse de 2,19 % de la semaine d'avant [[src:culture_financiere]]. Il a monté jeudi alors que Wall Street baissait, et il est resté stable vendredi. Explication de bon sens : il compte peu de valeurs technologiques. Aucune source ne la donne : cause non établie."
+        "Le CAC 40 gagne 2,4 % sur la semaine et finit à 7 969 points [[src:yahoo]]. Il efface la baisse de 2,19 % de la semaine d'avant [[src:culture_financiere]]. Il a monté jeudi pendant que Wall Street baissait, puis il est resté stable vendredi. Une explication possible : il compte peu de valeurs tech. Aucune source ne le dit : cause non établie."
       ],
       "hausses": [
-        {"nom": "Stellantis", "variation": "+16,55 %", "note": "Cours Yahoo de 4,14 euros, à vérifier. Cause non établie."},
+        {"nom": "Stellantis", "variation": "+16,55 %", "note": "Cours Yahoo à 4,14 euros, à vérifier. Cause non établie."},
         {"nom": "Sanofi", "variation": "+7,58 %"},
         {"nom": "Renault", "variation": "+6,67 %"}
       ],
@@ -126,24 +126,24 @@
     },
     "politique": {
       "points": [
-        {"niveau": "surveiller", "titre": "Moody's maintient la note, perspective négative", "texte": "Note Aa3 gardée le 23 octobre, avec une baisse toujours possible [[src:moodys_selectra]]. Une note abaissée renchérirait l'emprunt de l'État et pèserait sur les banques. Prochain examen : S&P le 27 novembre, date à confirmer. Présidentielle les 18 avril et 2 mai 2027."},
-        {"niveau": "ignorer", "titre": "Les mobilisations d'octobre", "texte": "Les troubles de la mi-octobre ont touché la Bourse et creusé l'écart de taux avec l'Allemagne, autour de 142 à 145 points de base [[src:admiral_fr]]. Bruit de fond tant qu'il ne change ni la note ni le budget."}
+        {"niveau": "surveiller", "titre": "Moody's garde la note, mais avec une perspective négative", "texte": "Note Aa3 maintenue le 23 octobre, avec une baisse toujours possible [[src:moodys_selectra]]. Une note abaissée coûterait plus cher à l'État pour emprunter et pèserait sur les banques. Prochain rendez-vous : S&P le 27 novembre (date à confirmer), puis la présidentielle les 18 avril et 2 mai 2027."},
+        {"niveau": "ignorer", "titre": "Les mobilisations d'octobre", "texte": "Les troubles de la mi-octobre ont pesé sur la Bourse et creusé l'écart de taux avec l'Allemagne, autour de 142 à 145 points de base [[src:admiral_fr]]. Tant que ça ne change ni la note ni le budget, c'est du bruit de fond."}
       ]
     },
     "infos": {
       "points": [
-        {"niveau": "ignorer", "titre": "Les 10 millions de barils : une mise sur le marché, pas un achat", "texte": "Le Premier ministre Sébastien Lecornu a annoncé le 7 octobre la mise à disposition de 10 millions de barils des réserves stratégiques [[src:spglobal_diesel]], pour baisser le prix à la pompe de 12 à 18 centimes par litre pendant trois mois dès le 1er novembre [[src:sudradio_diesel]]. Les sources divergent sur la nature (gazole seul ou pétrole et gazole) et aucune ne confirme l'effet réel."},
-        {"niveau": "ignorer", "titre": "Du diesel importé du Golfe", "texte": "200 000 tonnes par mois des Émirats et de Bahreïn, plus 95 000 d'Arabie saoudite : environ 10 % de la consommation [[src:selectra_diesel]]. Le gazole coûtait 2,35 euros le litre mi-octobre, contre 1,55 euro un an plus tôt."}
+        {"niveau": "ignorer", "titre": "Les 10 millions de barils : une mise sur le marché, pas un achat", "texte": "Le 7 octobre, le Premier ministre Sébastien Lecornu a annoncé qu'il mettait 10 millions de barils de réserves stratégiques sur le marché [[src:spglobal_diesel]]. L'idée : baisser le prix à la pompe de 12 à 18 centimes par litre pendant trois mois, à partir du 1er novembre [[src:sudradio_diesel]]. Les sources ne disent pas la même chose sur la nature des barils (gazole seul, ou pétrole et gazole), et aucune ne confirme l'effet réel."},
+        {"niveau": "ignorer", "titre": "Du diesel importé du Golfe", "texte": "200 000 tonnes par mois viennent des Émirats et de Bahreïn, plus 95 000 d'Arabie saoudite : environ 10 % de la consommation [[src:selectra_diesel]]. Le gazole coûtait 2,35 euros le litre mi-octobre, contre 1,55 euro un an plus tôt."}
       ]
     }
   },
   "pour_toi": {
     "statut": "indisponible",
-    "diagnostic": "Je n'ai pas encore la liste exacte de tes ETF : cette lecture part de ce que tu m'as dit (un ETF S&P 500 et un ETF Asie).",
+    "diagnostic": "Je n'ai pas encore la liste exacte de tes ETF. Cette lecture part de ce que tu m'as dit : un ETF S&P 500 et un ETF Asie.",
     "lecture": [
       {"fait": "Alphabet, Intel, Nvidia", "effet": "Touche ton ETF S&P 500."},
       {"fait": "Taïwan, Corée, Nikkei", "effet": "Touche ton ETF Asie, selon le poids des puces."},
-      {"fait": "CAC 40 à +2,4 %", "effet": "Ne te touche que si tu as un ETF Europe ou France."}
+      {"fait": "CAC 40 à +2,4 %", "effet": "Ne te concerne que si tu as un ETF Europe ou France."}
     ]
   },
   "agenda": {
@@ -165,13 +165,13 @@
   },
   "notion": {
     "titre": "Pourquoi cinq entreprises peuvent faire baisser un indice",
-    "texte": "Le S&P 500 est pondéré par la taille. Nvidia, Apple, Microsoft, Alphabet et Amazon pèsent ensemble près de 30 % [[src:ssga_spy]] : leurs mauvais jours suffisent à le faire baisser même si 400 autres entreprises montent. C'est la concentration."
+    "texte": "Le S&P 500 pèse chaque entreprise selon sa taille. Nvidia, Apple, Microsoft, Alphabet et Amazon font ensemble près de 30 % de l'indice [[src:ssga_spy]]. Leurs mauvais jours suffisent à le faire reculer, même si 400 autres entreprises montent. On appelle ça la concentration."
   },
   "limites": [
     "Je ne connais pas l'indice exact de ton ETF Asie ni le nom de ton ETF S&P 500 : les cartes « Pourquoi ça a baissé » reposent sur des indices.",
-    "Cours Yahoo indicatifs. Pas de variation hebdomadaire pour le Brent : les contrats ne sont pas comparables. Les chiffres de vendredi de l'AP sont ceux de la séance en cours.",
-    "Pas de source sur les causes de la hausse de lundi à mercredi ni sur les valeurs françaises : « cause non établie ».",
-    "Dates de résultats d'un calendrier tiers, hors Europe."
+    "Cours Yahoo indicatifs. Pas de variation hebdomadaire pour le Brent, parce que les contrats ne sont pas comparables. Les chiffres de vendredi de l'AP sont ceux de la séance en cours.",
+    "Rien trouvé sur les causes de la hausse de lundi à mercredi ni sur les valeurs françaises : « cause non établie ».",
+    "Dates de résultats d'un calendrier tiers, sans l'Europe."
   ],
   "sources": {
     "yahoo": {"nom": "Yahoo Finance, clôtures de la semaine (cours indicatifs)", "url": "https://finance.yahoo.com/", "date": "2026-10-30"},

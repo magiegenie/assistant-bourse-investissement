@@ -57,3 +57,14 @@ Il n'y a plus de tableau « À recopier dans la feuille Veille ».
 - Une cause n'est donnée que si une source la fournit. Sinon : « cause non établie » (point 79).
 - Aucune prédiction, aucun objectif de cours, aucun « bon plan ».
 - Français, tutoiement, phrases simples, aucun tiret long, aucun emoji, jargon expliqué en une phrase.
+
+## Voix et mise en forme (à relire avant d'écrire)
+
+La newsletter doit se lire comme un texte de Melvin, pas comme un rapport d'IA (skill `humanizer-melvin`, registre tutoiement, un peu oral).
+
+- Tutoiement, phrases simples. Alterner phrases courtes et plus longues. Une touche orale de temps en temps (« du coup », « en vrai », « bref »), un seul « vraiment » par édition, pas plus.
+- Dire le fait directement. Pas de « ce n'est pas X, c'est Y », pas de « non seulement... mais aussi », pas de phrase de chute qui répète ce qui précède, pas de formule pseudo-profonde (« au coeur de », « la vraie question est »), pas de triade par réflexe.
+- Vocabulaire à éviter : crucial, essentiel (en tic), robuste, paysage, souligne, met en lumière, plonger dans, naviguer dans, « il est important de noter que », « à l'ère de ».
+- **Pas de gras dans le texte** (`**mot**` interdit en pratique) : le gras est réservé aux titres que le gabarit met déjà.
+- **Couleurs** : le gabarit les réserve à ce qui compte. Vert ou rouge pour une variation de marché (gris pour le VIX, les taux, le pétrole), pastille de classement (à ignorer, à surveiller, à agir) seulement dans le résumé et dans la partie France, bleu marine pour les grands titres et le chiffre de la semaine. Rien d'autre ne se colore.
+- Aucun tiret long, aucun emoji.
