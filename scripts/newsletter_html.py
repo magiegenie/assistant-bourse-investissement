@@ -37,17 +37,18 @@ EMOJI = re.compile("[\U0001F000-\U0001FAFF☀-➿⬀-⯿️]")
 MARQUEUR = re.compile(r"\[\[src:([a-z0-9_\-]+)\]\]")
 GRAS = re.compile(r"\*\*(.+?)\*\*")
 
-# Styles en ligne (les clients mail ignorent souvent les feuilles de style), doublés d'une feuille de style
-# pour le mode sombre.
+# Styles en ligne (les clients mail ignorent souvent les feuilles de style), doublés d'une petite feuille de style pour le mobile.
+# Design clair uniquement : pas de mode sombre.
 S = {
-    "page": "margin:0;padding:0;background:#f1f3f5;",
+    "page": "margin:0;padding:0;background:#eef1f5;",
     "cadre": "max-width:640px;width:100%;margin:0 auto;table-layout:fixed;",
-    "texte": "font-family:Georgia,'Times New Roman',serif;font-size:16px;line-height:1.55;color:#1d2733;",
+    "texte": "font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.65;color:#1d2733;",
     "ui": "font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;",
-    "carte": "background:#ffffff;border-radius:14px;padding:22px 24px;",
-    "fond_doux": "background:#eef2f6;border-radius:14px;padding:22px 24px;",
-    "h2": "margin:0 0 14px 0;font-size:13px;letter-spacing:.09em;text-transform:uppercase;color:#12304a;",
-    "petit": "font-size:13px;line-height:1.5;color:#5b6673;",
+    "carte": "background:#ffffff;border-radius:16px;padding:26px 26px 22px 26px;",
+    "fond_doux": "background:#f4f7fa;border-radius:12px;padding:20px 22px;",
+    "fond_bleu": "background:#e6f0fb;border-radius:16px;padding:26px 26px 22px 26px;",
+    "h2": "margin:0 0 16px 0;font-size:22px;line-height:1.25;font-weight:700;color:#12304a;",
+    "petit": "font-size:14px;line-height:1.55;color:#5b6673;",
     "pos": "color:#17794a;",
     "neg": "color:#b3261e;",
 }
@@ -114,7 +115,7 @@ class Rendu:
         return f'<h2 {a("h2 ui")}>{html.escape(texte)}</h2>'
 
     def sous_titre(self, texte, marge="18px 0 6px 0"):
-        return (f'<div {a("ui", f"font-size:15px;font-weight:700;color:#12304a;margin:{marge};")}>'
+        return (f'<div {a("ui", f"font-size:16px;font-weight:700;color:#12304a;margin:{marge};")}>'
                 f'{self.t(texte)}</div>')
 
     def bloc(self, cle_fond, interieur):
@@ -180,7 +181,7 @@ class Rendu:
             inner += (f'<div {a("ui", "margin:14px 0 6px 0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5b6673;")}>'
                       f'À ne pas rater</div>'
                       f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{rdv}</table>')
-        return self.bloc("fond_doux", inner)
+        return self.bloc("fond_bleu", inner)
 
     def bilan(self):
         b = self.c["bilan"]
@@ -372,25 +373,10 @@ class Rendu:
     def page(self):
         corps, bas = self.construire()
         controler(corps)
-        sombre = """
-@media (prefers-color-scheme: dark) {
-  body, .page { background:#10161d !important; }
-  .carte { background:#18212b !important; }
-  .fond_doux { background:#1f2a36 !important; }
-  .texte, .ui { color:#e6ebf0 !important; }
-  .h2 { color:#9cc3e6 !important; }
-  .petit { color:#a3afbb !important; }
-  strong { color:#ffffff; }
-  [style*="#12304a"] { color:#9cc3e6 !important; }
-  [style*="#1d2733"] { color:#e6ebf0 !important; }
-  [style*="#5b6673"] { color:#a3afbb !important; }
-}
-@media (max-width: 480px) { .carte, .fond_doux { padding:18px 16px !important; } }
-"""
         return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8">'
                 f'<meta name="viewport" content="width=device-width,initial-scale=1">'
-                f'<meta name="color-scheme" content="light dark"><meta name="supported-color-schemes" content="light dark">'
-                f'<title>Ta semaine bourse</title><style>{sombre}</style></head>'
+                f'<meta name="color-scheme" content="only light"><meta name="supported-color-schemes" content="light">'
+                f'<title>Ta semaine bourse</title><style>@media (max-width:480px){{.carte,.fond_bleu{{padding:20px 16px !important;}}}}</style></head>'
                 f'<body class="page" style="{S["page"]}">'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{S["page"]}"><tr><td align="center">'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{S["cadre"]}">'
