@@ -40,13 +40,13 @@ GRAS = re.compile(r"\*\*(.+?)\*\*")
 # Styles en ligne (les clients mail ignorent souvent les feuilles de style), doublés d'une petite feuille de style pour le mobile.
 # Design clair uniquement : pas de mode sombre.
 S = {
-    "page": "margin:0;padding:0;background:#d4e3f5;",
+    "page": "margin:0;padding:0;background-color:#eef1f5;",
     "cadre": "max-width:640px;width:100%;margin:0 auto;table-layout:fixed;",
     "texte": "font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.65;color:#1d2733;",
     "ui": "font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;",
-    "carte": "background:#ffffff;border-radius:16px;padding:26px 26px 22px 26px;",
-    "fond_doux": "background:#f3f7fc;border-radius:12px;padding:20px 22px;",
-    "fond_bleu": "background:#f7faff;border-radius:16px;padding:26px 26px 22px 26px;",
+    "carte": "background-color:#ffffff;border-radius:16px;padding:26px 26px 22px 26px;",
+    "fond_doux": "background-color:#f3f6fa;border-radius:12px;padding:20px 22px;",
+    "fond_bleu": "background-color:#dbe9f9;border-radius:16px;padding:26px 26px 22px 26px;",
     "h2": "margin:0 0 16px 0;font-size:22px;line-height:1.25;font-weight:700;color:#12304a;",
     "petit": "font-size:14px;line-height:1.55;color:#5b6673;",
     "pos": "color:#17794a;",
@@ -98,7 +98,7 @@ class Rendu:
     def pastille(self, niveau):
         nom, couleur, fond = NIVEAUX[niveau]
         return (f'<span style="{S["ui"]}display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;'
-                f'font-weight:600;color:{couleur};background:{fond};">{nom}</span>')
+                f'font-weight:600;color:{couleur};background-color:{fond};">{nom}</span>')
 
     def variation(self, v, neutre=False):
         """Variation en vert ou rouge ; en gris si le sens n'est ni bon ni mauvais (VIX, taux, pétrole)."""
@@ -118,8 +118,17 @@ class Rendu:
         return (f'<div {a("ui", f"font-size:16px;font-weight:700;color:#1d2733;margin:{marge};")}>'
                 f'{self.t(texte)}</div>')
 
+    def boite(self, cle, interieur, marge="0", padding=None, fond=None):
+        """Boîte colorée : un tableau avec bgcolor et background-color, que Gmail respecte (il ignore le fond des div)."""
+        bg = fond or re.search(r"background(?:-color)?:(#[0-9a-fA-F]{6})", S[cle]).group(1)
+        rayon = re.search(r"border-radius:(\d+px)", S[cle]).group(1)
+        pad = padding or re.search(r"padding:([^;]+);", S[cle]).group(1)
+        return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="{bg}" '
+                f'style="background-color:{bg};border-radius:{rayon};margin:{marge};">'
+                f'<tr><td style="padding:{pad};">{interieur}</td></tr></table>')
+
     def bloc(self, cle_fond, interieur):
-        return f'<tr><td style="padding:0 16px 14px 16px;"><div {a(cle_fond)}>{interieur}</div></td></tr>'
+        return f'<tr><td style="padding:0 16px 14px 16px;">{self.boite(cle_fond, interieur)}</td></tr>'
 
     def lignes_nom_valeur(self, lignes):
         """Liste « nom, variation, note » (gagnants, perdants, repères)."""
@@ -144,14 +153,14 @@ class Rendu:
         du = f"{debut.day} {MOIS[debut.month - 1]}"
         au = f"{fin.day} {MOIS[fin.month - 1]} {fin.year}"
         som = " · ".join(html.escape(s) for s in sommaire)
-        return (f'<tr><td style="padding:26px 24px 16px 24px;">'
-                f'<div {a("ui", "font-size:13px;color:#5b6673;")}>Ta semaine bourse</div>'
-                f'<div {a("ui", "font-size:26px;line-height:1.2;font-weight:700;color:#12304a;margin:4px 0 6px 0;")}>'
-                f'Du {du} au {au}</div>'
-                f'<div {a("ui petit")}>Lecture : environ {minutes} minutes. '
-                f'Outil d\'aide à la réflexion, pas un conseil en investissement réglementé.</div>'
-                f'<div {a("ui petit", "margin-top:8px;")}>{som}</div>'
-                f'</td></tr>')
+        bandeau = (f'<div {a("ui", "font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#a9c4e4;")}>Ta semaine bourse</div>'
+                   f'<div {a("ui", "font-size:28px;line-height:1.2;font-weight:700;color:#ffffff;margin:6px 0 8px 0;")}>'
+                   f'Du {du} au {au}</div>'
+                   f'<div {a("ui", "font-size:14px;line-height:1.55;color:#d3e2f4;")}>Lecture : environ {minutes} minutes. '
+                   f'Outil d&#x27;aide à la réflexion, pas un conseil en investissement réglementé.</div>'
+                   f'<div {a("ui", "font-size:13px;line-height:1.55;color:#a9c4e4;margin-top:10px;")}>{som}</div>')
+        return (f'<tr><td style="padding:16px 16px 14px 16px;">'
+                f'{self.boite("carte", bandeau, "0", "26px 26px 22px 26px", "#12304a")}</td></tr>')
 
     def resume(self):
         r = self.c["resume"]
@@ -197,10 +206,10 @@ class Rendu:
         if b.get("jours"):
             inner += self.sous_titre("Jour par jour", "24px 0 8px 0")
             for j in b["jours"]:
-                inner += (f'<div {a("fond_doux", "margin:0 0 10px 0;padding:14px 16px;")}>'
+                inner += self.boite("fond_doux",
                           f'<div {a("ui", "font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5b6673;")}>{html.escape(j["jour"])}</div>'
                           f'<div {a("ui", "font-size:16px;font-weight:700;color:#1d2733;margin:2px 0 6px 0;")}>{self.t(j["titre"])}</div>'
-                          f'{self.paragraphes(j["texte"], "15px", "0 0 6px 0")}</div>')
+                          f'{self.paragraphes(j["texte"], "15px", "0 0 6px 0")}', "0 0 10px 0", "14px 16px")
         gp = b.get("gagnants_perdants")
         if gp:
             inner += self.sous_titre("Les plus fortes hausses et baisses", "20px 0 2px 0")
@@ -238,7 +247,7 @@ class Rendu:
             if carte.get("ce_que_ca_change"):
                 corps += (self.sous_titre("Ce que ça change pour toi", "10px 0 2px 0")
                           + self.paragraphes(carte["ce_que_ca_change"], "15px"))
-            inner += f'<div {a("fond_doux", "margin:0 0 14px 0;padding:18px 18px;")}>{corps}</div>'
+            inner += self.boite("fond_doux", corps, "0 0 14px 0", "18px 18px")
         return self.bloc("carte", inner)
 
     def contexte(self):
@@ -246,9 +255,9 @@ class Rendu:
         inner = self.titre_section("Ce qu'il se passe en ce moment") + self.paragraphes(c.get("intro"))
         for th in c.get("themes", []):
             pastille = f'<div style="margin:0 0 6px 0;">{self.pastille(th["niveau"])}</div>' if th.get("niveau") else ""
-            inner += (f'<div {a("fond_doux", "margin:0 0 12px 0;padding:16px 18px;")}>{pastille}'
-                      f'<div {a("ui", "font-size:16px;font-weight:700;color:#1d2733;margin:0 0 6px 0;")}>{self.t(th["titre"])}</div>'
-                      f'{self.paragraphes(th["paragraphes"], "15px", "0 0 8px 0")}</div>')
+            inner += self.boite("fond_doux",
+                      f'{pastille}<div {a("ui", "font-size:16px;font-weight:700;color:#1d2733;margin:0 0 6px 0;")}>{self.t(th["titre"])}</div>'
+                      f'{self.paragraphes(th["paragraphes"], "15px", "0 0 8px 0")}', "0 0 12px 0", "16px 18px")
         return self.bloc("carte", inner)
 
     def france(self):
@@ -269,9 +278,9 @@ class Rendu:
             inner += self.sous_titre(titre, "22px 0 6px 0") + self.paragraphes(bloc.get("paragraphes"), "15px")
             for pt in bloc.get("points", []):
                 pastille = f'<div style="margin:0 0 6px 0;">{self.pastille(pt["niveau"])}</div>' if pt.get("niveau") else ""
-                inner += (f'<div {a("fond_doux", "margin:0 0 10px 0;padding:14px 16px;")}>{pastille}'
-                          f'<div {a("ui", "font-size:15px;font-weight:700;color:#1d2733;margin:0 0 4px 0;")}>{self.t(pt["titre"])}</div>'
-                          f'{self.paragraphes(pt["texte"], "15px", "0 0 6px 0")}</div>')
+                inner += self.boite("fond_doux",
+                          f'{pastille}<div {a("ui", "font-size:15px;font-weight:700;color:#1d2733;margin:0 0 4px 0;")}>{self.t(pt["titre"])}</div>'
+                          f'{self.paragraphes(pt["texte"], "15px", "0 0 6px 0")}', "0 0 10px 0", "14px 16px")
         return self.bloc("carte", inner)
 
     def pour_toi(self):
@@ -378,8 +387,8 @@ class Rendu:
                 f'<meta name="viewport" content="width=device-width,initial-scale=1">'
                 f'<meta name="color-scheme" content="only light"><meta name="supported-color-schemes" content="light">'
                 f'<title>Ta semaine bourse</title><style>@media (max-width:480px){{.carte,.fond_bleu{{padding:20px 16px !important;}}}}</style></head>'
-                f'<body class="page" bgcolor="#d4e3f5" style="{S["page"]}">'
-                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#d4e3f5" style="{S["page"]}"><tr><td align="center">'
+                f'<body class="page" bgcolor="#eef1f5" style="{S["page"]}">'
+                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#eef1f5" style="{S["page"]}"><tr><td align="center">'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{S["cadre"]}">'
                 f'{corps}{bas}</table></td></tr></table></body></html>')
 
