@@ -55,15 +55,9 @@ S = {
 
 
 def a(cls, extra=""):
-    """Attribut class (les styles de S sont dans la feuille de l'en-tête, pour un email léger) + style en ligne
-    pour les ajouts propres à l'élément."""
-    return f'class="{cls}"' + (f' style="{extra}"' if extra else "")
-
-
-def feuille():
-    """Feuille de style de l'en-tête : une règle par clé de S, dans l'ordre (la dernière l'emporte)."""
-    regles = "".join(f".{k}{{{v}}}" for k, v in S.items() if k not in ("page", "cadre", "pos", "neg"))
-    return regles + "@media (max-width:480px){.carte,.fond_bleu{padding:20px 16px !important;}}"
+    """Attributs class + style en ligne pour les clés de S (plusieurs clés séparées par des espaces)."""
+    style = "".join(S[c] for c in cls.split()) + extra
+    return f'class="{cls}" style="{style}"'
 
 
 def liste(x):
@@ -94,7 +88,7 @@ class Rendu:
 
         def renvoi(m):
             n = self.num(m.group(1))
-            return f'<sup style="font-size:11px;color:#12304a;">[{n}]</sup>'
+            return f'<sup style="{S["ui"]}font-size:11px;color:#12304a;">[{n}]</sup>'
 
         return MARQUEUR.sub(renvoi, out)
 
@@ -103,18 +97,18 @@ class Rendu:
 
     def pastille(self, niveau):
         nom, couleur, fond = NIVEAUX[niveau]
-        return (f'<span style="display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;'
+        return (f'<span style="{S["ui"]}display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;'
                 f'font-weight:600;color:{couleur};background:{fond};">{nom}</span>')
 
     def variation(self, v, neutre=False):
         """Variation en vert ou rouge ; en gris si le sens n'est ni bon ni mauvais (VIX, taux, pétrole)."""
         if v in (None, ""):
-            return '<span style="color:#8a94a0;">non disponible</span>'
+            return f'<span style="{S["ui"]}color:#8a94a0;">non disponible</span>'
         texte = str(v)
         if neutre:
-            return f'<span style="font-weight:600;color:#5b6673;">{html.escape(texte)}</span>'
+            return f'<span style="{S["ui"]}font-weight:600;color:#5b6673;">{html.escape(texte)}</span>'
         cls = "neg" if texte.strip().startswith(("-", chr(8722))) else "pos"
-        return f'<span style="font-weight:600;{S[cls]}">{html.escape(texte)}</span>'
+        return f'<span style="{S["ui"]}font-weight:600;{S[cls]}">{html.escape(texte)}</span>'
 
     # ---- briques ----
     def titre_section(self, texte):
@@ -382,7 +376,7 @@ class Rendu:
         return (f'<!doctype html><html lang="fr"><head><meta charset="utf-8">'
                 f'<meta name="viewport" content="width=device-width,initial-scale=1">'
                 f'<meta name="color-scheme" content="only light"><meta name="supported-color-schemes" content="light">'
-                f'<title>Ta semaine bourse</title><style>{feuille()}</style></head>'
+                f'<title>Ta semaine bourse</title><style>@media (max-width:480px){{.carte,.fond_bleu{{padding:20px 16px !important;}}}}</style></head>'
                 f'<body class="page" style="{S["page"]}">'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{S["page"]}"><tr><td align="center">'
                 f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{S["cadre"]}">'
