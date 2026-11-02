@@ -1,0 +1,22 @@
+cle,nom,ticker_yahoo,type,groupe
+sp500,S&P 500,^GSPC,prix,Etats-Unis
+nasdaq,Nasdaq Composite,^IXIC,prix,Etats-Unis
+dow,Dow Jones,^DJI,prix,Etats-Unis
+vix,VIX (indice de la peur),^VIX,prix,Etats-Unis
+msci_world,MSCI World (ETF URTH),URTH,prix,Monde
+msci_em,MSCI Emerging Markets (ETF EEM),EEM,prix,Monde
+asie_hors_japon,MSCI Asie hors Japon (ETF AAXJ),AAXJ,prix,Asie
+nikkei,Nikkei 225,^N225,prix,Asie
+hang_seng,Hang Seng,^HSI,prix,Asie
+kospi,KOSPI,^KS11,prix,Asie
+taiwan,Taiwan TAIEX,^TWII,prix,Asie
+shanghai,Shanghai Composite,000001.SS,prix,Asie
+stoxx600,Stoxx Europe 600,^STOXX,prix,Europe
+cac40,CAC 40,^FCHI,prix,France
+dax,DAX,^GDAXI,prix,Europe
+eurusd,Euro / dollar,EURUSD=X,prix,Devises
+brent,Petrole Brent,BZ=F,prix,Matieres premieres
+wti,Petrole WTI,CL=F,prix,Matieres premieres
+or,Or,GC=F,prix,Matieres premieres
+us10y,Taux americain a 10 ans,^TNX,taux,Taux
+bitcoin,Bitcoin,BTC-USD,prix,Crypto

@@ -1,7 +1,7 @@
 ---
 titre: Guide d'utilisation
 sous_titre: Assistant Bourse Investissement
-version: 1.4
+version: 1.5
 date: 2026-11-02
 ---
 
@@ -247,17 +247,18 @@ Elles sont dans `connaissances/agents/veilleur.md`. Demande-les simplement :
 
 ## La newsletter du dimanche
 
-Chaque dimanche à 18 h 47, une routine t'envoie par email « **Ta semaine bourse** ». Elle se lit en 4 minutes, dans cet ordre :
+Chaque dimanche à 18 h 47, une routine t'envoie par email « **Ta semaine bourse** ». Elle se lit en 8 à 10 minutes, dans cet ordre :
 
-1. **Vue d'ensemble** : le verdict en deux phrases, trois pastilles (marchés, taux et banques centrales, politique), le chiffre clé et les trois rendez-vous à ne pas rater.
-2. **Les marchés** : tableau des repères de la semaine (MSCI World, S&P 500, Stoxx 600, CAC 40, émergents, euro/dollar, taux 10 ans, bitcoin). Un chiffre introuvable s'affiche « non disponible », il n'est jamais inventé.
-3. **Ce qui s'est passé** : 3 à 5 faits, chacun classé à ignorer, à surveiller ou à agir, avec « pourquoi ça compte ».
-4. **Pour toi** : ton portefeuille lu dans ton Google Sheet (valeur, écarts aux cibles, alertes) et ce que chaque fait change pour tes placements.
-5. **La semaine qui vient** : agenda macro, puis les résultats d'entreprises en deux listes, celles de **tes ETF** (poids dans l'indice) et **les plus suivies du marché**.
-6. **Une notion** en 3 lignes, puis les **lignes à recopier** dans la feuille Veille.
-7. **Limites de cette édition** (ce qui n'a pas pu être trouvé) et **Sources**.
+1. **Résumé express** (30 secondes) : le verdict, 4 points clés, le chiffre de la semaine et les 3 rendez-vous à ne pas rater.
+2. **Bilan de la semaine** : les variations réelles de tous les marchés (États-Unis, monde et Asie, Europe, devises, taux, pétrole, or, bitcoin), puis le récit **jour par jour** du lundi au vendredi. Une note « depuis mercredi » montre ce qui s'est passé après le sommet de la semaine.
+3. **Pourquoi ça a baissé** : une carte par ETF que tu détiens, avec la **chaîne de causes** en étapes numérotées, ce qui est établi et ce qui ne l'est pas, les précédents historiques et ce que ça change pour ton plan. Chaque cause cite une source, sinon c'est écrit « cause non établie ».
+4. **Ce qu'il se passe en ce moment** : 4 à 6 thèmes de fond (IA, pétrole, taux, inflation, politique américaine...), chacun classé à ignorer, à surveiller ou à agir.
+5. **La France** : les actions françaises (CAC 40, plus fortes hausses et baisses), la politique (notation, budget, élections) et les informations qui comptent (énergie, carburants).
+6. **Pour toi** : quel fait touche quel ETF.
+7. **La semaine qui vient** : agenda macro, puis les résultats d'entreprises en deux listes, celles de **tes ETF** (poids dans l'indice) et **les plus suivies du marché**.
+8. **Une notion**, **les limites de l'édition** (ce qui n'a pas pu être trouvé) et **les sources**.
 
-Les sources ne sont jamais au milieu du texte : on trouve [1], [2]... dans les phrases, et la liste des liens est en bas, dans l'ordre de lecture. Le mode d'emploi de la routine et ce dont elle a besoin (dépôt, Gmail, Google Drive) sont dans `docs/NEWSLETTER.md` ; le format exact de l'édition dans `templates/newsletter-modele.md`.
+Les sources ne sont jamais au milieu du texte : on trouve [1], [2]... dans les phrases, et la liste des liens est en bas, dans l'ordre de lecture. Les chiffres de marché viennent de `scripts/cloture_hebdo.py` (Yahoo Finance, indicatif) : un chiffre introuvable s'affiche « non disponible », il n'est jamais inventé. L'email est fabriqué par `scripts/newsletter_html.py`, qui refuse tout ce qui casse les règles de lecture. Le mode d'emploi de la routine et ce dont elle a besoin (dépôt, Gmail, Google Drive, liste de tes ETF dans `donnees/etf-newsletter.csv`) sont dans `docs/NEWSLETTER.md` ; le format exact de l'édition dans `templates/newsletter-modele.md`.
 
 ## Ce qu'il ne fait pas
 
@@ -749,9 +750,9 @@ Tout ce qui te concerne est dans **`prive/<ton prénom>/`**. Ce dossier est excl
 
 Une heure par semaine suffit. Voici un rythme réaliste. Tu n'as rien à retenir : à chaque moment, dis simplement la phrase indiquée.
 
-## Chaque dimanche (4 minutes)
+## Chaque dimanche (10 minutes)
 
-Lis la newsletter « Ta semaine bourse ». Si elle ne dit rien d'actionnable, tu n'as rien à faire. Si une ligne du tableau « À recopier dans la feuille Veille » t'intéresse, recopie-la dans ton Sheet.
+Lis la newsletter « Ta semaine bourse ». Si elle ne dit rien d'actionnable, tu n'as rien à faire.
 
 ## Chaque mois (15 minutes)
 
@@ -862,6 +863,7 @@ Les fichiers concernés :
 
 | Version | Date | Ce qui change |
 |---|---|---|
+| **1.5** | 02/11/2026 | Newsletter plus complète : résumé express, bilan jour par jour avec les vraies variations de marché, rubrique « Pourquoi ça a baissé » par ETF, contexte détaillé, partie France (actions, politique, énergie) ; suppression du tableau Veille ; clôtures automatiques (`cloture_hebdo.py`) ; temps de lecture calculé |
 | **1.4** | 02/11/2026 | Newsletter du dimanche refondue : nouvelle structure en 7 blocs, sources numérotées en bas, tableau des repères de marché, agenda des résultats d'entreprises (tes ETF et les plus suivies), partie « Pour toi », limites de l'édition ; email fabriqué par `newsletter_html.py` avec contrôles automatiques ; routine du dimanche réparée |
 | **1.3** | 31/10/2026 | Historique élargi à 24 séries : Dow Jones depuis 1885, Hang Seng, 9 séries OCDE (le minimum de prix sur longue période pour la France, l'Allemagne, les émergents...) ; base de données `marches.sqlite` décrite et visible sur GitHub |
 | **1.2** | 31/10/2026 | Nouveau chapitre 14 « L'historique des marchés » : base mensuelle de 14 indices (depuis 1927 à 1994 selon l'indice), macro, frise de 86 événements sourcés, scripts `historique.py` et `maj_historique.py`, classeur `Historique-marches.xlsx` ; chapitres suivants renumérotés |
@@ -881,3 +883,4 @@ Les fichiers concernés :
 | 31/10/2026 | Base historique des marchés : 14 indices mensuels, macro, 86 événements sourcés |
 | 31/10/2026 | Base historique élargie à 24 séries (Dow Jones depuis 1885, séries OCDE depuis 1955), base SQLite versionnée |
 | 02/11/2026 | Newsletter du dimanche : nouvelle structure, générateur HTML, agenda des résultats, chaîne de veille hebdomadaire récupérée |
+| 02/11/2026 | Newsletter v2 : bilan de la semaine, pourquoi ça a baissé, contexte, France, clôtures automatiques |

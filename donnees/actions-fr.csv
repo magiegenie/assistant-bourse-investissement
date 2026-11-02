@@ -1,0 +1,36 @@
+cle,nom,ticker_yahoo,type,groupe
+accor,Accor,AC.PA,prix,Voyage et loisirs
+airliquide,Air Liquide,AI.PA,prix,Industrie
+airbus,Airbus,AIR.PA,prix,Aeronautique et defense
+alstom,Alstom,ALO.PA,prix,Industrie
+axa,AXA,CS.PA,prix,Assurance
+bnp,BNP Paribas,BNP.PA,prix,Banques
+bouygues,Bouygues,EN.PA,prix,Construction
+capgemini,Capgemini,CAP.PA,prix,Technologie
+carrefour,Carrefour,CA.PA,prix,Distribution
+creditagricole,Credit Agricole,ACA.PA,prix,Banques
+danone,Danone,BN.PA,prix,Consommation
+dassault,Dassault Systemes,DSY.PA,prix,Technologie
+engie,Engie,ENGI.PA,prix,Energie et services
+essilor,EssilorLuxottica,EL.PA,prix,Sante
+hermes,Hermes,RMS.PA,prix,Luxe
+kering,Kering,KER.PA,prix,Luxe
+loreal,L'Oreal,OR.PA,prix,Consommation
+legrand,Legrand,LR.PA,prix,Industrie
+lvmh,LVMH,MC.PA,prix,Luxe
+michelin,Michelin,ML.PA,prix,Automobile
+orange,Orange,ORA.PA,prix,Telecoms
+pernod,Pernod Ricard,RI.PA,prix,Consommation
+publicis,Publicis,PUB.PA,prix,Medias
+renault,Renault,RNO.PA,prix,Automobile
+safran,Safran,SAF.PA,prix,Aeronautique et defense
+saintgobain,Saint-Gobain,SGO.PA,prix,Construction
+sanofi,Sanofi,SAN.PA,prix,Sante
+schneider,Schneider Electric,SU.PA,prix,Industrie
+socgen,Societe Generale,GLE.PA,prix,Banques
+stellantis,Stellantis,STLAP.PA,prix,Automobile
+stmicro,STMicroelectronics,STMPA.PA,prix,Technologie
+thales,Thales,HO.PA,prix,Aeronautique et defense
+total,TotalEnergies,TTE.PA,prix,Energie
+veolia,Veolia,VIE.PA,prix,Energie et services
+vinci,Vinci,DG.PA,prix,Construction

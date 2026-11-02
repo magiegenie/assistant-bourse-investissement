@@ -3,10 +3,12 @@
 Usage : python scripts/newsletter_html.py edition.json [--sortie edition.html]
 
 Le JSON décrit le contenu (voir templates/newsletter-modele.md). Ce script s'occupe de la mise en forme et
-garantit trois règles de lecture :
+garantit les règles de lecture :
   - aucun lien dans le corps : les textes citent une source avec [[src:cle]] et le script la transforme
     en [1], [2]... numérotés dans l'ordre où la lecture les rencontre ;
   - tous les liens sont réunis dans le bloc « Sources » en bas, dans cet ordre ;
+  - dans « Pourquoi ça a baissé », chaque étape de cause cite une source ou dit « cause non établie » ;
+  - le temps de lecture est calculé d'après le nombre de mots ;
   - le contrôle final refuse les tirets longs, les emojis, les adresses web dans le corps et toute source
     citée sans être déclarée (ou déclarée sans être citée).
 
@@ -15,6 +17,7 @@ Bibliothèque standard uniquement. Données publiques seulement : aucun montant 
 import argparse
 import html
 import json
+import math
 import re
 import sys
 from datetime import date
@@ -27,6 +30,7 @@ NIVEAUX = {
     "surveiller": ("À surveiller", "#7a4f00", "#fcefcf"),
     "agir": ("À agir", "#9b1c1c", "#fde3e3"),
 }
+MOTS_PAR_MINUTE = 230
 MOIS = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre",
         "novembre", "décembre"]
 EMOJI = re.compile("[\U0001F000-\U0001FAFF☀-➿⬀-⯿️]")
@@ -55,6 +59,13 @@ def a(cls, extra=""):
     return f'class="{cls}" style="{style}"'
 
 
+def liste(x):
+    """Un texte seul ou une liste de paragraphes, toujours rendu comme une liste."""
+    if x is None:
+        return []
+    return [x] if isinstance(x, str) else list(x)
+
+
 class Rendu:
     def __init__(self, contenu):
         self.c = contenu
@@ -80,93 +91,186 @@ class Rendu:
 
         return MARQUEUR.sub(renvoi, out)
 
+    def paragraphes(self, x, taille="16px", marge="0 0 10px 0"):
+        return "".join(f'<p {a("texte", f"margin:{marge};font-size:{taille};")}>{self.t(p)}</p>' for p in liste(x))
+
     def pastille(self, niveau):
         nom, couleur, fond = NIVEAUX[niveau]
         return (f'<span style="{S["ui"]}display:inline-block;padding:3px 10px;border-radius:999px;font-size:12px;'
                 f'font-weight:600;color:{couleur};background:{fond};">{nom}</span>')
 
-    def variation(self, v):
+    def variation(self, v, neutre=False):
+        """Variation en vert ou rouge ; en gris si le sens n'est ni bon ni mauvais (VIX, taux, pétrole)."""
         if v in (None, ""):
             return f'<span style="{S["ui"]}color:#8a94a0;">non disponible</span>'
-        cls = "neg" if str(v).strip().startswith(("-", "−")) else "pos"
-        return f'<span style="{S["ui"]}font-weight:600;{S[cls]}">{html.escape(str(v))}</span>'
+        texte = str(v)
+        if neutre:
+            return f'<span style="{S["ui"]}font-weight:600;color:#5b6673;">{html.escape(texte)}</span>'
+        cls = "neg" if texte.strip().startswith(("-", chr(8722))) else "pos"
+        return f'<span style="{S["ui"]}font-weight:600;{S[cls]}">{html.escape(texte)}</span>'
 
-    # ---- sections ----
+    # ---- briques ----
     def titre_section(self, texte):
         return f'<h2 {a("h2 ui")}>{html.escape(texte)}</h2>'
 
-    def bloc(self, cle_fond, interieur):
-        return (f'<tr><td style="padding:0 16px 14px 16px;"><div {a(cle_fond)}>{interieur}</div></td></tr>')
+    def sous_titre(self, texte, marge="18px 0 6px 0"):
+        return (f'<div {a("ui", f"font-size:15px;font-weight:700;color:#12304a;margin:{marge};")}>'
+                f'{self.t(texte)}</div>')
 
-    def entete(self):
-        c = self.c
-        p = c["periode"]
+    def bloc(self, cle_fond, interieur):
+        return f'<tr><td style="padding:0 16px 14px 16px;"><div {a(cle_fond)}>{interieur}</div></td></tr>'
+
+    def lignes_nom_valeur(self, lignes):
+        """Liste « nom, variation, note » (gagnants, perdants, repères)."""
+        rows = ""
+        for r in lignes:
+            note = f'<div {a("ui petit")}>{self.t(r["note"])}</div>' if r.get("note") else ""
+            rows += (f'<tr><td {a("ui", "padding:6px 8px 6px 0;font-size:15px;color:#1d2733;vertical-align:top;")}>'
+                     f'{html.escape(r["nom"])}{note}</td>'
+                     f'<td {a("ui", "padding:6px 0;font-size:15px;text-align:right;white-space:nowrap;vertical-align:top;")}>'
+                     f'{self.variation(r.get("variation"), r.get("neutre", False))}</td></tr>')
+        return f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">{rows}</table>'
+
+    def puces(self, items, classe="texte", taille="15px"):
+        li = "".join(f'<li style="margin:4px 0;">{self.t(x)}</li>' for x in liste(items))
+        return f'<ul {a(classe, f"margin:0 0 10px 0;padding-left:20px;font-size:{taille};")}>{li}</ul>'
+
+    # ---- sections ----
+    def entete(self, minutes, sommaire):
+        p = self.c["periode"]
         debut, fin = date.fromisoformat(p["debut"]), date.fromisoformat(p["fin"])
         du = f"{debut.day} {MOIS[debut.month - 1]}"
         au = f"{fin.day} {MOIS[fin.month - 1]} {fin.year}"
+        som = " · ".join(html.escape(s) for s in sommaire)
         return (f'<tr><td style="padding:26px 24px 16px 24px;">'
                 f'<div {a("ui", "font-size:13px;color:#5b6673;")}>Ta semaine bourse</div>'
                 f'<div {a("ui", "font-size:26px;line-height:1.2;font-weight:700;color:#12304a;margin:4px 0 6px 0;")}>'
                 f'Du {du} au {au}</div>'
-                f'<div {a("ui petit")}>Lecture : {int(c.get("lecture_min", 4))} minutes. '
+                f'<div {a("ui petit")}>Lecture : environ {minutes} minutes. '
                 f'Outil d\'aide à la réflexion, pas un conseil en investissement réglementé.</div>'
+                f'<div {a("ui petit", "margin-top:8px;")}>{som}</div>'
                 f'</td></tr>')
 
-    def vue_ensemble(self):
-        c = self.c
+    def resume(self):
+        r = self.c["resume"]
+        # Chaque morceau est construit dans l'ordre d'affichage : c'est ce qui fixe la numérotation des sources.
+        inner = self.titre_section("Résumé express, 30 secondes")
+        inner += f'<p {a("texte", "margin:0 0 14px 0;font-size:20px;line-height:1.4;color:#12304a;")}>{self.t(r["verdict"])}</p>'
+        if r.get("points"):
+            inner += self.puces(r["points"], "ui", "15px")
         pastilles = ""
-        for p in c.get("pastilles", []):
+        for p in r.get("pastilles", []):
             pastilles += (f'<tr><td style="padding:5px 12px 5px 0;white-space:nowrap;vertical-align:top;">'
                           f'{self.pastille(p["niveau"])}</td>'
                           f'<td {a("ui", "padding:5px 0;font-size:15px;line-height:1.45;color:#1d2733;")}>'
                           f'<strong>{html.escape(p["theme"])}.</strong> {self.t(p["texte"])}</td></tr>')
-        cle = c.get("chiffre_cle")
-        bloc_cle = ""
+        if pastilles:
+            inner += f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{pastilles}</table>'
+        cle = r.get("chiffre_cle")
         if cle:
-            bloc_cle = (f'<div {a("ui", "margin:16px 0 4px 0;")}>'
-                        f'<span style="font-size:34px;font-weight:700;color:#12304a;">{html.escape(cle["valeur"])}</span> '
-                        f'<span {a("ui petit")}>{self.t(cle["legende"])}</span></div>')
+            inner += (f'<div {a("ui", "margin:16px 0 4px 0;")}>'
+                      f'<span style="font-size:34px;font-weight:700;color:#12304a;">{html.escape(cle["valeur"])}</span> '
+                      f'<span {a("ui petit")}>{self.t(cle["legende"])}</span></div>')
         rdv = ""
-        for r in c.get("rdv", []):
+        for x in r.get("rdv", []):
             rdv += (f'<tr><td {a("ui", "padding:4px 14px 4px 0;font-size:14px;font-weight:700;color:#12304a;white-space:nowrap;vertical-align:top;")}>'
-                    f'{html.escape(r["quand"])}</td>'
-                    f'<td {a("ui", "padding:4px 0;font-size:14px;color:#1d2733;")}>{self.t(r["quoi"])}</td></tr>')
-        inner = (self.titre_section("Vue d'ensemble")
-                 + f'<p {a("texte", "margin:0 0 14px 0;font-size:20px;line-height:1.4;color:#12304a;")}>'
-                   f'{self.t(c["verdict"])}</p>'
-                 + (f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{pastilles}</table>' if pastilles else "")
-                 + bloc_cle
-                 + (f'<div {a("ui", "margin:14px 0 6px 0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5b6673;")}>'
-                    f'À ne pas rater</div>'
-                    f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{rdv}</table>' if rdv else ""))
+                    f'{html.escape(x["quand"])}</td>'
+                    f'<td {a("ui", "padding:4px 0;font-size:14px;color:#1d2733;")}>{self.t(x["quoi"])}</td></tr>')
+        if rdv:
+            inner += (f'<div {a("ui", "margin:14px 0 6px 0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5b6673;")}>'
+                      f'À ne pas rater</div>'
+                      f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{rdv}</table>')
         return self.bloc("fond_doux", inner)
 
-    def marches(self):
-        lignes = ""
-        for r in self.c.get("reperes", []):
-            note = f' <span {a("ui petit")}>{self.t(r["note"])}</span>' if r.get("note") else ""
-            lignes += (f'<tr><td {a("ui", "padding:7px 8px 7px 0;font-size:15px;color:#1d2733;")}>{html.escape(r["nom"])}{note}</td>'
-                       f'<td {a("ui", "padding:7px 8px;font-size:15px;text-align:right;color:#1d2733;")}>{html.escape(str(r.get("valeur") or ""))}</td>'
-                       f'<td {a("ui", "padding:7px 0 7px 8px;font-size:15px;text-align:right;white-space:nowrap;")}>'
-                       f'{self.variation(r.get("variation"))}</td></tr>')
-        pied = ""
-        if self.c.get("reperes_note"):
-            pied = f'<p {a("ui petit", "margin:10px 0 0 0;")}>{self.t(self.c["reperes_note"])}</p>'
-        inner = (self.titre_section("Les marchés cette semaine")
-                 + f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">{lignes}</table>'
-                 + pied)
+    def bilan(self):
+        b = self.c["bilan"]
+        inner = self.titre_section("Bilan de la semaine") + self.paragraphes(b.get("intro"))
+        groupes = {}
+        for r in b.get("reperes", []):
+            groupes.setdefault(r.get("groupe", "Autres"), []).append(r)
+        for nom, lignes in groupes.items():
+            inner += self.sous_titre(nom, "14px 0 2px 0") + self.lignes_nom_valeur(lignes)
+        if b.get("reperes_note"):
+            inner += f'<p {a("ui petit", "margin:10px 0 0 0;")}>{self.t(b["reperes_note"])}</p>'
+        if b.get("jours"):
+            inner += self.sous_titre("Jour par jour", "24px 0 8px 0")
+            for j in b["jours"]:
+                inner += (f'<div {a("fond_doux", "margin:0 0 10px 0;padding:14px 16px;")}>'
+                          f'<div {a("ui", "font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5b6673;")}>{html.escape(j["jour"])}</div>'
+                          f'<div {a("ui", "font-size:16px;font-weight:700;color:#12304a;margin:2px 0 6px 0;")}>{self.t(j["titre"])}</div>'
+                          f'{self.paragraphes(j["texte"], "15px", "0 0 6px 0")}</div>')
+        gp = b.get("gagnants_perdants")
+        if gp:
+            inner += self.sous_titre("Les plus fortes hausses et baisses", "20px 0 2px 0")
+            if gp.get("intro"):
+                inner += self.paragraphes(gp["intro"], "14px")
+            inner += (f'<div {a("ui", "font-size:12px;font-weight:700;color:#17794a;margin:10px 0 0 0;")}>HAUSSES</div>'
+                      + self.lignes_nom_valeur(gp.get("gagnants", []))
+                      + f'<div {a("ui", "font-size:12px;font-weight:700;color:#b3261e;margin:10px 0 0 0;")}>BAISSES</div>'
+                      + self.lignes_nom_valeur(gp.get("perdants", [])))
         return self.bloc("carte", inner)
 
-    def faits(self):
-        cartes = ""
-        for f in self.c.get("faits", []):
-            cartes += (f'<div {a("fond_doux", "margin:0 0 12px 0;padding:16px 18px;")}>'
-                       f'<div style="margin:0 0 8px 0;">{self.pastille(f["niveau"])}</div>'
-                       f'<div {a("ui", "font-size:16px;font-weight:700;color:#12304a;margin:0 0 6px 0;")}>{self.t(f["titre"])}</div>'
-                       f'<div {a("texte", "font-size:15px;")}>{self.t(f["texte"])}</div>'
-                       f'<div {a("texte", "font-size:15px;margin-top:6px;")}><strong>Pourquoi ça compte.</strong> {self.t(f["pourquoi"])}</div>'
-                       f'</div>')
-        return self.bloc("carte", self.titre_section("Ce qui s'est passé") + cartes)
+    def pourquoi_baisse(self):
+        p = self.c["pourquoi_baisse"]
+        inner = self.titre_section("Pourquoi ça a baissé") + self.paragraphes(p.get("intro"))
+        for carte in p.get("cartes", []):
+            # Ordre d'affichage : titre, sous-titre, résumé, puis les étapes.
+            tete = (f'<div {a("ui", "font-size:17px;font-weight:700;color:#12304a;")}>{html.escape(carte["titre"])} '
+                    f'{self.variation(carte.get("variation"))}</div>'
+                    + (f'<div {a("ui petit", "margin:2px 0 8px 0;")}>{self.t(carte["sous_titre"])}</div>' if carte.get("sous_titre") else "")
+                    + self.paragraphes(carte.get("resume"), "15px"))
+            etapes = ""
+            for i, e in enumerate(carte.get("etapes", []), 1):
+                texte = " ".join(liste(e["texte"]))
+                if not MARQUEUR.search(texte) and "non établie" not in texte:
+                    raise SystemExit(f"Étape de cause sans source ni « cause non établie » : {e['titre']}")
+                etapes += (f'<tr><td {a("ui", "padding:8px 12px 8px 0;vertical-align:top;font-size:20px;font-weight:700;color:#12304a;width:28px;")}>{i}</td>'
+                           f'<td {a("ui", "padding:8px 0;vertical-align:top;font-size:15px;color:#1d2733;")}>'
+                           f'<strong>{self.t(e["titre"])}</strong><div {a("texte", "font-size:15px;margin-top:2px;")}>{self.t(texte)}</div></td></tr>')
+            corps = tete + (self.sous_titre("La chaîne de causes", "10px 0 2px 0")
+                            + f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{etapes}</table>' if etapes else "")
+            for titre, cle in (("Ce qui est établi", "etabli"), ("Ce qui reste non établi", "non_etabli"),
+                               ("Les précédents", "precedent")):
+                if carte.get(cle):
+                    corps += self.sous_titre(titre, "10px 0 2px 0") + self.puces(carte[cle])
+            if carte.get("ce_que_ca_change"):
+                corps += (self.sous_titre("Ce que ça change pour toi", "10px 0 2px 0")
+                          + self.paragraphes(carte["ce_que_ca_change"], "15px"))
+            inner += f'<div {a("fond_doux", "margin:0 0 14px 0;padding:18px 18px;")}>{corps}</div>'
+        return self.bloc("carte", inner)
+
+    def contexte(self):
+        c = self.c["contexte"]
+        inner = self.titre_section("Ce qu'il se passe en ce moment") + self.paragraphes(c.get("intro"))
+        for th in c.get("themes", []):
+            pastille = f'<div style="margin:0 0 6px 0;">{self.pastille(th["niveau"])}</div>' if th.get("niveau") else ""
+            inner += (f'<div {a("fond_doux", "margin:0 0 12px 0;padding:16px 18px;")}>{pastille}'
+                      f'<div {a("ui", "font-size:16px;font-weight:700;color:#12304a;margin:0 0 6px 0;")}>{self.t(th["titre"])}</div>'
+                      f'{self.paragraphes(th["paragraphes"], "15px", "0 0 8px 0")}</div>')
+        return self.bloc("carte", inner)
+
+    def france(self):
+        f = self.c["france"]
+        inner = self.titre_section("La France")
+        act = f.get("actions")
+        if act:
+            inner += self.sous_titre("Les actions françaises", "4px 0 6px 0") + self.paragraphes(act.get("paragraphes"), "15px")
+            if act.get("hausses") or act.get("baisses"):
+                inner += (f'<div {a("ui", "font-size:12px;font-weight:700;color:#17794a;margin:8px 0 0 0;")}>HAUSSES</div>'
+                          + self.lignes_nom_valeur(act.get("hausses", []))
+                          + f'<div {a("ui", "font-size:12px;font-weight:700;color:#b3261e;margin:10px 0 0 0;")}>BAISSES</div>'
+                          + self.lignes_nom_valeur(act.get("baisses", [])))
+        for cle, titre in (("politique", "La politique"), ("infos", "Les informations qui comptent")):
+            bloc = f.get(cle)
+            if not bloc:
+                continue
+            inner += self.sous_titre(titre, "22px 0 6px 0") + self.paragraphes(bloc.get("paragraphes"), "15px")
+            for pt in bloc.get("points", []):
+                pastille = f'<div style="margin:0 0 6px 0;">{self.pastille(pt["niveau"])}</div>' if pt.get("niveau") else ""
+                inner += (f'<div {a("fond_doux", "margin:0 0 10px 0;padding:14px 16px;")}>{pastille}'
+                          f'<div {a("ui", "font-size:15px;font-weight:700;color:#12304a;margin:0 0 4px 0;")}>{self.t(pt["titre"])}</div>'
+                          f'{self.paragraphes(pt["texte"], "15px", "0 0 6px 0")}</div>')
+        return self.bloc("carte", inner)
 
     def pour_toi(self):
         p = self.c.get("pour_toi", {})
@@ -180,30 +284,27 @@ class Rendu:
                                 f'({self.variation(pf.get("variation"))} sur la semaine).</p>')
             for titre, cle in (("Écarts à ta cible", "ecarts"), ("Alertes", "alertes")):
                 if p.get(cle):
-                    li = "".join(f'<li style="margin:3px 0;">{self.t(x)}</li>' for x in p[cle])
-                    morceaux.append(f'<div {a("ui", "font-size:13px;font-weight:700;color:#12304a;margin:10px 0 2px 0;")}>{titre}</div>'
-                                    f'<ul {a("texte", "margin:0;padding-left:20px;font-size:15px;")}>{li}</ul>')
+                    morceaux.append(self.sous_titre(titre, "10px 0 2px 0") + self.puces(p[cle]))
         lignes = ""
         for l in p.get("lecture", []):
             lignes += (f'<tr><td {a("ui", "padding:6px 12px 6px 0;font-size:14px;font-weight:700;color:#12304a;vertical-align:top;width:34%;")}>{self.t(l["fait"])}</td>'
                        f'<td {a("ui", "padding:6px 0;font-size:14px;color:#1d2733;vertical-align:top;")}>{self.t(l["effet"])}</td></tr>')
         if lignes:
-            morceaux.append(f'<div {a("ui", "font-size:13px;font-weight:700;color:#12304a;margin:14px 0 4px 0;")}>Ce que chaque fait change pour tes placements</div>'
-                            f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{lignes}</table>')
+            morceaux.append(self.sous_titre("Ce que chaque fait change pour tes placements", "14px 0 4px 0")
+                            + f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{lignes}</table>')
         return self.bloc("carte", self.titre_section("Pour toi") + "".join(morceaux))
 
     def _liste_agenda(self, titre, lignes, colonnes, vide):
         if not lignes:
-            return (f'<div {a("ui", "font-size:13px;font-weight:700;color:#12304a;margin:16px 0 4px 0;")}>{titre}</div>'
-                    f'<p {a("ui petit", "margin:0;")}>{self.t(vide)}</p>')
+            return self.sous_titre(titre, "16px 0 4px 0") + f'<p {a("ui petit", "margin:0;")}>{self.t(vide)}</p>'
         rows = ""
         for l in lignes:
             cases = "".join(
                 f'<td {a("ui", "padding:6px 12px 6px 0;font-size:14px;vertical-align:top;" + st)}>{self.t(l.get(k, ""))}</td>'
                 for k, st in colonnes)
             rows += f"<tr>{cases}</tr>"
-        return (f'<div {a("ui", "font-size:13px;font-weight:700;color:#12304a;margin:16px 0 4px 0;")}>{titre}</div>'
-                f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{rows}</table>')
+        return (self.sous_titre(titre, "16px 0 4px 0")
+                + f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{rows}</table>')
 
     def agenda(self):
         ag = self.c.get("agenda", {})
@@ -230,28 +331,11 @@ class Rendu:
                  + f'<div {a("texte", "font-size:15px;")}>{self.t(n["texte"])}</div>')
         return self.bloc("fond_doux", inner)
 
-    def veille(self):
-        lignes = self.c.get("veille", [])
-        if not lignes:
-            return ""
-        entetes = ["Semaine", "Thème", "Importance", "Fait", "Source et date", "Positions concernées", "Impact estimé", "Action"]
-        th = "".join(f'<th {a("ui", "text-align:left;padding:6px 8px 6px 0;font-size:11px;color:#5b6673;white-space:nowrap;")}>{e}</th>' for e in entetes)
-        trs = ""
-        for l in lignes:
-            tds = "".join(f'<td {a("ui", "padding:6px 8px 6px 0;font-size:12px;vertical-align:top;color:#1d2733;")}>{self.t(x)}</td>' for x in l)
-            trs += f"<tr>{tds}</tr>"
-        inner = (self.titre_section("À recopier dans la feuille Veille")
-                 + f'<div style="overflow-x:auto;"><table cellpadding="0" cellspacing="0" style="border-collapse:collapse;min-width:100%;">'
-                   f'<thead><tr>{th}</tr></thead><tbody>{trs}</tbody></table></div>')
-        return self.bloc("carte", inner)
-
     def limites(self):
         lim = self.c.get("limites", [])
         if not lim:
             return ""
-        li = "".join(f'<li style="margin:3px 0;">{self.t(x)}</li>' for x in lim)
-        inner = (self.titre_section("Limites de cette édition")
-                 + f'<ul {a("ui petit", "margin:0;padding-left:20px;")}>{li}</ul>')
+        inner = self.titre_section("Limites de cette édition") + self.puces(lim, "ui petit", "13px")
         return self.bloc("fond_doux", inner)
 
     def pied(self):
@@ -260,21 +344,29 @@ class Rendu:
 
     # ---- assemblage ----
     def construire(self):
-        corps = "".join([self.entete(), self.vue_ensemble(), self.marches(), self.faits(), self.pour_toi(),
-                         self.agenda(), self.notion(), self.veille(), self.limites()])
-        # Les sources sont numérotées d'après ce qui a été lu, donc rendues en dernier.
+        sections = [("Résumé", "resume", self.resume), ("Bilan", "bilan", self.bilan),
+                    ("Pourquoi ça a baissé", "pourquoi_baisse", self.pourquoi_baisse),
+                    ("En ce moment", "contexte", self.contexte), ("France", "france", self.france),
+                    ("Pour toi", "pour_toi", self.pour_toi), ("Semaine qui vient", "agenda", self.agenda),
+                    ("Notion", "notion", self.notion), ("Limites", "limites", self.limites)]
+        # Rendu dans l'ordre de lecture : c'est lui qui fixe la numérotation des sources.
+        rendus = [(nom, f()) for nom, cle, f in sections if cle in self.c]
+        corps = "".join(r for _, r in rendus)
+        mots = len(re.sub(r"<[^>]+>", " ", corps).split())
+        minutes = max(1, math.ceil(mots / MOTS_PAR_MINUTE))
+        corps = self.entete(minutes, [n for n, r in rendus if r]) + corps
         for cle in self.sources:
             if cle not in self.ordre:
                 raise SystemExit(f"Source déclarée mais jamais citée : {cle}")
         items = ""
-        for i, cle in enumerate(self.ordre, 1):
+        for cle in self.ordre:
             s = self.sources[cle]
             d = f" ({html.escape(s['date'])})" if s.get("date") else ""
             items += (f'<li style="margin:4px 0;"><a href="{html.escape(s["url"], quote=True)}" '
                       f'style="color:#12304a;">{html.escape(s["nom"])}</a>{d}</li>')
-        sources = self.bloc("carte",
-                            self.titre_section("Sources, dans l'ordre de lecture")
+        sources = self.bloc("carte", self.titre_section("Sources, dans l'ordre de lecture")
                             + f'<ol {a("ui petit", "margin:0;padding-left:22px;")}>{items}</ol>')
+        self.minutes, self.mots = minutes, mots
         return corps, sources + self.pied()
 
     def page(self):
@@ -331,7 +423,8 @@ def main():
     page = rendu.page()
     sortie = Path(args.sortie) if args.sortie else Path(args.contenu).with_suffix(".html")
     sortie.write_text(page, encoding="utf-8")
-    print(f"{sortie} écrit : {len(rendu.ordre)} sources, {len(page) // 1024} Ko.")
+    print(f"{sortie} écrit : {len(rendu.ordre)} sources, {rendu.mots} mots, lecture {rendu.minutes} minutes, "
+          f"{len(page) // 1024} Ko.")
 
 
 if __name__ == "__main__":
