@@ -41,9 +41,9 @@ GRAS = re.compile(r"\*\*(.+?)\*\*")
 # Design clair uniquement : pas de mode sombre.
 S = {
     "page": "margin:0;padding:0;background-color:#eef1f5;",
-    "cadre": "max-width:640px;width:100%;margin:0 auto;table-layout:fixed;",
+    "cadre": "max-width:640px;width:100%;margin:0 auto;table-layout:fixed;font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;",
     "texte": "font-family:Georgia,'Times New Roman',serif;font-size:17px;line-height:1.65;color:#1d2733;",
-    "ui": "font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;",
+    "ui": "",
     "carte": "background-color:#ffffff;border-radius:16px;padding:26px 26px 22px 26px;",
     "fond_doux": "background-color:#f3f6fa;border-radius:12px;padding:20px 22px;",
     "fond_bleu": "background-color:#dbe9f9;border-radius:16px;padding:26px 26px 22px 26px;",
@@ -54,10 +54,13 @@ S = {
 }
 
 
+UI_FONT = "font-family:-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;"
+
+
 def a(cls, extra=""):
     """Attributs class + style en ligne pour les clés de S (plusieurs clés séparées par des espaces)."""
     style = "".join(S[c] for c in cls.split()) + extra
-    return f'class="{cls}" style="{style}"'
+    return f'style="{style}"'
 
 
 def liste(x):
@@ -123,9 +126,9 @@ class Rendu:
         bg = fond or re.search(r"background(?:-color)?:(#[0-9a-fA-F]{6})", S[cle]).group(1)
         rayon = re.search(r"border-radius:(\d+px)", S[cle]).group(1)
         pad = padding or re.search(r"padding:([^;]+);", S[cle]).group(1)
-        return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="{bg}" '
+        return (f'<table width="100%" cellpadding="0" cellspacing="0" bgcolor="{bg}" '
                 f'style="background-color:{bg};border-radius:{rayon};margin:{marge};">'
-                f'<tr><td style="padding:{pad};">{interieur}</td></tr></table>')
+                f'<tr><td class="{cle}" style="padding:{pad};{UI_FONT}">{interieur}</td></tr></table>')
 
     def bloc(self, cle_fond, interieur):
         return f'<tr><td style="padding:0 16px 14px 16px;">{self.boite(cle_fond, interieur)}</td></tr>'
@@ -139,7 +142,7 @@ class Rendu:
                      f'{html.escape(r["nom"])}{note}</td>'
                      f'<td {a("ui", "padding:6px 0;font-size:15px;text-align:right;white-space:nowrap;vertical-align:top;")}>'
                      f'{self.variation(r.get("variation"), r.get("neutre", False))}</td></tr>')
-        return f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">{rows}</table>'
+        return f'<table cellpadding="0" cellspacing="0" style="width:100%;border-collapse:collapse;">{rows}</table>'
 
     def puces(self, items, classe="texte", taille="15px"):
         li = "".join(f'<li style="margin:4px 0;">{self.t(x)}</li>' for x in liste(items))
@@ -176,7 +179,7 @@ class Rendu:
                           f'<td {a("ui", "padding:5px 0;font-size:15px;line-height:1.45;color:#1d2733;")}>'
                           f'<strong>{html.escape(p["theme"])}.</strong> {self.t(p["texte"])}</td></tr>')
         if pastilles:
-            inner += f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{pastilles}</table>'
+            inner += f'<table cellpadding="0" cellspacing="0" style="width:100%;">{pastilles}</table>'
         cle = r.get("chiffre_cle")
         if cle:
             inner += (f'<div {a("ui", "margin:16px 0 4px 0;")}>'
@@ -190,7 +193,7 @@ class Rendu:
         if rdv:
             inner += (f'<div {a("ui", "margin:14px 0 6px 0;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5b6673;")}>'
                       f'À ne pas rater</div>'
-                      f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{rdv}</table>')
+                      f'<table cellpadding="0" cellspacing="0" style="width:100%;">{rdv}</table>')
         return self.bloc("fond_bleu", inner)
 
     def bilan(self):
@@ -206,10 +209,17 @@ class Rendu:
         if b.get("jours"):
             inner += self.sous_titre("Jour par jour", "24px 0 8px 0")
             for j in b["jours"]:
-                inner += self.boite("fond_doux",
-                          f'<div {a("ui", "font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5b6673;")}>{html.escape(j["jour"])}</div>'
-                          f'<div {a("ui", "font-size:16px;font-weight:700;color:#1d2733;margin:2px 0 6px 0;")}>{self.t(j["titre"])}</div>'
-                          f'{self.paragraphes(j["texte"], "15px", "0 0 6px 0")}', "0 0 10px 0", "14px 16px")
+                tete = (f'<div {a("ui", "font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5b6673;")}>{html.escape(j["jour"])}</div>'
+                        f'<div {a("ui", "font-size:16px;font-weight:700;color:#1d2733;margin:2px 0 8px 0;")}>{self.t(j["titre"])}</div>')
+                chips = "".join(
+                    f'<span style="display:inline-block;margin:0 16px 4px 0;color:#5b6673;">{html.escape(c["nom"])} '
+                    f'{self.variation(c.get("variation"), c.get("neutre", False))}</span>' for c in j.get("chiffres", []))
+                if chips:
+                    tete += f'<div {a("ui", "font-size:14px;line-height:1.7;margin:0 0 8px 0;")}>{chips}</div>'
+                corps = self.paragraphes(j["texte"], "15px", "0 0 6px 0")
+                if j.get("faits"):
+                    corps += self.puces(j["faits"], "texte", "15px")
+                inner += self.boite("fond_doux", tete + corps, "0 0 10px 0", "14px 16px")
         gp = b.get("gagnants_perdants")
         if gp:
             inner += self.sous_titre("Les plus fortes hausses et baisses", "20px 0 2px 0")
@@ -239,7 +249,7 @@ class Rendu:
                            f'<td {a("ui", "padding:8px 0;vertical-align:top;font-size:15px;color:#1d2733;")}>'
                            f'<strong>{self.t(e["titre"])}</strong><div {a("texte", "font-size:15px;margin-top:2px;")}>{self.t(texte)}</div></td></tr>')
             corps = tete + (self.sous_titre("La chaîne de causes", "10px 0 2px 0")
-                            + f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{etapes}</table>' if etapes else "")
+                            + f'<table cellpadding="0" cellspacing="0" style="width:100%;">{etapes}</table>' if etapes else "")
             for titre, cle in (("Ce qui est établi", "etabli"), ("Ce qui reste non établi", "non_etabli"),
                                ("Les précédents", "precedent")):
                 if carte.get(cle):
@@ -302,7 +312,7 @@ class Rendu:
                        f'<td {a("ui", "padding:6px 0;font-size:14px;color:#1d2733;vertical-align:top;")}>{self.t(l["effet"])}</td></tr>')
         if lignes:
             morceaux.append(self.sous_titre("Ce que chaque fait change pour tes placements", "14px 0 4px 0")
-                            + f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{lignes}</table>')
+                            + f'<table cellpadding="0" cellspacing="0" style="width:100%;">{lignes}</table>')
         return self.bloc("carte", self.titre_section("Pour toi") + "".join(morceaux))
 
     def _liste_agenda(self, titre, lignes, colonnes, vide):
@@ -315,7 +325,7 @@ class Rendu:
                 for k, st in colonnes)
             rows += f"<tr>{cases}</tr>"
         return (self.sous_titre(titre, "16px 0 4px 0")
-                + f'<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;">{rows}</table>')
+                + f'<table cellpadding="0" cellspacing="0" style="width:100%;">{rows}</table>')
 
     def agenda(self):
         ag = self.c.get("agenda", {})
@@ -388,8 +398,8 @@ class Rendu:
                 f'<meta name="color-scheme" content="only light"><meta name="supported-color-schemes" content="light">'
                 f'<title>Ta semaine bourse</title><style>@media (max-width:480px){{.carte,.fond_bleu{{padding:20px 16px !important;}}}}</style></head>'
                 f'<body class="page" bgcolor="#eef1f5" style="{S["page"]}">'
-                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="#eef1f5" style="{S["page"]}"><tr><td align="center">'
-                f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="{S["cadre"]}">'
+                f'<table width="100%" cellpadding="0" cellspacing="0" bgcolor="#eef1f5" style="{S["page"]}"><tr><td align="center">'
+                f'<table width="100%" cellpadding="0" cellspacing="0" style="{S["cadre"]}">'
                 f'{corps}{bas}</table></td></tr></table></body></html>')
 
 

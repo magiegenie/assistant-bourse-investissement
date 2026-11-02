@@ -1,6 +1,6 @@
 # Ta semaine bourse : modèle de l'édition
 
-Lecture : 8 à 10 minutes (calculée automatiquement d'après le nombre de mots). Outil d'aide à la réflexion, pas un conseil en investissement réglementé.
+Lecture : 12 à 14 minutes (calculée automatiquement d'après le nombre de mots). Le résumé du haut se lit en 30 secondes. Outil d'aide à la réflexion, pas un conseil en investissement réglementé.
 
 L'édition se prépare en **contenu JSON**, puis un script fabrique l'email HTML :
 
@@ -18,7 +18,7 @@ Un exemple complet et rendu se trouve dans `docs/exemples/newsletter-2026-11-01.
 |---|---|---|---|
 | 1 | En-tête et sommaire | `periode` | Dates du lundi au dimanche. Le temps de lecture est calculé. |
 | 2 | Résumé express | `resume` | Verdict en 2 phrases (le plus souvent « Rien à faire »), 4 points clés, le chiffre de la semaine, 3 rendez-vous. Se lit en 30 secondes. |
-| 3 | Bilan de la semaine | `bilan` | `reperes` : variations réelles de la semaine, venues de `cloture_hebdo.py` (Etats-Unis, monde et Asie, Europe, devises, taux, matières premières). `jours` : un récit du lundi au vendredi, 2 à 3 phrases par jour. Une note « depuis mercredi » montre ce qui s'est passé après le sommet de la semaine. Chiffre introuvable : `null`, la case affichera « non disponible ». Pour le VIX, les taux et le pétrole, ajouter `"neutre": true` (ni bon ni mauvais). |
+| 3 | Bilan de la semaine | `bilan` | `reperes` : variations réelles de la semaine, venues de `cloture_hebdo.py` (Etats-Unis, monde et Asie, Europe, devises, taux, matières premières). `jours` : un récit du lundi au vendredi, détaillé. Pour chaque jour : `chiffres` (5 à 9 variations du jour : S&P 500, Nasdaq 100, CAC 40, Nikkei, KOSPI, taux, pétrole, bitcoin... selon ce qui compte, pris dans `variation` de `cloture_hebdo.py`), `texte` (le fait principal, avec la cause si une source la donne), `faits` (3 à 5 puces : entreprises qui publient et leur réaction, grosses hausses ou baisses de valeurs avec leurs pourcentages, taux, pétrole, banques centrales). Une note « depuis mercredi » montre ce qui s'est passé après le sommet de la semaine. Chiffre introuvable : `null`, la case affichera « non disponible ». Pour le VIX, les taux et le pétrole, ajouter `"neutre": true` (ni bon ni mauvais). |
 | 4 | Pourquoi ça a baissé | `pourquoi_baisse` | Une carte par ETF de la personne : variation, **chaîne de causes en étapes numérotées** (événement, mécanisme, effet), ce qui reste non établi, précédents historiques (`scripts/historique.py baisses`, `evenement`), ce que ça change pour son plan. Si rien n'a baissé de façon notable dans ses ETF, le bloc est supprimé. |
 | 5 | Ce qu'il se passe en ce moment | `contexte` | 4 à 6 thèmes (IA, pétrole et géopolitique, taux, inflation, politique américaine, etc.), chacun classé à ignorer, à surveiller ou à agir, en 1 à 3 phrases. |
 | 6 | La France | `france` | `actions` : le CAC 40 sur la semaine, plus fortes hausses et baisses (`cloture_hebdo.py --liste actions-fr`). `politique` : notation, budget, élections, écart de taux. `infos` : énergie, carburants, informations générales qui comptent. |

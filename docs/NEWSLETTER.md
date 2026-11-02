@@ -1,6 +1,6 @@
 # Newsletter du dimanche
 
-Une routine Claude (claude.ai/code, « Newsletter bourse du dimanche ») tourne chaque dimanche à 18 h 47 (heure de Paris), dans une nouvelle session. Elle envoie l'email « Ta semaine bourse » (8 à 10 minutes de lecture) à l'adresse du compte Gmail connecté. Elle n'écrit rien dans le dépôt.
+Une routine Claude (claude.ai/code, « Newsletter bourse du dimanche ») tourne chaque dimanche à 18 h 47 (heure de Paris), dans une nouvelle session. Elle envoie l'email « Ta semaine bourse » (12 à 14 minutes de lecture) à l'adresse du compte Gmail connecté. Elle n'écrit rien dans le dépôt.
 
 ## Ce dont elle a besoin (sinon elle s'arrête et le dit)
 
@@ -25,7 +25,7 @@ Pour modifier la routine : demander à Claude de mettre à jour la tâche « New
 ## Texte de la tâche
 
 ```
-Tu prépares et envoies la newsletter bourse hebdomadaire de l'utilisateur du compte (son adresse Gmail est celle du compte connecté). Écris en français, tutoiement, phrases simples, aucun tiret long, aucun emoji, jargon expliqué en une phrase. Longueur visée : 8 à 10 minutes de lecture. Écris comme Melvin (section « Voix et mise en forme » de templates/newsletter-modele.md) : phrases courtes et longues mélangées, pas de tournure « ce n'est pas X, c'est Y », pas de gras dans le texte.
+Tu prépares et envoies la newsletter bourse hebdomadaire de l'utilisateur du compte (son adresse Gmail est celle du compte connecté). Écris en français, tutoiement, phrases simples, aucun tiret long, aucun emoji, jargon expliqué en une phrase. Longueur visée : 12 à 14 minutes de lecture. Pour le jour par jour, donne pour chaque jour les variations du jour (chiffres), le fait principal et 3 à 5 faits sourcés. Écris comme Melvin (section « Voix et mise en forme » de templates/newsletter-modele.md) : phrases courtes et longues mélangées, pas de tournure « ce n'est pas X, c'est Y », pas de gras dans le texte.
 
 0. Prérequis : le dossier de travail est le dépôt assistant-bourse-investissement et les outils Gmail et Google Drive sont chargés. S'il en manque un, n'invente rien : envoie une notification qui dit lequel manque, puis arrête-toi.
 1. Lis templates/newsletter-modele.md (blocs, clés du JSON, règles), connaissances/H-information.md (règles de sources) et docs/exemples/newsletter-2026-11-01.json (exemple complet à copier en remplaçant tout son contenu).

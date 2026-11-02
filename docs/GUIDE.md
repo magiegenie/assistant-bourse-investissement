@@ -1,7 +1,7 @@
 ---
 titre: Guide d'utilisation
 sous_titre: Assistant Bourse Investissement
-version: 1.5
+version: 1.6
 date: 2026-11-02
 ---
 
@@ -247,10 +247,10 @@ Elles sont dans `connaissances/agents/veilleur.md`. Demande-les simplement :
 
 ## La newsletter du dimanche
 
-Chaque dimanche à 18 h 47, une routine t'envoie par email « **Ta semaine bourse** ». Elle se lit en 8 à 10 minutes, dans cet ordre :
+Chaque dimanche à 18 h 47, une routine t'envoie par email « **Ta semaine bourse** ». Elle se lit en 12 à 14 minutes (le résumé du haut en 30 secondes), dans cet ordre :
 
 1. **Résumé express** (30 secondes) : le verdict, 4 points clés, le chiffre de la semaine et les 3 rendez-vous à ne pas rater.
-2. **Bilan de la semaine** : les variations réelles de tous les marchés (États-Unis, monde et Asie, Europe, devises, taux, pétrole, or, bitcoin), puis le récit **jour par jour** du lundi au vendredi. Une note « depuis mercredi » montre ce qui s'est passé après le sommet de la semaine.
+2. **Bilan de la semaine** : les variations réelles de tous les marchés (États-Unis, monde et Asie, Europe, devises, taux, pétrole, or, bitcoin), puis le récit **jour par jour** du lundi au vendredi : pour chaque jour, les variations des principaux indices (dont le Nasdaq 100), le fait principal et 3 à 5 faits sourcés. Une note « depuis mercredi » montre ce qui s'est passé après le sommet de la semaine.
 3. **Pourquoi ça a baissé** : une carte par ETF que tu détiens, avec la **chaîne de causes** en étapes numérotées, ce qui est établi et ce qui ne l'est pas, les précédents historiques et ce que ça change pour ton plan. Chaque cause cite une source, sinon c'est écrit « cause non établie ».
 4. **Ce qu'il se passe en ce moment** : 4 à 6 thèmes de fond (IA, pétrole, taux, inflation, politique américaine...), chacun classé à ignorer, à surveiller ou à agir.
 5. **La France** : les actions françaises (CAC 40, plus fortes hausses et baisses), la politique (notation, budget, élections) et les informations qui comptent (énergie, carburants).
@@ -863,6 +863,7 @@ Les fichiers concernés :
 
 | Version | Date | Ce qui change |
 |---|---|---|
+| **1.6** | 02/11/2026 | Bilan jour par jour détaillé (variations du jour, faits, entreprises qui publient), Nasdaq 100 ajouté aux repères et aux cartes « Pourquoi ça a baissé », design en blocs (bandeau bleu marine, résumé bleu, cartes blanches), voix de Melvin |
 | **1.5** | 02/11/2026 | Newsletter plus complète : résumé express, bilan jour par jour avec les vraies variations de marché, rubrique « Pourquoi ça a baissé » par ETF, contexte détaillé, partie France (actions, politique, énergie) ; suppression du tableau Veille ; clôtures automatiques (`cloture_hebdo.py`) ; temps de lecture calculé |
 | **1.4** | 02/11/2026 | Newsletter du dimanche refondue : nouvelle structure en 7 blocs, sources numérotées en bas, tableau des repères de marché, agenda des résultats d'entreprises (tes ETF et les plus suivies), partie « Pour toi », limites de l'édition ; email fabriqué par `newsletter_html.py` avec contrôles automatiques ; routine du dimanche réparée |
 | **1.3** | 31/10/2026 | Historique élargi à 24 séries : Dow Jones depuis 1885, Hang Seng, 9 séries OCDE (le minimum de prix sur longue période pour la France, l'Allemagne, les émergents...) ; base de données `marches.sqlite` décrite et visible sur GitHub |

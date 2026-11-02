@@ -31,10 +31,10 @@ class Newsletter(unittest.TestCase):
         self.assertNotIn("feuille Veille", page)
         self.assertNotIn("recopier", page)
 
-    def test_temps_de_lecture_calcule_entre_8_et_12_minutes(self):
+    def test_temps_de_lecture_calcule_entre_8_et_15_minutes(self):
         rendu = newsletter_html.Rendu(exemple())
         rendu.page()
-        self.assertTrue(8 <= rendu.minutes <= 12, rendu.minutes)
+        self.assertTrue(8 <= rendu.minutes <= 15, rendu.minutes)
 
     def test_sources_numerotees_dans_l_ordre_de_lecture(self):
         rendu = newsletter_html.Rendu(exemple())

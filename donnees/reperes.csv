@@ -1,6 +1,7 @@
 cle,nom,ticker_yahoo,type,groupe
 sp500,S&P 500,^GSPC,prix,Etats-Unis
 nasdaq,Nasdaq Composite,^IXIC,prix,Etats-Unis
+nasdaq100,Nasdaq 100,^NDX,prix,Etats-Unis
 dow,Dow Jones,^DJI,prix,Etats-Unis
 vix,VIX (indice de la peur),^VIX,prix,Etats-Unis
 msci_world,MSCI World (ETF URTH),URTH,prix,Monde

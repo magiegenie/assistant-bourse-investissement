@@ -62,6 +62,16 @@ def clotures(donnees):
     return sortie
 
 
+def jours_avec_variation(ref, semaine, type_repere):
+    """Clôture de chaque jour et variation par rapport à la clôture précédente (en points pour un taux)."""
+    sortie, prec = [], ref[1]
+    for d, v in semaine:
+        var = round(v - prec, 3) if type_repere == "taux" else round((v / prec - 1) * 100, 2)
+        sortie.append({"date": d.isoformat(), "valeur": round(v, 4), "variation": var})
+        prec = v
+    return sortie
+
+
 def calcul(serie, fin, type_repere):
     """Variation de la semaine finissant à `fin` (inclus) et clôtures du lundi au vendredi."""
     avant = [x for x in serie if x[0] <= fin]
@@ -82,7 +92,7 @@ def calcul(serie, fin, type_repere):
         "derniere": {"date": dern[0].isoformat(), "valeur": round(dern[1], 4)},
         "variation": variation,
         "unite_variation": "points" if type_repere == "taux" else "%",
-        "jours": [{"date": d.isoformat(), "valeur": round(v, 4)} for d, v in semaine],
+        "jours": jours_avec_variation(ref, semaine, type_repere),
     }
 
 

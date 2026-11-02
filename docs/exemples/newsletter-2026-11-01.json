@@ -1,48 +1,342 @@
 {
-  "periode": {"debut": "2026-10-26", "fin": "2026-11-01"},
+  "periode": {
+    "debut": "2026-10-26",
+    "fin": "2026-11-01"
+  },
   "resume": {
     "verdict": "Rien à faire sur ton plan de versements réguliers. Mais la semaine a vraiment changé de visage : ça montait jusqu'à mercredi, puis la tech américaine a plongé jeudi et vendredi, et l'Asie des puces a suivi.",
     "points": [
-      "Le S&P 500 finit à -0,6 % sur la semaine, le Nasdaq à -2,0 % [[src:yahoo]]. Depuis le sommet de mercredi, ça fait -2,1 % et -4,2 %.",
+      "Le S&P 500 finit à -0,6 % sur la semaine, le Nasdaq 100 à -2,0 % [[src:yahoo]]. Depuis le sommet de mercredi, ça fait -2,1 % pour le S&P 500 et -4,8 % pour le Nasdaq 100.",
       "Tout vient de deux séances : Alphabet a perdu plus de 12 % jeudi, sa pire séance de l'histoire, puis Intel presque 30 % vendredi [[src:ap_adn]].",
       "L'Europe a fait le contraire : CAC 40 à +2,4 %, Stoxx 600 à +1,7 % [[src:yahoo]].",
       "Les 10 millions de barils dont parle la France, c'est une mise sur le marché de ses réserves, pas un achat. Le but : faire baisser le carburant dès le 1er novembre [[src:sudradio_diesel]]."
     ],
-    "chiffre_cle": {"valeur": "-12 %", "legende": "Alphabet jeudi 29 octobre, sa pire séance de l'histoire [[src:ap_adn]]"},
+    "chiffre_cle": {
+      "valeur": "-12 %",
+      "legende": "Alphabet jeudi 29 octobre, sa pire séance de l'histoire [[src:ap_adn]]"
+    },
     "rdv": [
-      {"quand": "Mar. 3 nov.", "quoi": "Élections de mi-mandat aux États-Unis [[src:capital_group]]"},
-      {"quand": "Mer. 4 nov.", "quoi": "Inflation d'octobre en zone euro [[src:eurostat_calendrier]]"},
-      {"quand": "Ven. 6 nov.", "quoi": "Emploi américain, 14 h 30 heure de Paris [[src:simianx_calendrier]]"}
+      {
+        "quand": "Mar. 3 nov.",
+        "quoi": "Élections de mi-mandat aux États-Unis [[src:capital_group]]"
+      },
+      {
+        "quand": "Mer. 4 nov.",
+        "quoi": "Inflation d'octobre en zone euro [[src:eurostat_calendrier]]"
+      },
+      {
+        "quand": "Ven. 6 nov.",
+        "quoi": "Emploi américain, 14 h 30 heure de Paris [[src:simianx_calendrier]]"
+      }
     ]
   },
   "bilan": {
     "intro": "Chaque variation compare la clôture de vendredi 30 octobre à celle du vendredi 23. Le total cache ce qui compte : la bourse américaine a monté lundi, mardi et mercredi, puis baissé jeudi et vendredi. Les cours viennent de Yahoo Finance et sont indicatifs [[src:yahoo]].",
     "reperes": [
-      {"groupe": "États-Unis", "nom": "S&P 500", "variation": "-0,57 %", "note": "-2,1 % depuis mercredi."},
-      {"groupe": "États-Unis", "nom": "Nasdaq Composite", "variation": "-2,00 %", "note": "-4,2 % depuis mercredi."},
-      {"groupe": "États-Unis", "nom": "VIX (indice de la peur)", "variation": "+14,8 %", "neutre": true, "note": "Depuis mercredi : les investisseurs se protègent davantage."},
-      {"groupe": "Monde et Asie", "nom": "MSCI World (ETF URTH)", "variation": "-0,25 %"},
-      {"groupe": "Monde et Asie", "nom": "Asie hors Japon (ETF AAXJ)", "variation": "-0,22 %", "note": "-3,8 % depuis mercredi."},
-      {"groupe": "Monde et Asie", "nom": "Marchés émergents (ETF EEM)", "variation": "-1,56 %"},
-      {"groupe": "Monde et Asie", "nom": "Nikkei 225 (Japon)", "variation": "+0,95 %"},
-      {"groupe": "Monde et Asie", "nom": "KOSPI (Corée du Sud)", "variation": "+3,25 %", "note": "-4,7 % depuis mercredi."},
-      {"groupe": "Monde et Asie", "nom": "Hang Seng (Hong Kong)", "variation": "+0,87 %"},
-      {"groupe": "Monde et Asie", "nom": "TAIEX (Taïwan)", "variation": "-1,80 %", "note": "-3,9 % depuis mercredi [[src:te_taiwan]]."},
-      {"groupe": "Monde et Asie", "nom": "Shanghai Composite", "variation": "-2,48 %"},
-      {"groupe": "Europe", "nom": "CAC 40", "variation": "+2,40 %", "note": "Clôture : 7 969 points."},
-      {"groupe": "Europe", "nom": "Stoxx Europe 600", "variation": "+1,73 %"},
-      {"groupe": "Devises, taux, matières premières", "nom": "Euro / dollar", "variation": "-0,34 %"},
-      {"groupe": "Devises, taux, matières premières", "nom": "Taux américain à 10 ans", "variation": "-0,06 point", "neutre": true, "note": "4,93 %, contre plus de 5,30 % plus tôt en octobre [[src:ap_adn]]."},
-      {"groupe": "Devises, taux, matières premières", "nom": "Pétrole Brent", "variation": null, "note": "Autour de 113 dollars vendredi, +2,4 % ce jour-là [[src:ap_adn]]."},
-      {"groupe": "Devises, taux, matières premières", "nom": "Or", "variation": "-3,45 %"},
-      {"groupe": "Devises, taux, matières premières", "nom": "Bitcoin", "variation": "-3,53 %", "note": "Vers 77 000 dollars [[src:ap_adn]]."}
+      {
+        "groupe": "États-Unis",
+        "nom": "S&P 500",
+        "variation": "-0,57 %",
+        "note": "-2,1 % depuis mercredi."
+      },
+      {
+        "groupe": "États-Unis",
+        "nom": "Nasdaq Composite",
+        "variation": "-2,00 %",
+        "note": "-4,2 % depuis mercredi."
+      },
+      {
+        "groupe": "États-Unis",
+        "nom": "Nasdaq 100",
+        "variation": "-1,98 %",
+        "note": "-4,8 % depuis mercredi."
+      },
+      {
+        "groupe": "États-Unis",
+        "nom": "VIX (indice de la peur)",
+        "variation": "+14,8 %",
+        "neutre": true,
+        "note": "Depuis mercredi : les investisseurs se protègent davantage."
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "MSCI World (ETF URTH)",
+        "variation": "-0,25 %"
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "Asie hors Japon (ETF AAXJ)",
+        "variation": "-0,22 %",
+        "note": "-3,8 % depuis mercredi."
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "Marchés émergents (ETF EEM)",
+        "variation": "-1,56 %"
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "Nikkei 225 (Japon)",
+        "variation": "+0,95 %"
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "KOSPI (Corée du Sud)",
+        "variation": "+3,25 %",
+        "note": "-4,7 % depuis mercredi."
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "Hang Seng (Hong Kong)",
+        "variation": "+0,87 %"
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "TAIEX (Taïwan)",
+        "variation": "-1,80 %",
+        "note": "-3,9 % depuis mercredi [[src:te_taiwan]]."
+      },
+      {
+        "groupe": "Monde et Asie",
+        "nom": "Shanghai Composite",
+        "variation": "-2,48 %"
+      },
+      {
+        "groupe": "Europe",
+        "nom": "CAC 40",
+        "variation": "+2,40 %",
+        "note": "Clôture : 7 969 points."
+      },
+      {
+        "groupe": "Europe",
+        "nom": "Stoxx Europe 600",
+        "variation": "+1,73 %"
+      },
+      {
+        "groupe": "Devises, taux, matières premières",
+        "nom": "Euro / dollar",
+        "variation": "-0,34 %"
+      },
+      {
+        "groupe": "Devises, taux, matières premières",
+        "nom": "Taux américain à 10 ans",
+        "variation": "-0,06 point",
+        "neutre": true,
+        "note": "4,93 %, contre plus de 5,30 % plus tôt en octobre [[src:ap_adn]]."
+      },
+      {
+        "groupe": "Devises, taux, matières premières",
+        "nom": "Pétrole Brent",
+        "variation": null,
+        "note": "Autour de 113 dollars vendredi, +2,4 % ce jour-là [[src:ap_adn]]."
+      },
+      {
+        "groupe": "Devises, taux, matières premières",
+        "nom": "Or",
+        "variation": "-3,45 %"
+      },
+      {
+        "groupe": "Devises, taux, matières premières",
+        "nom": "Bitcoin",
+        "variation": "-3,53 %",
+        "note": "Vers 77 000 dollars [[src:ap_adn]]."
+      }
     ],
     "jours": [
-      {"jour": "Lundi 26 octobre", "titre": "La bourse américaine monte, le pétrole recule", "texte": "S&P 500 à +0,7 %. Le Brent redescend vers 110 dollars malgré les tensions : Donald Trump doit choisir entre continuer la diplomatie avec l'Iran et reprendre les opérations militaires [[src:boursenews_brent]]."},
-      {"jour": "Mardi 27 octobre", "titre": "La tech rebondit", "texte": "Nasdaq à +1,2 %, KOSPI à +3,1 % [[src:yahoo]]. La cause, aucune source lue ne la donne : cause non établie."},
-      {"jour": "Mercredi 28 octobre", "titre": "Le sommet de la semaine, la Fed ne bouge pas", "texte": "La Fed garde sa fourchette à 3,75-4,00 % par 10 voix contre 2 [[src:fed_admiral]]. Le KOSPI bondit de 6,6 % [[src:yahoo]]. Pourquoi ce bond : cause non établie."},
-      {"jour": "Jeudi 29 octobre", "titre": "Alphabet s'effondre, la BCE attend", "texte": "Alphabet perd plus de 12 % et fait presque à elle seule reculer le S&P 500 [[src:ap_adn]]. De son côté, la BCE garde son taux de dépôt à 2,50 % et Christine Lagarde annonce qu'elle part le 7 février 2027 [[src:bce_29oct]]. Le CAC 40, lui, gagne 1,1 %."},
-      {"jour": "Vendredi 30 octobre", "titre": "La grosse chute de la tech", "texte": "S&P 500 à -1,8 %, Nasdaq à -2,9 %. Intel perd près de 30 % et Nvidia 4,2 % [[src:ap_adn]]. L'Asie suit : KOSPI -3,5 %, Nikkei -2,1 %, Taïwan -2,5 % [[src:te_taiwan]]. Le CAC 40 ne bouge pas."}
+      {
+        "jour": "Lundi 26 octobre",
+        "titre": "La bourse américaine monte dans un marché instable",
+        "chiffres": [
+          {
+            "nom": "S&P 500",
+            "variation": "+0,7 %"
+          },
+          {
+            "nom": "Nasdaq 100",
+            "variation": "+1,1 %"
+          },
+          {
+            "nom": "CAC 40",
+            "variation": "+0,8 %"
+          },
+          {
+            "nom": "Nikkei",
+            "variation": "-0,8 %"
+          },
+          {
+            "nom": "KOSPI",
+            "variation": "-1,5 %"
+          }
+        ],
+        "texte": "Les valeurs liées à l'IA restent nerveuses après plusieurs semaines de gros mouvements. Près d'un titre sur trois du S&P 500 publie ses résultats cette semaine, et la Fed comme d'autres banques centrales annoncent leurs taux [[src:lanacion_lun]].",
+        "faits": [
+          "Les actions brésiliennes chutent après la réélection surprise du président brésilien [[src:lanacion_lun]].",
+          "Le Brent redescend vers 110 dollars malgré les tensions : Donald Trump doit choisir entre continuer la diplomatie avec l'Iran et reprendre les opérations militaires [[src:boursenews_brent]].",
+          "Pourquoi le S&P 500 monte : aucune source lue ne le dit, cause non établie."
+        ]
+      },
+      {
+        "jour": "Mardi 27 octobre",
+        "titre": "L'IA tire la bourse, la plupart des valeurs baissent",
+        "chiffres": [
+          {
+            "nom": "S&P 500",
+            "variation": "+0,6 %"
+          },
+          {
+            "nom": "Nasdaq 100",
+            "variation": "+1,3 %"
+          },
+          {
+            "nom": "Dow Jones",
+            "variation": "+0,03 %"
+          },
+          {
+            "nom": "CAC 40",
+            "variation": "+0,5 %"
+          },
+          {
+            "nom": "Nikkei",
+            "variation": "+1,7 %"
+          },
+          {
+            "nom": "KOSPI",
+            "variation": "+3,1 %"
+          }
+        ],
+        "texte": "Les valeurs de l'IA font monter Wall Street, alors que la majorité des titres du S&P 500 baissent [[src:lanacion_mar]].",
+        "faits": [
+          "Broadcom monte après un accord de financement qui donne à Anthropic accès à ses puces d'IA [[src:lanacion_mar]].",
+          "JetBlue et Royal Caribbean progressent après leurs résultats trimestriels, Boeing et Hilton reculent [[src:lanacion_mar]].",
+          "Les taux restent stables à la veille de la décision de la Fed [[src:lanacion_mar]]."
+        ]
+      },
+      {
+        "jour": "Mercredi 28 octobre",
+        "titre": "La Fed ne bouge pas, Microsoft et Alphabet publient",
+        "chiffres": [
+          {
+            "nom": "S&P 500",
+            "variation": "+0,3 %"
+          },
+          {
+            "nom": "Nasdaq 100",
+            "variation": "+0,6 %"
+          },
+          {
+            "nom": "KOSPI",
+            "variation": "+6,6 %"
+          },
+          {
+            "nom": "Taux US 10 ans",
+            "variation": "5,04 %",
+            "neutre": true
+          },
+          {
+            "nom": "Brut US",
+            "variation": "+1,3 %",
+            "neutre": true
+          }
+        ],
+        "texte": "La Fed garde sa fourchette à 3,75-4,00 % par 10 voix contre 2 [[src:fed_admiral]]. Son président Kevin Warsh juge l'inflation encore trop haute, dit que sa politique commence à agir et ne s'engage pas sur la suite : une nouvelle hausse reste possible [[src:investinglive_28oct]].",
+        "faits": [
+          "Le taux américain à 10 ans finit à 5,04 %, en hausse de presque 5 points de base, et le brut américain à 101,49 dollars [[src:investinglive_28oct]].",
+          "Après la clôture, Microsoft publie 4,92 dollars de bénéfice par action contre 4,72 attendus, avec Azure en hausse de 48 % [[src:investinglive_28oct]].",
+          "Alphabet publie 2,12 dollars contre 3,03 attendus. Seul point positif : le cloud de Google fait mieux que prévu, avec 30,71 milliards de dollars contre 29,1 [[src:investinglive_28oct]].",
+          "Le bond de 6,6 % du KOSPI : cause non établie."
+        ]
+      },
+      {
+        "jour": "Jeudi 29 octobre",
+        "titre": "Alphabet connaît la pire séance de son histoire",
+        "chiffres": [
+          {
+            "nom": "S&P 500",
+            "variation": "-0,3 %"
+          },
+          {
+            "nom": "Nasdaq 100",
+            "variation": "-1,4 %"
+          },
+          {
+            "nom": "Dow Jones",
+            "variation": "-0,3 %"
+          },
+          {
+            "nom": "CAC 40",
+            "variation": "+1,1 %"
+          },
+          {
+            "nom": "KOSPI",
+            "variation": "-1,2 %"
+          },
+          {
+            "nom": "Or",
+            "variation": "-3,3 %"
+          },
+          {
+            "nom": "Bitcoin",
+            "variation": "-4,3 %"
+          }
+        ],
+        "texte": "Alphabet perd plus de 12 %. Ses résultats sont sous les attentes, son flux de trésorerie est négatif de 9,07 milliards de dollars, et pourtant elle maintient 195 à 205 milliards de dollars d'investissements par an [[src:dimsum_jeu]]. Le S&P 500 baisse alors que la majorité de ses titres monte [[src:lanacion_jeu]].",
+        "faits": [
+          "Microsoft finit en léger recul malgré des résultats au-dessus des attentes. Caterpillar perd plus de 9 %, CoreWeave et Nebius environ 5 % [[src:dimsum_jeu]].",
+          "Les petites valeurs américaines (Russell 2000) gagnent 1 % et les taux du Trésor baissent [[src:lanacion_jeu]].",
+          "La BCE garde son taux de dépôt à 2,50 % et Christine Lagarde annonce son départ pour le 7 février 2027 [[src:bce_29oct]].",
+          "En Europe, le CAC 40 gagne 1,1 %."
+        ]
+      },
+      {
+        "jour": "Vendredi 30 octobre",
+        "titre": "La chute de la tech s'accélère",
+        "chiffres": [
+          {
+            "nom": "S&P 500",
+            "variation": "-1,8 %"
+          },
+          {
+            "nom": "Nasdaq 100",
+            "variation": "-3,5 %"
+          },
+          {
+            "nom": "Dow Jones",
+            "variation": "-1,1 %"
+          },
+          {
+            "nom": "VIX",
+            "variation": "+12,9 %",
+            "neutre": true
+          },
+          {
+            "nom": "CAC 40",
+            "variation": "0,0 %",
+            "neutre": true
+          },
+          {
+            "nom": "Nikkei",
+            "variation": "-2,1 %"
+          },
+          {
+            "nom": "KOSPI",
+            "variation": "-3,5 %"
+          },
+          {
+            "nom": "Taïwan",
+            "variation": "-2,5 %"
+          },
+          {
+            "nom": "Hang Seng",
+            "variation": "+1,5 %"
+          }
+        ],
+        "texte": "Intel perd près de 30 % après une prévision de bénéfice sous les attentes, Nvidia 4,2 % et Amazon 1,9 % [[src:ap_adn]]. Amazon déçoit : bénéfice sous les attentes, flux de trésorerie négatif de 42,4 milliards de dollars sur 12 mois et 94,8 milliards dépensés en équipements, surtout pour l'IA [[src:ap_adn]].",
+        "faits": [
+          "Coinbase perd 12,7 % et Strategy 6 % malgré des résultats meilleurs qu'attendu. L'AP cite un piratage de Binance (plus de 6 milliards de dollars d'actifs) et un bitcoin vers 77 000 dollars [[src:ap_adn]].",
+          "Quelques valeurs résistent : Mondelez +3,7 %, Colgate +3,2 %, Chevron +1,6 %, Exxon +1,5 % [[src:ap_adn]].",
+          "En Asie, le KOSPI perd 3,5 % et le Nikkei 2,1 % (l'AP relie ce dernier à la décision de la Banque du Japon de garder ses taux), Taïwan 2,5 %. Hong Kong gagne 1,5 % [[src:ap_adn]] [[src:te_taiwan]]."
+        ]
+      }
     ]
   },
   "pourquoi_baisse": {
@@ -54,10 +348,22 @@
         "sous_titre": "-2,1 % depuis mercredi, -1,8 % pour la seule séance de vendredi [[src:yahoo]].",
         "resume": "Le S&P 500 pèse chaque entreprise selon sa taille. Quand les plus grosses baissent, l'indice baisse, même si la plupart des autres vont bien.",
         "etapes": [
-          {"titre": "Jeudi, Alphabet s'effondre", "texte": "Plus de 12 % de baisse. Alphabet pèse 4,5 % de l'indice [[src:ssga_spy]], donc sa chute suffit presque à elle seule à tirer le S&P 500 vers le bas [[src:ap_adn]]."},
-          {"titre": "Vendredi, Intel et Amazon confirment", "texte": "Intel perd près de 30 % : sa prévision de fin d'année est sous les attentes. Amazon dépense 94,8 milliards de dollars en équipements, surtout pour l'IA, avec un flux de trésorerie négatif de 42,4 milliards sur 12 mois [[src:ap_adn]]."},
-          {"titre": "Les investisseurs se demandent si l'IA va rapporter", "texte": "L'AP le résume ainsi : des centaines de milliards sont investis et personne ne sait s'ils seront rentables. Un gérant cité parle d'un passage de la phase des espoirs à celle des preuves [[src:ap_adn]]."},
-          {"titre": "Nvidia en rajoute", "texte": "Nvidia perd 4,2 %, et c'est la valeur qui pèse le plus dans l'indice (7,8 %) [[src:ssga_spy]]. Pourquoi elle baisse, l'article ne le dit pas : cause non établie."}
+          {
+            "titre": "Jeudi, Alphabet s'effondre",
+            "texte": "Plus de 12 % de baisse. Alphabet pèse 4,5 % de l'indice [[src:ssga_spy]], donc sa chute suffit presque à elle seule à tirer le S&P 500 vers le bas [[src:ap_adn]]."
+          },
+          {
+            "titre": "Vendredi, Intel et Amazon confirment",
+            "texte": "Intel perd près de 30 % : sa prévision de fin d'année est sous les attentes. Amazon dépense 94,8 milliards de dollars en équipements, surtout pour l'IA, avec un flux de trésorerie négatif de 42,4 milliards sur 12 mois [[src:ap_adn]]."
+          },
+          {
+            "titre": "Les investisseurs se demandent si l'IA va rapporter",
+            "texte": "L'AP le résume ainsi : des centaines de milliards sont investis et personne ne sait s'ils seront rentables. Un gérant cité parle d'un passage de la phase des espoirs à celle des preuves [[src:ap_adn]]."
+          },
+          {
+            "titre": "Nvidia en rajoute",
+            "texte": "Nvidia perd 4,2 %, et c'est la valeur qui pèse le plus dans l'indice (7,8 %) [[src:ssga_spy]]. Pourquoi elle baisse, l'article ne le dit pas : cause non établie."
+          }
         ],
         "non_etabli": [
           "Pourquoi Alphabet a chuté autant : les sources lues ne détaillent pas ses résultats, cause non établie."
@@ -68,15 +374,51 @@
         "ce_que_ca_change": "Rien dans ton plan : un versement régulier achète moins cher quand l'indice recule."
       },
       {
+        "titre": "Ton ETF Nasdaq 100",
+        "variation": "-1,98 % sur la semaine",
+        "sous_titre": "-4,8 % depuis mercredi, -3,5 % pour la seule séance de vendredi [[src:yahoo]].",
+        "resume": "Le Nasdaq 100 regroupe les 100 plus grosses entreprises du Nasdaq, très chargées en tech et en IA. C'est pour ça qu'il baisse plus que le S&P 500.",
+        "etapes": [
+          {
+            "titre": "Il porte les valeurs qui ont chuté",
+            "texte": "Alphabet pèse 5,9 % de l'indice, Nvidia 8,4 %, Micron 5,0 %, AMD 4,2 % et Amazon 4,1 % [[src:ndx_poids]]. Alphabet a perdu plus de 12 % jeudi et Nvidia 4,2 % vendredi [[src:ap_adn]]."
+          },
+          {
+            "titre": "Jeudi, Alphabet pèse plus que dans le S&P 500",
+            "texte": "L'indice recule de 1,4 % alors que le S&P 500 ne perd que 0,3 % [[src:yahoo]]. Alphabet a déçu sur ses résultats et dépense 195 à 205 milliards de dollars par an [[src:dimsum_jeu]]."
+          },
+          {
+            "titre": "Vendredi, l'indice lâche 3,5 %",
+            "texte": "Intel, Amazon et Nvidia baissent et les doutes sur la rentabilité de l'IA reviennent [[src:ap_adn]]. Amazon pèse 4,1 % de l'indice [[src:ndx_poids]]."
+          }
+        ],
+        "non_etabli": [
+          "Pourquoi Micron et AMD, très présentes dans l'indice, ont bougé comme elles l'ont fait : les sources lues n'en parlent pas, cause non établie."
+        ],
+        "ce_que_ca_change": "Un indice plus concentré sur la tech monte plus quand ça va bien et baisse plus quand ça va mal. Cette semaine, on a vu le deuxième cas."
+      },
+      {
         "titre": "Ton ETF Asie",
         "variation": "-0,22 % sur la semaine (Asie hors Japon)",
         "sous_titre": "-3,8 % depuis mercredi. Le détail dépend de l'indice exact de ton ETF, à confirmer [[src:yahoo]].",
         "resume": "L'Asie, ce n'est pas un bloc. Le Japon et Hong Kong finissent en hausse, Taïwan et la Chine en baisse. Ce qui change tout, c'est le poids de la tech.",
         "etapes": [
-          {"titre": "Taïwan et la Corée vivent des puces", "texte": "TSMC pèse 15,6 % de l'indice des marchés émergents, Samsung 8,5 % et SK Hynix 5,9 % [[src:msci_em]]. Ils vendent aux géants de l'IA : quand leurs clients doutent, eux baissent."},
-          {"titre": "Le choc américain arrive avec un jour de décalage", "texte": "Vendredi, Taïwan recule de 2,5 %, dans le sillage des contrats à terme américains et des résultats décevants de grands groupes tech. TSMC -2,0 %, MediaTek -4,2 % [[src:te_taiwan]]."},
-          {"titre": "Le KOSPI retombe après un gros bond", "texte": "-3,5 % vendredi par peur d'un retournement de l'IA [[src:ap_adn]], après +6,6 % mercredi. Sur la semaine, il reste à +3,3 % [[src:yahoo]]."},
-          {"titre": "Chine et Hong Kong : cause non établie", "texte": "Hong Kong gagne 1,5 % vendredi et Shanghai perd 2,5 % sur la semaine. Pourquoi : cause non établie."}
+          {
+            "titre": "Taïwan et la Corée vivent des puces",
+            "texte": "TSMC pèse 15,6 % de l'indice des marchés émergents, Samsung 8,5 % et SK Hynix 5,9 % [[src:msci_em]]. Ils vendent aux géants de l'IA : quand leurs clients doutent, eux baissent."
+          },
+          {
+            "titre": "Le choc américain arrive avec un jour de décalage",
+            "texte": "Vendredi, Taïwan recule de 2,5 %, dans le sillage des contrats à terme américains et des résultats décevants de grands groupes tech. TSMC -2,0 %, MediaTek -4,2 % [[src:te_taiwan]]."
+          },
+          {
+            "titre": "Le KOSPI retombe après un gros bond",
+            "texte": "-3,5 % vendredi par peur d'un retournement de l'IA [[src:ap_adn]], après +6,6 % mercredi. Sur la semaine, il reste à +3,3 % [[src:yahoo]]."
+          },
+          {
+            "titre": "Chine et Hong Kong : cause non établie",
+            "texte": "Hong Kong gagne 1,5 % vendredi et Shanghai perd 2,5 % sur la semaine. Pourquoi : cause non établie."
+          }
         ],
         "non_etabli": [
           "Contrecoup de Wall Street ou début d'un retournement : aucune source ne tranche."
@@ -91,21 +433,36 @@
   "contexte": {
     "intro": "Le fond de l'actualité, en cinq thèmes. Ils donnent le climat, mais tous ne sont pas liés à la baisse de la semaine.",
     "themes": [
-      {"titre": "1. L'IA : des espoirs aux preuves", "paragraphes": [
-        "Les actions liées à l'IA tirent les indices depuis deux ans. Cette semaine, deux géants ont déçu. Quand cinq entreprises pèsent près de 30 % d'un indice, il suffit qu'elles toussent. Ce qu'on regarde maintenant : les prévisions des prochaines publications, plus suivies que les bénéfices passés."
-      ]},
-      {"titre": "2. Le pétrole et l'Iran", "paragraphes": [
-        "Le Brent reste entre 110 et 113 dollars, près du haut de sa fourchette depuis la guerre avec l'Iran [[src:ap_adn]]. Un pétrole cher fait monter l'inflation et pèse sur la consommation."
-      ]},
-      {"titre": "3. Les taux : la Fed et la BCE attendent", "paragraphes": [
-        "La Fed est à 3,75-4,00 % et les marchés anticipent une hausse en décembre [[src:fed_investinglive]]. La BCE est à 2,50 % après une hausse en septembre [[src:bce_septembre]]. Le taux américain à 10 ans, proche de 5 %, pèse sur la valeur des actions."
-      ]},
-      {"titre": "4. L'inflation reste haute", "paragraphes": [
-        "3,8 % sur un an en zone euro en septembre, contre 3,2 % en août [[src:inflation_option]]. Prochaine mesure : l'estimation d'octobre, mercredi 4 novembre."
-      ]},
-      {"titre": "5. La politique américaine", "paragraphes": [
-        "Mi-mandat mardi 3 novembre : le Congrès décide du budget, de la dette et des droits de douane. Les marchés sont en général plus nerveux avant ce scrutin [[src:capital_group]], et les gérants conseillent de rester investi [[src:rbc]]. Les États-Unis pèsent environ 73 % du MSCI World [[src:msci_fiche]]."
-      ]}
+      {
+        "titre": "1. L'IA : des espoirs aux preuves",
+        "paragraphes": [
+          "Les actions liées à l'IA tirent les indices depuis deux ans. Cette semaine, deux géants ont déçu. Quand cinq entreprises pèsent près de 30 % d'un indice, il suffit qu'elles toussent. Ce qu'on regarde maintenant : les prévisions des prochaines publications, plus suivies que les bénéfices passés."
+        ]
+      },
+      {
+        "titre": "2. Le pétrole et l'Iran",
+        "paragraphes": [
+          "Le Brent reste entre 110 et 113 dollars, près du haut de sa fourchette depuis la guerre avec l'Iran [[src:ap_adn]]. Un pétrole cher fait monter l'inflation et pèse sur la consommation."
+        ]
+      },
+      {
+        "titre": "3. Les taux : la Fed et la BCE attendent",
+        "paragraphes": [
+          "La Fed est à 3,75-4,00 % et les marchés anticipent une hausse en décembre [[src:fed_investinglive]]. La BCE est à 2,50 % après une hausse en septembre [[src:bce_septembre]]. Le taux américain à 10 ans, proche de 5 %, pèse sur la valeur des actions."
+        ]
+      },
+      {
+        "titre": "4. L'inflation reste haute",
+        "paragraphes": [
+          "3,8 % sur un an en zone euro en septembre, contre 3,2 % en août [[src:inflation_option]]. Prochaine mesure : l'estimation d'octobre, mercredi 4 novembre."
+        ]
+      },
+      {
+        "titre": "5. La politique américaine",
+        "paragraphes": [
+          "Mi-mandat mardi 3 novembre : le Congrès décide du budget, de la dette et des droits de douane. Les marchés sont en général plus nerveux avant ce scrutin [[src:capital_group]], et les gérants conseillent de rester investi [[src:rbc]]. Les États-Unis pèsent environ 73 % du MSCI World [[src:msci_fiche]]."
+        ]
+      }
     ]
   },
   "france": {
@@ -114,26 +471,62 @@
         "Le CAC 40 gagne 2,4 % sur la semaine et finit à 7 969 points [[src:yahoo]]. Il efface la baisse de 2,19 % de la semaine d'avant [[src:culture_financiere]]. Il a monté jeudi pendant que Wall Street baissait, puis il est resté stable vendredi. Une explication possible : il compte peu de valeurs tech. Aucune source ne le dit : cause non établie."
       ],
       "hausses": [
-        {"nom": "Stellantis", "variation": "+16,55 %", "note": "Cours Yahoo à 4,14 euros, à vérifier. Cause non établie."},
-        {"nom": "Sanofi", "variation": "+7,58 %"},
-        {"nom": "Renault", "variation": "+6,67 %"}
+        {
+          "nom": "Stellantis",
+          "variation": "+16,55 %",
+          "note": "Cours Yahoo à 4,14 euros, à vérifier. Cause non établie."
+        },
+        {
+          "nom": "Sanofi",
+          "variation": "+7,58 %"
+        },
+        {
+          "nom": "Renault",
+          "variation": "+6,67 %"
+        }
       ],
       "baisses": [
-        {"nom": "Carrefour", "variation": "-5,71 %", "note": "Cause non établie."},
-        {"nom": "Alstom", "variation": "-1,77 %"},
-        {"nom": "Publicis", "variation": "-0,69 %"}
+        {
+          "nom": "Carrefour",
+          "variation": "-5,71 %",
+          "note": "Cause non établie."
+        },
+        {
+          "nom": "Alstom",
+          "variation": "-1,77 %"
+        },
+        {
+          "nom": "Publicis",
+          "variation": "-0,69 %"
+        }
       ]
     },
     "politique": {
       "points": [
-        {"niveau": "surveiller", "titre": "Moody's garde la note, mais avec une perspective négative", "texte": "Note Aa3 maintenue le 23 octobre, avec une baisse toujours possible [[src:moodys_selectra]]. Une note abaissée coûterait plus cher à l'État pour emprunter et pèserait sur les banques. Prochain rendez-vous : S&P le 27 novembre (date à confirmer), puis la présidentielle les 18 avril et 2 mai 2027."},
-        {"niveau": "ignorer", "titre": "Les mobilisations d'octobre", "texte": "Les troubles de la mi-octobre ont pesé sur la Bourse et creusé l'écart de taux avec l'Allemagne, autour de 142 à 145 points de base [[src:admiral_fr]]. Tant que ça ne change ni la note ni le budget, c'est du bruit de fond."}
+        {
+          "niveau": "surveiller",
+          "titre": "Moody's garde la note, mais avec une perspective négative",
+          "texte": "Note Aa3 maintenue le 23 octobre, avec une baisse toujours possible [[src:moodys_selectra]]. Une note abaissée coûterait plus cher à l'État pour emprunter et pèserait sur les banques. Prochain rendez-vous : S&P le 27 novembre (date à confirmer), puis la présidentielle les 18 avril et 2 mai 2027."
+        },
+        {
+          "niveau": "ignorer",
+          "titre": "Les mobilisations d'octobre",
+          "texte": "Les troubles de la mi-octobre ont pesé sur la Bourse et creusé l'écart de taux avec l'Allemagne, autour de 142 à 145 points de base [[src:admiral_fr]]. Tant que ça ne change ni la note ni le budget, c'est du bruit de fond."
+        }
       ]
     },
     "infos": {
       "points": [
-        {"niveau": "ignorer", "titre": "Les 10 millions de barils : une mise sur le marché, pas un achat", "texte": "Le 7 octobre, le Premier ministre Sébastien Lecornu a annoncé qu'il mettait 10 millions de barils de réserves stratégiques sur le marché [[src:spglobal_diesel]]. L'idée : baisser le prix à la pompe de 12 à 18 centimes par litre pendant trois mois, à partir du 1er novembre [[src:sudradio_diesel]]. Les sources ne disent pas la même chose sur la nature des barils (gazole seul, ou pétrole et gazole), et aucune ne confirme l'effet réel."},
-        {"niveau": "ignorer", "titre": "Du diesel importé du Golfe", "texte": "200 000 tonnes par mois viennent des Émirats et de Bahreïn, plus 95 000 d'Arabie saoudite : environ 10 % de la consommation [[src:selectra_diesel]]. Le gazole coûtait 2,35 euros le litre mi-octobre, contre 1,55 euro un an plus tôt."}
+        {
+          "niveau": "ignorer",
+          "titre": "Les 10 millions de barils : une mise sur le marché, pas un achat",
+          "texte": "Le 7 octobre, le Premier ministre Sébastien Lecornu a annoncé qu'il mettait 10 millions de barils de réserves stratégiques sur le marché [[src:spglobal_diesel]]. L'idée : baisser le prix à la pompe de 12 à 18 centimes par litre pendant trois mois, à partir du 1er novembre [[src:sudradio_diesel]]. Les sources ne disent pas la même chose sur la nature des barils (gazole seul, ou pétrole et gazole), et aucune ne confirme l'effet réel."
+        },
+        {
+          "niveau": "ignorer",
+          "titre": "Du diesel importé du Golfe",
+          "texte": "200 000 tonnes par mois viennent des Émirats et de Bahreïn, plus 95 000 d'Arabie saoudite : environ 10 % de la consommation [[src:selectra_diesel]]. Le gazole coûtait 2,35 euros le litre mi-octobre, contre 1,55 euro un an plus tôt."
+        }
       ]
     }
   },
@@ -141,25 +534,67 @@
     "statut": "indisponible",
     "diagnostic": "Je n'ai pas encore la liste exacte de tes ETF. Cette lecture part de ce que tu m'as dit : un ETF S&P 500 et un ETF Asie.",
     "lecture": [
-      {"fait": "Alphabet, Intel, Nvidia", "effet": "Touche ton ETF S&P 500."},
-      {"fait": "Taïwan, Corée, Nikkei", "effet": "Touche ton ETF Asie, selon le poids des puces."},
-      {"fait": "CAC 40 à +2,4 %", "effet": "Ne te concerne que si tu as un ETF Europe ou France."}
+      {
+        "fait": "Alphabet, Intel, Nvidia",
+        "effet": "Touche ton ETF S&P 500."
+      },
+      {
+        "fait": "Alphabet, Nvidia, Amazon, Intel",
+        "effet": "Touchent encore plus un ETF Nasdaq 100, plus concentré sur la tech."
+      },
+      {
+        "fait": "Taïwan, Corée, Nikkei",
+        "effet": "Touche ton ETF Asie, selon le poids des puces."
+      },
+      {
+        "fait": "CAC 40 à +2,4 %",
+        "effet": "Ne te concerne que si tu as un ETF Europe ou France."
+      }
     ]
   },
   "agenda": {
     "macro": [
-      {"quand": "Mar. 3 nov.", "quoi": "Mi-mandat américain. Offres d'emploi JOLTS à 16 h."},
-      {"quand": "Mer. 4 nov.", "quoi": "Inflation d'octobre en zone euro [[src:eurostat_calendrier]]."},
-      {"quand": "Ven. 6 nov.", "quoi": "Emploi américain d'octobre, 14 h 30. Pas de consensus trouvé [[src:simianx_calendrier]]."}
+      {
+        "quand": "Mar. 3 nov.",
+        "quoi": "Mi-mandat américain. Offres d'emploi JOLTS à 16 h."
+      },
+      {
+        "quand": "Mer. 4 nov.",
+        "quoi": "Inflation d'octobre en zone euro [[src:eurostat_calendrier]]."
+      },
+      {
+        "quand": "Ven. 6 nov.",
+        "quoi": "Emploi américain d'octobre, 14 h 30. Pas de consensus trouvé [[src:simianx_calendrier]]."
+      }
     ],
     "resultats_etf": [
-      {"quand": "Lun. 2 nov., après la clôture", "entreprise": "Apple", "a_regarder": "7,7 % du S&P 500 [[src:ssga_spy]]. Les prévisions seront scrutées après la semaine tech [[src:tickzen_nov]]."},
-      {"quand": "Mar. 3 nov., après la clôture", "entreprise": "AMD", "a_regarder": "Puces pour l'IA, le sujet de la semaine [[src:tickzen_nov]]."}
+      {
+        "quand": "Lun. 2 nov., après la clôture",
+        "entreprise": "Apple",
+        "a_regarder": "7,7 % du S&P 500 [[src:ssga_spy]] et 7,4 % du Nasdaq 100 [[src:ndx_poids]]. Les prévisions seront scrutées après la semaine tech [[src:tickzen_nov]]."
+      },
+      {
+        "quand": "Mar. 3 nov., après la clôture",
+        "entreprise": "AMD",
+        "a_regarder": "4,2 % du Nasdaq 100 [[src:ndx_poids]]. Puces pour l'IA, le sujet de la semaine [[src:tickzen_nov]]."
+      }
     ],
     "resultats_marche": [
-      {"quand": "Lun. 2 nov., après la clôture", "entreprise": "Palantir", "a_regarder": "IA appliquée aux entreprises."},
-      {"quand": "Mar. 3 nov.", "entreprise": "Pfizer", "a_regarder": "Santé, avant l'ouverture."},
-      {"quand": "Mer. 4 nov.", "entreprise": "Qualcomm, Uber, McDonald's", "a_regarder": "Puces mobiles, transport, consommation."}
+      {
+        "quand": "Lun. 2 nov., après la clôture",
+        "entreprise": "Palantir",
+        "a_regarder": "IA appliquée aux entreprises."
+      },
+      {
+        "quand": "Mar. 3 nov.",
+        "entreprise": "Pfizer",
+        "a_regarder": "Santé, avant l'ouverture."
+      },
+      {
+        "quand": "Mer. 4 nov.",
+        "entreprise": "Qualcomm, Uber, McDonald's",
+        "a_regarder": "Puces mobiles, transport, consommation."
+      }
     ],
     "note": "Dates d'un calendrier tiers, non confirmées par les entreprises. Aucune grande entreprise européenne trouvée."
   },
@@ -174,30 +609,156 @@
     "Dates de résultats d'un calendrier tiers, sans l'Europe."
   ],
   "sources": {
-    "yahoo": {"nom": "Yahoo Finance, clôtures de la semaine (cours indicatifs)", "url": "https://finance.yahoo.com/", "date": "2026-10-30"},
-    "ap_adn": {"nom": "AP via Anchorage Daily News, le recul de la tech s'aggrave à Wall Street", "url": "https://www.adn.com/business-economy/2026/10/30/sell-off-for-tech-stocks-worsens-and-drowns-out-strength-elsewhere-on-wall-street/", "date": "2026-10-30"},
-    "sudradio_diesel": {"nom": "Sud Radio, carburants et importation de diesel", "url": "https://www.sudradio.fr/monde/carburants-limportation-de-diesel-va-t-elle-sauver-notre-pouvoir-dachat", "date": "2026-10-21"},
-    "capital_group": {"nom": "Capital Group, mi-mandat américain et marchés", "url": "https://www.capitalgroup.com/individual-investors/ch/fr/insights/articles/how-us-midterm-elections-affect-the-markets.html"},
-    "eurostat_calendrier": {"nom": "Calendrier Eurostat d'octobre", "url": "https://static.poder360.com.br/uploads/2026/10/integra-eurostat-inflacao-16out2026.pdf", "date": "2026-10-16"},
-    "simianx_calendrier": {"nom": "Calendrier économique américain, simianx", "url": "https://www.simianx.ai/fr/stories/us-economic-calendar-this-month-in-your-time-zone"},
-    "te_taiwan": {"nom": "Trading Economics, bourse de Taïwan", "url": "https://tradingeconomics.com/taiwan/stock-market/news/596570", "date": "2026-10-30"},
-    "boursenews_brent": {"nom": "Bourse News, le Brent recule vers 110 dollars", "url": "https://boursenews.ma/article/marches/petrole-brent-recule-110-dollars-tensions-moyen-orient-iran", "date": "2026-10-26"},
-    "fed_admiral": {"nom": "Admiral Markets, décision de la Fed", "url": "https://admiralmarkets.com/analytics/traders-blog/fomc-october-2026-fed-holds-rates", "date": "2026-10-28"},
-    "bce_29oct": {"nom": "top10banques, BCE et départ de Lagarde", "url": "https://www.top10banques.com/guides/bce-taux-inchanges-a-250-et-christine-lagarde-annonce-son-depart-pour-le-7-fevrier-2027", "date": "2026-10-29"},
-    "ssga_spy": {"nom": "State Street, composition de l'ETF SPY (poids dans le S&P 500)", "url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx", "date": "2026-10-29"},
-    "base_historique": {"nom": "Base historique des marchés du projet (donnees/historique)", "url": "https://github.com/magiegenie/assistant-bourse-investissement/tree/main/donnees/historique"},
-    "msci_em": {"nom": "MSCI, indice Emerging Markets (poids des grandes entreprises)", "url": "https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf", "date": "2026-09-30"},
-    "fxstreet_kospi": {"nom": "FXStreet, les Bourses asiatiques et le KOSPI face aux doutes sur l'IA", "url": "https://fxstreet.com/news/asian-stocks-including-kospi-slide-as-ai-doubts-hit-chipmakers-202607280259", "date": "2026-07-28"},
-    "fed_investinglive": {"nom": "investinglive, décision du FOMC", "url": "https://investinglive.com/central-banks/fomc-decision-oct-28/", "date": "2026-10-28"},
-    "bce_septembre": {"nom": "BCE, communiqué du 10 septembre", "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.fr.html", "date": "2026-09-10"},
-    "inflation_option": {"nom": "Option Finance, inflation en zone euro", "url": "https://www.optionfinance.fr/info-financiere-en-continu/d/2026-10-16-zone-euro-linflation-confirmee-a-38-en-septembre.html", "date": "2026-10-16"},
-    "rbc": {"nom": "RBC Wealth Management, mi-mandat américain", "url": "https://www.rbcwealthmanagement.com/fr-ca/insights/policy-politics-and-portfolios-making-sense-of-the-us-midterm-muddle"},
-    "msci_fiche": {"nom": "MSCI, indice MSCI World (poids des États-Unis)", "url": "https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb", "date": "2026-09-30"},
-    "culture_financiere": {"nom": "Culture Financière, récap du CAC 40 du 19 au 23 octobre", "url": "https://culture-financiere.com/?p=6774", "date": "2026-10-23"},
-    "moodys_selectra": {"nom": "Selectra, note de la France par Moody's", "url": "https://selectra.info/finance/actualites/marche/moody-note-france-23-octobre-credit-immobilier", "date": "2026-10-23"},
-    "admiral_fr": {"nom": "Admiral Markets, émeutes en France et Bourse", "url": "https://admiralmarkets.com/fr/analyses/actualite-marches/emeutes-france-bourse", "date": "2026-10-19"},
-    "spglobal_diesel": {"nom": "S&P Global, la France libère 10 millions de barils de ses réserves", "url": "https://www.spglobal.com/energy/en/news-research/latest-news/refined-products/100826-france-to-release-10-million-barrels-of-diesel-from-emergency-reserves-lecornu", "date": "2026-10-07"},
-    "selectra_diesel": {"nom": "Selectra, diesel du Golfe et prix à la pompe", "url": "https://selectra.info/energie/actualites/marche/diesel-golfe-200000-tonnes-mois-pompe-novembre", "date": "2026-10-22"},
-    "tickzen_nov": {"nom": "Tickzen, calendrier des résultats de novembre", "url": "https://tickzen.app/stock-analysis/earnings-calendar/november-2026", "date": "2026-10-31"}
+    "yahoo": {
+      "nom": "Yahoo Finance, clôtures de la semaine (cours indicatifs)",
+      "url": "https://finance.yahoo.com/",
+      "date": "2026-10-30"
+    },
+    "ap_adn": {
+      "nom": "AP via Anchorage Daily News, le recul de la tech s'aggrave à Wall Street",
+      "url": "https://www.adn.com/business-economy/2026/10/30/sell-off-for-tech-stocks-worsens-and-drowns-out-strength-elsewhere-on-wall-street/",
+      "date": "2026-10-30"
+    },
+    "sudradio_diesel": {
+      "nom": "Sud Radio, carburants et importation de diesel",
+      "url": "https://www.sudradio.fr/monde/carburants-limportation-de-diesel-va-t-elle-sauver-notre-pouvoir-dachat",
+      "date": "2026-10-21"
+    },
+    "capital_group": {
+      "nom": "Capital Group, mi-mandat américain et marchés",
+      "url": "https://www.capitalgroup.com/individual-investors/ch/fr/insights/articles/how-us-midterm-elections-affect-the-markets.html"
+    },
+    "eurostat_calendrier": {
+      "nom": "Calendrier Eurostat d'octobre",
+      "url": "https://static.poder360.com.br/uploads/2026/10/integra-eurostat-inflacao-16out2026.pdf",
+      "date": "2026-10-16"
+    },
+    "simianx_calendrier": {
+      "nom": "Calendrier économique américain, simianx",
+      "url": "https://www.simianx.ai/fr/stories/us-economic-calendar-this-month-in-your-time-zone"
+    },
+    "te_taiwan": {
+      "nom": "Trading Economics, bourse de Taïwan",
+      "url": "https://tradingeconomics.com/taiwan/stock-market/news/596570",
+      "date": "2026-10-30"
+    },
+    "boursenews_brent": {
+      "nom": "Bourse News, le Brent recule vers 110 dollars",
+      "url": "https://boursenews.ma/article/marches/petrole-brent-recule-110-dollars-tensions-moyen-orient-iran",
+      "date": "2026-10-26"
+    },
+    "fed_admiral": {
+      "nom": "Admiral Markets, décision de la Fed",
+      "url": "https://admiralmarkets.com/analytics/traders-blog/fomc-october-2026-fed-holds-rates",
+      "date": "2026-10-28"
+    },
+    "bce_29oct": {
+      "nom": "top10banques, BCE et départ de Lagarde",
+      "url": "https://www.top10banques.com/guides/bce-taux-inchanges-a-250-et-christine-lagarde-annonce-son-depart-pour-le-7-fevrier-2027",
+      "date": "2026-10-29"
+    },
+    "ssga_spy": {
+      "nom": "State Street, composition de l'ETF SPY (poids dans le S&P 500)",
+      "url": "https://www.ssga.com/us/en/intermediary/library-content/products/fund-data/etfs/us/holdings-daily-us-en-spy.xlsx",
+      "date": "2026-10-29"
+    },
+    "base_historique": {
+      "nom": "Base historique des marchés du projet (donnees/historique)",
+      "url": "https://github.com/magiegenie/assistant-bourse-investissement/tree/main/donnees/historique"
+    },
+    "msci_em": {
+      "nom": "MSCI, indice Emerging Markets (poids des grandes entreprises)",
+      "url": "https://www.msci.com/documents/10199/255599/msci-emerging-markets-index-usd-net.pdf",
+      "date": "2026-09-30"
+    },
+    "fxstreet_kospi": {
+      "nom": "FXStreet, les Bourses asiatiques et le KOSPI face aux doutes sur l'IA",
+      "url": "https://fxstreet.com/news/asian-stocks-including-kospi-slide-as-ai-doubts-hit-chipmakers-202607280259",
+      "date": "2026-07-28"
+    },
+    "fed_investinglive": {
+      "nom": "investinglive, décision du FOMC",
+      "url": "https://investinglive.com/central-banks/fomc-decision-oct-28/",
+      "date": "2026-10-28"
+    },
+    "bce_septembre": {
+      "nom": "BCE, communiqué du 10 septembre",
+      "url": "https://www.ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.fr.html",
+      "date": "2026-09-10"
+    },
+    "inflation_option": {
+      "nom": "Option Finance, inflation en zone euro",
+      "url": "https://www.optionfinance.fr/info-financiere-en-continu/d/2026-10-16-zone-euro-linflation-confirmee-a-38-en-septembre.html",
+      "date": "2026-10-16"
+    },
+    "rbc": {
+      "nom": "RBC Wealth Management, mi-mandat américain",
+      "url": "https://www.rbcwealthmanagement.com/fr-ca/insights/policy-politics-and-portfolios-making-sense-of-the-us-midterm-muddle"
+    },
+    "msci_fiche": {
+      "nom": "MSCI, indice MSCI World (poids des États-Unis)",
+      "url": "https://www.msci.com/documents/10199/178e6643-6ae6-47b9-82be-e1fc565ededb",
+      "date": "2026-09-30"
+    },
+    "culture_financiere": {
+      "nom": "Culture Financière, récap du CAC 40 du 19 au 23 octobre",
+      "url": "https://culture-financiere.com/?p=6774",
+      "date": "2026-10-23"
+    },
+    "moodys_selectra": {
+      "nom": "Selectra, note de la France par Moody's",
+      "url": "https://selectra.info/finance/actualites/marche/moody-note-france-23-octobre-credit-immobilier",
+      "date": "2026-10-23"
+    },
+    "admiral_fr": {
+      "nom": "Admiral Markets, émeutes en France et Bourse",
+      "url": "https://admiralmarkets.com/fr/analyses/actualite-marches/emeutes-france-bourse",
+      "date": "2026-10-19"
+    },
+    "spglobal_diesel": {
+      "nom": "S&P Global, la France libère 10 millions de barils de ses réserves",
+      "url": "https://www.spglobal.com/energy/en/news-research/latest-news/refined-products/100826-france-to-release-10-million-barrels-of-diesel-from-emergency-reserves-lecornu",
+      "date": "2026-10-07"
+    },
+    "selectra_diesel": {
+      "nom": "Selectra, diesel du Golfe et prix à la pompe",
+      "url": "https://selectra.info/energie/actualites/marche/diesel-golfe-200000-tonnes-mois-pompe-novembre",
+      "date": "2026-10-22"
+    },
+    "tickzen_nov": {
+      "nom": "Tickzen, calendrier des résultats de novembre",
+      "url": "https://tickzen.app/stock-analysis/earnings-calendar/november-2026",
+      "date": "2026-10-31"
+    },
+    "lanacion_lun": {
+      "nom": "La Nación, les indices américains lundi 26 octobre",
+      "url": "https://www.lanacion.com.ar/usa/how-major-us-stock-indexes-fared-monday-10262026-nid26102026/",
+      "date": "2026-10-26"
+    },
+    "lanacion_mar": {
+      "nom": "La Nación, les indices américains mardi 27 octobre",
+      "url": "https://www.lanacion.com.ar/usa/how-major-us-stock-indexes-fared-tuesday-10272026-nid27102026/",
+      "date": "2026-10-27"
+    },
+    "lanacion_jeu": {
+      "nom": "La Nación, les indices américains jeudi 29 octobre",
+      "url": "https://www.lanacion.com.ar/usa/how-major-us-stock-indexes-fared-thursday-10292026-nid29102026/",
+      "date": "2026-10-29"
+    },
+    "investinglive_28oct": {
+      "nom": "investingLive, bilan du 28 octobre : Fed et Big Tech",
+      "url": "https://investinglive.com/news/investinglive-americas-fx-news-wrap-28-oct-fed-holds-rates-yield-curve-steepens-as-big-tech-earnings-diverge/",
+      "date": "2026-10-28"
+    },
+    "dimsum_jeu": {
+      "nom": "Dim Sum Daily, Wall Street recule avec Alphabet",
+      "url": "https://www.dimsumdaily.hk/?p=648711",
+      "date": "2026-10-29"
+    },
+    "ndx_poids": {
+      "nom": "Nasdaq, fiche de l'indice Nasdaq-100 (poids des entreprises)",
+      "url": "https://indexes.nasdaqomx.com/docs/FS_NDX.pdf",
+      "date": "2026-09-30"
+    }
   }
 }
