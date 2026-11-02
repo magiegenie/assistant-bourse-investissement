@@ -1,0 +1,34 @@
+name: Veille hebdomadaire
+
+# Chaque dimanche à 16 h UTC (17 h ou 18 h à Paris) : collecte des flux publics de donnees/sources.csv,
+# vérification des sources, tests des calculs. Le digest est committé dans docs/veille/ pour la newsletter.
+on:
+  schedule:
+    - cron: "0 16 * * 0"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install openpyxl==3.1.5
+      - name: Tests des calculs
+        run: python -m unittest discover tests
+      - name: Collecte de la semaine
+        run: python scripts/collecte_hebdo.py
+      - name: Vérification des sources
+        run: python scripts/verifier_sources.py | tee docs/veille/etat-des-sources.txt || true
+      - name: Commit du digest
+        run: |
+          git config user.name "veille-hebdo"
+          git config user.email "veille-hebdo@users.noreply.github.com"
+          git add docs/veille
+          git diff --cached --quiet || git commit -m "Veille de la semaine $(date +%G-S%V)"
+          git push

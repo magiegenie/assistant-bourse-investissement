@@ -1,0 +1,8 @@
+code,nom,isin,ticker,type,poche,enveloppe,frais_pct,replication,cap_dist,source,verifie_le,remarque
+WPEA,iShares MSCI World Swap PEA,IE0002XZSHO1,EPA:WPEA,ETF,Monde,PEA,0.20,synthétique,Capitalisant,https://www.vosfinancesperso.fr/pea/etf/,2026-10-31,frais passés de 0.25 à 0.20 % en 2026 selon plusieurs sources
+DCAM,Amundi PEA Monde (MSCI World),FR001400U5Q4,EPA:DCAM,ETF,Monde,PEA,0.20,synthétique,Capitalisant,https://www.vosfinancesperso.fr/pea/etf/,2026-10-31,
+CW8,Amundi MSCI World Swap,LU1681043599,EPA:CW8,ETF,Monde,PEA,0.38,synthétique,Capitalisant,https://www.abcbourse.com/opcvm/amundi-index-solutions-amundi-msci-world-ucits-etf_sLU1681043599,2026-10-31,plus gros encours mais frais plus élevés que WPEA et DCAM
+ESE,BNP Paribas Easy S&P 500,FR0011550185,EPA:ESE,ETF,USA,PEA,0.15,synthétique,Capitalisant,https://www.vosfinancesperso.fr/pea/etf/,2026-10-31,frais annoncés entre 0.12 et 0.15 % selon les sources : à vérifier chez l'émetteur
+PUST,Amundi PEA Nasdaq-100,FR0011871110,EPA:PUST,ETF,USA,PEA,0.30,synthétique,Capitalisant,https://www.vosfinancesperso.fr/pea/etf/,2026-10-31,concentré sur la technologie : satellite plutôt que cœur
+PAEEM,Amundi PEA Emergent ESG Transition,FR0013412020,,ETF,Asie émergente,PEA,0.30,synthétique,Capitalisant,https://financeperso.fr/articleetfpea.php,2026-10-31,ticker non vérifié : saisir le prix à la main
+ACWI,Amundi PEA Global (MSCI ACWI),FR0014017NX3,,ETF,Monde,PEA,0.30,synthétique,Capitalisant,https://www.ramify.fr/pea/etf,2026-10-31,récent : monde développé et émergent en une seule ligne ; ticker non vérifié

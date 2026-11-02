@@ -1,8 +1,8 @@
 ---
 titre: Guide d'utilisation
 sous_titre: Assistant Bourse Investissement
-version: 1.3
-date: 2026-10-31
+version: 1.4
+date: 2026-11-02
 ---
 
 # 1. Bienvenue
@@ -245,9 +245,23 @@ Elles sont dans `connaissances/agents/veilleur.md`. Demande-les simplement :
 - **Données de marché** (serveur `financial-data`) : cours, historiques, séries macro, change.
 - **Sources fiables uniquement** : Reuters, Les Échos, Financial Times, Bloomberg, banques centrales, AMF. Certains sites (AMF, Les Échos, INSEE) bloquent les robots : il passe alors par la recherche web.
 
+## La newsletter du dimanche
+
+Chaque dimanche à 18 h 47, une routine t'envoie par email « **Ta semaine bourse** ». Elle se lit en 4 minutes, dans cet ordre :
+
+1. **Vue d'ensemble** : le verdict en deux phrases, trois pastilles (marchés, taux et banques centrales, politique), le chiffre clé et les trois rendez-vous à ne pas rater.
+2. **Les marchés** : tableau des repères de la semaine (MSCI World, S&P 500, Stoxx 600, CAC 40, émergents, euro/dollar, taux 10 ans, bitcoin). Un chiffre introuvable s'affiche « non disponible », il n'est jamais inventé.
+3. **Ce qui s'est passé** : 3 à 5 faits, chacun classé à ignorer, à surveiller ou à agir, avec « pourquoi ça compte ».
+4. **Pour toi** : ton portefeuille lu dans ton Google Sheet (valeur, écarts aux cibles, alertes) et ce que chaque fait change pour tes placements.
+5. **La semaine qui vient** : agenda macro, puis les résultats d'entreprises en deux listes, celles de **tes ETF** (poids dans l'indice) et **les plus suivies du marché**.
+6. **Une notion** en 3 lignes, puis les **lignes à recopier** dans la feuille Veille.
+7. **Limites de cette édition** (ce qui n'a pas pu être trouvé) et **Sources**.
+
+Les sources ne sont jamais au milieu du texte : on trouve [1], [2]... dans les phrases, et la liste des liens est en bas, dans l'ordre de lecture. Le mode d'emploi de la routine et ce dont elle a besoin (dépôt, Gmail, Google Drive) sont dans `docs/NEWSLETTER.md` ; le format exact de l'édition dans `templates/newsletter-modele.md`.
+
 ## Ce qu'il ne fait pas
 
-Aucune prédiction, aucun objectif de cours, aucune « opportunité ». **Le brief n'est pas automatique pour l'instant** : tu le demandes quand tu en as envie (voir le chapitre 17 pour ce qui est prévu).
+Aucune prédiction, aucun objectif de cours, aucune « opportunité ». **Le brief du jour n'est pas automatique** : tu le demandes quand tu en as envie. Seule la newsletter du dimanche part toute seule.
 
 # 7. L'analyse du portefeuille (l'Analyste)
 
@@ -735,6 +749,10 @@ Tout ce qui te concerne est dans **`prive/<ton prénom>/`**. Ce dossier est excl
 
 Une heure par semaine suffit. Voici un rythme réaliste. Tu n'as rien à retenir : à chaque moment, dis simplement la phrase indiquée.
 
+## Chaque dimanche (4 minutes)
+
+Lis la newsletter « Ta semaine bourse ». Si elle ne dit rien d'actionnable, tu n'as rien à faire. Si une ligne du tableau « À recopier dans la feuille Veille » t'intéresse, recopie-la dans ton Sheet.
+
 ## Chaque mois (15 minutes)
 
 | Quand | Tu dis | Résultat |
@@ -775,7 +793,6 @@ Le cahier des charges (`docs/CAHIER-DES-CHARGES-MVP.md`) prévoit des évolution
 
 - un brief automatique tous les matins à 8 h sur Telegram ;
 - des commandes Telegram (`/point`, `/decision`, `/explique`, `/journal`) ;
-- un rapport automatique chaque dimanche ;
 - un score de santé du portefeuille sur 100 ;
 - la lecture directe d'un Google Sheet.
 
@@ -845,6 +862,7 @@ Les fichiers concernés :
 
 | Version | Date | Ce qui change |
 |---|---|---|
+| **1.4** | 02/11/2026 | Newsletter du dimanche refondue : nouvelle structure en 7 blocs, sources numérotées en bas, tableau des repères de marché, agenda des résultats d'entreprises (tes ETF et les plus suivies), partie « Pour toi », limites de l'édition ; email fabriqué par `newsletter_html.py` avec contrôles automatiques ; routine du dimanche réparée |
 | **1.3** | 31/10/2026 | Historique élargi à 24 séries : Dow Jones depuis 1885, Hang Seng, 9 séries OCDE (le minimum de prix sur longue période pour la France, l'Allemagne, les émergents...) ; base de données `marches.sqlite` décrite et visible sur GitHub |
 | **1.2** | 31/10/2026 | Nouveau chapitre 14 « L'historique des marchés » : base mensuelle de 14 indices (depuis 1927 à 1994 selon l'indice), macro, frise de 86 événements sourcés, scripts `historique.py` et `maj_historique.py`, classeur `Historique-marches.xlsx` ; chapitres suivants renumérotés |
 | **1.1** | 31/10/2026 | Accueil en 6 étapes avec pause et reprise ; nouveau chapitre 3 « Ton profil de risque » (test en 4 dimensions, script `profil_risque.py`, alertes, lien avec le Stratège, l'Analyste et le Coach) ; test de résistance comparé à la perte maximale acceptable ; chapitres renumérotés |
@@ -862,3 +880,4 @@ Les fichiers concernés :
 | 31/10/2026 | Accueil enrichi et test de profil de risque (capacité, tolérance, besoin, connaissances) |
 | 31/10/2026 | Base historique des marchés : 14 indices mensuels, macro, 86 événements sourcés |
 | 31/10/2026 | Base historique élargie à 24 séries (Dow Jones depuis 1885, séries OCDE depuis 1955), base SQLite versionnée |
+| 02/11/2026 | Newsletter du dimanche : nouvelle structure, générateur HTML, agenda des résultats, chaîne de veille hebdomadaire récupérée |
